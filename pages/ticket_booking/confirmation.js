@@ -3,7 +3,7 @@ import { Button, message, Steps, theme } from "antd";
 import Head from "next/head";
 
 export default function Confirmation({ allData, setAllData }) {
-  const {selectedSeats } = allData;
+  const {selectedSeats ,Sprice} = allData;
   const renderData = (
     <>
       <Head>
@@ -32,8 +32,8 @@ export default function Confirmation({ allData, setAllData }) {
                     <a href="#">
                       {" "}
                       TOTAL PRICE : {selectedSeats.length} *{" "}
-                      {allData.Sprice} ={" "}
-                      {selectedSeats.length * allData.Sprice}
+                      {Sprice} ={" "}
+                      {selectedSeats.length * Sprice}
                       {/* { setAllData({ ...allData,totalPrice : allData.selectedSeats.length * allData.Sprice})} */}
                     </a>
                   </div>
