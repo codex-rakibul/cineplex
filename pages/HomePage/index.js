@@ -25,7 +25,7 @@ export default function HomePage() {
         <Homes />
       </div>
 
-      <div className=" h-full  md:py-20 pt-32 md:px-10 bg-gray-00 ">
+      <div className=" h-full  md:py-20  pt-6 md:px-10 bg-gray-00 ">
         <TrendingMovie />
       </div>
       <div className="bg-black z-0 md:h-full h-fit md:pt-20 pt-10  pb-10 md:px-10  ">
