@@ -3,8 +3,10 @@ import styles from "../../components/style";
 import Link from "next/link";
 
 const HomeCard = ({ item }) => {
-  const {  cover, name, rating, time, desc, starring, genres, tags, video } =
-    item;
+  if (!item) {
+    return null; // or display a fallback UI if necessary
+  }
+  const { cover, name, rating, time, desc, starring, genres, tags, video } = item;
   const renderData = (
     <div className="box">
       <div className="coverImage">
