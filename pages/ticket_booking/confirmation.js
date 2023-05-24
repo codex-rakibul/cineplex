@@ -3,7 +3,11 @@ import { Button, message, Steps, theme } from "antd";
 import Head from "next/head";
 
 export default function Confirmation({ allData, setAllData }) {
-  const {selectedSeats ,Sprice} = allData;
+  if (!allData || !allData.selectedSeats) {
+    return null; // Return null or display an error message when allData is undefined or selectedSeats is missing
+  }
+
+  const { selectedSeats, Sprice } = allData;
   const renderData = (
     <>
       <Head>
@@ -31,14 +35,12 @@ export default function Confirmation({ allData, setAllData }) {
                   <div className="col-3 d-flex align-items-center ">
                     <a href="#">
                       {" "}
-                      TOTAL PRICE : {selectedSeats.length} *{" "}
-                      {Sprice} ={" "}
+                      TOTAL PRICE : {selectedSeats.length} * {Sprice} ={" "}
                       {selectedSeats.length * Sprice}
                       {/* { setAllData({ ...allData,totalPrice : allData.selectedSeats.length * allData.Sprice})} */}
                     </a>
                   </div>
                 </div>
-               
               </div>
             </div>
           </div>
