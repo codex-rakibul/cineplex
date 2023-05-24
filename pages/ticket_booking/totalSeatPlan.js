@@ -3,7 +3,7 @@ import vb from "./bg2.mp4";
 import React from "react";
 import Head from "next/head";
 const TotalSeatPlan = ({ allData, setAllData }) => {
-  console.log("seatplan: ", allData.date);
+  console.log("seatplan: ", allData && allData.date);
   const renderData = (
     <div>
       <Head>
