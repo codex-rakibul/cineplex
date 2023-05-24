@@ -39,7 +39,7 @@ const HomeCard = ({ item }) => {
                 {item?.tags}
               </h4>
             </div>
-            <div className="grid md:grid-cols-2 gap-4 mb-4">
+            <div className="grid grid-cols-2 gap-4 mb-4 ">
               <Link href="/ticket_booking">
                 <button className="btnB ">Buy Ticket</button>
               </Link>
