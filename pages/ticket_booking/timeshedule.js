@@ -187,7 +187,7 @@ function SelectTime({ timePick, click, status, allData }) {
     <>
       <div
         className={
-          allData.selectShowtime.includes(timePick.time)
+          allData && allData.selectShowtime && allData.selectShowtime.includes(timePick.time)
             ? "bg-teal-600"
             : "bg-gray-600 flex justify-center items-center p-2 rounded-sm"
         }
