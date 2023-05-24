@@ -1,7 +1,7 @@
 import FooterCom from "@/components/footer";
 import Navbar from "@/components/navbar";
 import React from "react";
-import styles from "../../pages/style";
+import styles from "../../components/style";
 import Head from "next/head";
 const mapUrl =
   "https://maps.google.com/maps?width=100%&height=600&hl=en&q=Bogura,Bangladesh&ie=UTF8&t=&z=14&iwloc=B&output=embed";
@@ -359,9 +359,7 @@ export default function About() {
                   defaultValue={""}
                 />
               </div>
-              <button className="btnB">
-                Button
-              </button>
+              <button className="btnB">Button</button>
               <p className="text-xs text-gray-500 mt-3">
                 Chicharrones blog helvetica normcore iceland tousled brook viral
                 artisan.

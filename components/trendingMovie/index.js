@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../pages/style";
+import styles from "../style";
 export default function TrendingMovie() {
   return (
     <>
@@ -24,12 +24,8 @@ export default function TrendingMovie() {
                   authentic tumeric truffaut hexagon try-hard chambray.
                 </p>
                 <div className="grid grid-cols-2 gap-6">
-                  <button className="btnB ">
-                    Buy Ticket
-                  </button>
-                  <button className="btnD ">
-                    Details
-                  </button>
+                  <button className="btnB ">Buy Ticket</button>
+                  <button className="btnD ">Details</button>
                 </div>
               </div>
             </div>

@@ -5,7 +5,7 @@ import Navbar from "@/components/navbar";
 import FooterCom from "@/components/footer";
 import { Html } from "next/document";
 import UpMovie from "../../components/upcoming";
-import styles from "../../pages/style";
+import styles from "../../components/style";
 import TrendingMovie from "@/components/trendingMovie";
 
 export default function HomePage() {

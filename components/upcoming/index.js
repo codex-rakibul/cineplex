@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../pages/style";
+import styles from "../style";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -62,11 +62,7 @@ export default function UpMovie() {
                 >
                   <div className="max-w-sm  bg-black  rounded-lg ">
                     <a href="#">
-                      <img
-                        className="rounded-t-lg"
-                        src={cover}
-                        alt=""
-                      />
+                      <img className="rounded-t-lg" src={cover} alt="" />
                     </a>
                     <div className="p-5">
                       <a href="#">
@@ -79,10 +75,8 @@ export default function UpMovie() {
                         of 2021 so far, in reverse chronological order.
                       </p>
                       <Link href="/ticket_booking">
-                  <button className="btnB">
-                    Details
-                  </button>
-                  </Link>
+                        <button className="btnB">Details</button>
+                      </Link>
                     </div>
                   </div>
                 </SwiperSlide>
