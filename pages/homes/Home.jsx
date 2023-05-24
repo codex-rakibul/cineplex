@@ -1,4 +1,6 @@
 import React from "react"
+import { homeData } from "../../dummyData/dummyData";
+
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
@@ -24,7 +26,7 @@ const SamplePrevArrow = (props) => {
     </div>
   )
 }
-const Home = ({ items }) => {
+const Home = () => {
   const settings = {
     dots: false,
     infinite: true,
@@ -38,7 +40,7 @@ const Home = ({ items }) => {
     <>
       <div className={` homeContainer`}>
         <Slider {...settings}>
-          {items.map((item) => {
+          {homeData.map((item) => {
             return (
                 <HomeCard key={item.id} item={item} />
             )
