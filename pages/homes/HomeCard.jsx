@@ -11,7 +11,7 @@ const HomeCard = ({ item }) => {
       <div className={` content  ${styles.flexCenter} ${styles.paddingX} `}>
         <div className={`${styles.boxWidth} flex justify-between `}>
           <div className="details col">
-            <h1>{item.name}</h1>
+            <h1>{item?.name}</h1>
             <div className="rating md:flex">
               <div className="rate">
                 <i className="fas fa-star"></i>
