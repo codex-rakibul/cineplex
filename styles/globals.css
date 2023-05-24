@@ -1293,3 +1293,12 @@ input {
   transform: scale(0.6);
 }
 
+:where(.css-ed5zg0).ant-steps .ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-content>.ant-steps-item-title {
+  color: white !important;
+}
+:where(.css-ed5zg0).ant-steps .ant-steps-item-process>.ant-steps-item-container>.ant-steps-item-content>.ant-steps-item-title {
+  color: white !important;
+}
+:where(.css-ed5zg0).ant-steps .ant-steps-item-wait>.ant-steps-item-container>.ant-steps-item-content>.ant-steps-item-title {
+  color: rgb(128, 123, 123) !important;
+}
