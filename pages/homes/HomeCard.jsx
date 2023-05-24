@@ -3,9 +3,6 @@ import styles from "../../components/style";
 import Link from "next/link";
 
 const HomeCard = ({ item }) => {
-  const {  rating, time, desc, starring, genres, tags, video } =
-    item;
-
   const renderData = (
     <div className="box">
       <div className="coverImage">
@@ -23,21 +20,23 @@ const HomeCard = ({ item }) => {
                 <i className="fa fa-star"></i>
                 <i className="fa fa-star-half"></i>
               </div>
-              <label className="flex justify-start items-start">{time}</label>
+              <label className="flex justify-start items-start">
+                {item?.time}
+              </label>
             </div>
 
             <div className="cast">
               <h4>
                 <span>Starring </span>
-                {starring}
+                {item?.starring}
               </h4>
               <h4>
                 <span>Genres </span>
-                {genres}
+                {item?.genres}
               </h4>
               <h4>
                 <span>Tags </span>
-                {tags}
+                {item?.tags}
               </h4>
             </div>
             <div className="grid md:grid-cols-2 gap-4 mb-4">
