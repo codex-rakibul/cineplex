@@ -2,7 +2,7 @@ import { useState } from "react";
 import { message } from "antd";
 
 export default function SeatComponents({ allData, setAllData, row }) {
-  const {selectedSeats} = allData;
+  
   const renderData = (
     <div>
       <div className="grid md:grid-cols-10 md:gap-0 grid-cols-5  gap-4 md:grid-rows-2 grid-rows-3">
@@ -12,17 +12,18 @@ export default function SeatComponents({ allData, setAllData, row }) {
           const onSeatHandle = () => {
             setSeatSeleted(!seatSelected);
 
-            if (!selectedSeats?.includes(seat.seatNumber)) {
+            if (!allData?.selectedSeats.includes(seat.seatNumber)) {
               message.success(`Your Selected Seat: "${seat.seatNumber}"`);
               setAllData((prevData) => ({
                 ...prevData,
                 selectedSeats: [...prevData.selectedSeats, seat.seatNumber],
               }));
             } else {
-              const updatedSeats = selectedSeats.filter(
+              const updatedSeats = allData?.selectedSeats.filter(
                 (item) => item !== seat.seatNumber
               );
 
+              // setAllData.selectedSeats({ arr });
               setAllData((prevData) => ({
                 ...prevData,
                 selectedSeats: updatedSeats,
@@ -60,7 +61,7 @@ export default function SeatComponents({ allData, setAllData, row }) {
                       : () => onSeatHandle()
                   }
                   className={`${seat.isBooked ? "bg-red-600" : "bg-gray-600"} ${
-                    selectedSeats.includes(seat.seatNumber)
+                    allData?.selectedSeats.includes(seat.seatNumber)
                       ? "bg-teal-600"
                       : ""
                   } p-2 m-2 rounded-t-lg text-white cursor-pointer seat`}

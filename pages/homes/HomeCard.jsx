@@ -3,18 +3,18 @@ import styles from "../../components/style";
 import Link from "next/link";
 
 const HomeCard = ({ item }) => {
-  const {  name, rating, time, desc, starring, genres, tags, video } =
+  const {  rating, time, desc, starring, genres, tags, video } =
     item;
 
   const renderData = (
     <div className="box">
       <div className="coverImage">
-        <img src={item.cover} alt="" />
+        <img src={item?.cover} alt="" />
       </div>
       <div className={` content  ${styles.flexCenter} ${styles.paddingX} `}>
         <div className={`${styles.boxWidth} flex justify-between `}>
           <div className="details col">
-            <h1>{name}</h1>
+            <h1>{item?.name}</h1>
             <div className="rating md:flex">
               <div className="rate">
                 <i className="fas fa-star"></i>
