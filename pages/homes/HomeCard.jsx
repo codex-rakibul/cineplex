@@ -3,7 +3,7 @@ import styles from "../../components/style";
 import Link from "next/link";
 
 const HomeCard = ({ item }) => {
-  const { id, cover, name, rating, time, desc, starring, genres, tags, video } =
+  const {  cover, name, rating, time, desc, starring, genres, tags, video } =
     item;
   const renderData = (
     <div className="box">
