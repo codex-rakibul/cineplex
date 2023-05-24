@@ -40,9 +40,10 @@ const Home = () => {
     <>
       <div className={` homeContainer`}>
         <Slider {...settings}>
-          {homeData.map((item) => {
+          {homeData.map((item,index) => {
+            console.log(item)
             return (
-                <HomeCard key={item.id} item={item} />
+                <HomeCard key={index} item={item} />
             )
           })}
         </Slider>
