@@ -6,6 +6,10 @@ export default function Done({ allData }) {
   const imgUrl =
     "https://blockbusterbd.com/uploads/movies/posters/leader-amie-bangladesh-8826415191682089760.jpg";
 
+  if (!allData || !allData.date || !allData.selectShowtime || !allData.selectedSeats || !allData.userId) {
+    return null; // or show an error message
+  }
+
   const renderData = (
     <div>
       <Head>
@@ -68,5 +72,6 @@ export default function Done({ allData }) {
       </div>
     </div>
   );
+  
   return <>{renderData}</>;
 }
