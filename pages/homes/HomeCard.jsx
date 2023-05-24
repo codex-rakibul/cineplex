@@ -3,13 +3,13 @@ import styles from "../../components/style";
 import Link from "next/link";
 
 const HomeCard = ({ item }) => {
-  const { cover, name, rating, time, desc, starring, genres, tags, video } =
+  const {  name, rating, time, desc, starring, genres, tags, video } =
     item;
 
   const renderData = (
     <div className="box">
       <div className="coverImage">
-        <img src={cover} alt="" />
+        <img src={item.cover} alt="" />
       </div>
       <div className={` content  ${styles.flexCenter} ${styles.paddingX} `}>
         <div className={`${styles.boxWidth} flex justify-between `}>

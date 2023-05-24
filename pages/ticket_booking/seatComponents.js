@@ -12,7 +12,7 @@ export default function SeatComponents({ allData, setAllData, row }) {
           const onSeatHandle = () => {
             setSeatSeleted(!seatSelected);
 
-            if (!allData?.selectedSeats.includes(seat.seatNumber)) {
+            if (!selectedSeats?.includes(seat.seatNumber)) {
               message.success(`Your Selected Seat: "${seat.seatNumber}"`);
               setAllData((prevData) => ({
                 ...prevData,
@@ -23,7 +23,6 @@ export default function SeatComponents({ allData, setAllData, row }) {
                 (item) => item !== seat.seatNumber
               );
 
-              // setAllData.selectedSeats({ arr });
               setAllData((prevData) => ({
                 ...prevData,
                 selectedSeats: updatedSeats,
