@@ -98,7 +98,7 @@ export default function index() {
         />
       </Head>
       <Navbar />
-      <div className="bg-black  md:h-screen flex justify-center items-center md:pt-0 pt-16 md:pb-20  ">
+      <div className="bg-black  md:h-screen flex justify-center items-center md:pt-0 pt-16 md:pb-20 pb-16 ">
         <div className="main2 ">
           <input type="checkbox" id="chk" aria-hidden="true" />
           <div className="signup">
