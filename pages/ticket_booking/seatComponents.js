@@ -5,7 +5,7 @@ export default function SeatComponents({ allData = {}, setAllData, row }) {
   const renderData = (
     <div>
       <div className="grid md:grid-cols-10 md:gap-0 grid-cols-5 gap-4 md:grid-rows-2 grid-rows-3">
-        {row.map((seat, index) => {
+        {row?.map((seat, index) => {
           const [seatSelected, setSeatSelected] = useState(false);
 
           const onSeatHandle = () => {

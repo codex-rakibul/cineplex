@@ -4,7 +4,7 @@ import Head from "next/head";
 
 export default function Confirmation({ allData, setAllData }) {
   if (!allData || !allData.selectedSeats) {
-    return null; // Return null or display an error message when allData is undefined or selectedSeats is missing
+    return null; 
   }
 
   const { selectedSeats, Sprice } = allData;
