@@ -3,15 +3,17 @@ import styles from "../../components/style";
 import Link from "next/link";
 
 const HomeCard = ({ item }) => {
+  const { id, cover, name, rating, time, desc, starring, genres, tags, video } =
+    item;
   const renderData = (
     <div className="box">
       <div className="coverImage">
-        <img src={item?.cover} alt="" />
+        <img src={cover} alt="" />
       </div>
       <div className={` content  ${styles.flexCenter} ${styles.paddingX} `}>
         <div className={`${styles.boxWidth} flex justify-between `}>
           <div className="details col">
-            <h1>{item?.name}</h1>
+            <h1>{name}</h1>
             <div className="rating md:flex">
               <div className="rate">
                 <i className="fas fa-star"></i>
@@ -21,22 +23,22 @@ const HomeCard = ({ item }) => {
                 <i className="fa fa-star-half"></i>
               </div>
               <label className="flex justify-start items-start">
-                {item?.time}
+                {time}
               </label>
             </div>
 
             <div className="cast">
               <h4>
                 <span>Starring </span>
-                {item?.starring}
+                {starring}
               </h4>
               <h4>
                 <span>Genres </span>
-                {item?.genres}
+                {genres}
               </h4>
               <h4>
                 <span>Tags </span>
-                {item?.tags}
+                {tags}
               </h4>
             </div>
             <div className="grid grid-cols-2 gap-4 mb-4 ">
