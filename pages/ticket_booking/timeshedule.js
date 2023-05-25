@@ -172,7 +172,7 @@ function SelectDate({ dateTime, click, status, datePick, allData }) {
   return (
     <>
       <div
-        className={status ? "bg-teal-600" : "bg-gray-600 date rounded-sm p-2 "}
+        className={allData && allData.date && allData.date.includes(datePick.date) ? "bg-teal-600" : "bg-gray-600 date rounded-sm p-2 "}
         onClick={click}
       >
         <p className=" text-sm ">{datePick.date}</p>

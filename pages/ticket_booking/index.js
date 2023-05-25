@@ -1,4 +1,4 @@
-import { Button, message, Steps, theme } from "antd";
+import { message, Steps, theme } from "antd";
 import React, { useEffect, useState } from "react";
 import TimeSchedule from "./timeshedule";
 import TotalSeatPlan from "./totalSeatPlan";
@@ -35,6 +35,9 @@ const TicketBooking = () => {
     Cprice: 300,
     userId: "10002",
   });
+
+ 
+
   console.log("allData frm home---", allData);
 
   const { token } = theme.useToken();
@@ -70,17 +73,11 @@ const TicketBooking = () => {
             {steps[current].content == "time" ? (
               <TimeSchedule setAllData={setAllData} allData={allData} />
             ) : steps[current].content == "seats" ? (
-              <TotalSeatPlan
-                allData={allData}
-                setAllData={setAllData}
-
-                // allseatSelected={allseatSelected}
-                // setAllSeatSeleted={setAllSeatSeleted}
-              />
+              <TotalSeatPlan allData={allData} setAllData={setAllData} />
             ) : steps[current].content == "confirm" ? (
-              <Confirmation setAllData={setAllData} allData={allData}/>
+              <Confirmation setAllData={setAllData} allData={allData} />
             ) : (
-              <Done allData={allData}/>
+              <Done allData={allData} />
             )}
           </div>
           <div
@@ -106,7 +103,23 @@ const TicketBooking = () => {
               <button
                 className="flex items-center justify-center"
                 type="primary"
-                onClick={() => next()}
+                onClick={() => {
+                    if(steps[current].content == "time"){
+                      if (allData?.date !== "" && allData?.selectShowtime !== "") {
+                        next()
+                      } else{
+                        message.error("Please select a date and time")
+                      }
+                    }else if(steps[current].content == "seats"){
+                      if(allData.selectedSeats.length !== 0){
+                        next()
+                      }else{
+                        message.error("Please select a seat")
+                      }
+                    }else if(steps[current].content == "confirm"){
+                      next()
+                    }
+                }}
               >
                 Next
               </button>
@@ -114,7 +127,11 @@ const TicketBooking = () => {
             {current === steps.length - 1 && (
               <button
                 className="flex items-center justify-center"
-                onClick={() => message.success("Ticket Confirmation has been confirmed successfully")}
+                onClick={() =>
+                  message.success(
+                    "Ticket Confirmation has been confirmed successfully"
+                  )
+                }
               >
                 Done
               </button>
@@ -123,11 +140,7 @@ const TicketBooking = () => {
         </div>
       </div>
     </div>
-  )
-  return (
-    <>
-      {renderData}
-    </>
   );
+  return <>{renderData}</>;
 };
 export default TicketBooking;
