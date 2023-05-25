@@ -47,15 +47,7 @@ const renderData = (
         />
       </Head>
       <div className="bg-black p-4 items-center">
-        <div className="flex justify-center pt-10 pb-14 md:pb-9">
-          {" "}
-          <img
-            className="w-2/5 md:w-[25%] lg:w-[18%] xl:w-[15%]"
-            src="images/cucet-footer-logo.png"
-            alt=""
-            srcSet=""
-          />{" "}
-        </div>
+        
         <div className="space-y-9 grid grid-cols-1 md:grid-cols-2   lg:grid-cols-4  ">
           <div className="text-[#6d6d6d] font-[650] text-[16px] leading-7">
             <div className="flex justify-start md:mt-10">
