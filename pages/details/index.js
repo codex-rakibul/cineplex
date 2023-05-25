@@ -21,7 +21,7 @@ export default function index() {
         <div className={`${styles.boxWidth} `}>
           <section className="text-gray-600 body-font overflow-hidden">
             <div className=" py-10 ">
-              <div className="lg:w-4/5 mx-auto flex flex-wrap">
+              <div className="lg:w-4/5 flex flex-wrap">
                 <img
                   alt="ecommerce"
                   className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
