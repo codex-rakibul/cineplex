@@ -906,7 +906,7 @@ input:focus {
   font-family: "Saira Stencil One", sans-serif;
 }
 .mainLogo{
-  @apply  text-2xl;
+  @apply md:text-4xl text-2xl;
   letter-spacing: 0.05em;
   margin-bottom: 4px;
   color: #d62839;
@@ -1305,7 +1305,4 @@ input {
 }
 .upMovieBox{
   border: 1px solid rgb(77, 75, 75) ;
-}
-.navBtn{
-  @apply bg-black hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2;
 }

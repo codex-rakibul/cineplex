@@ -215,7 +215,7 @@ export default function index() {
           </section>
         </div>
       </div>
-      <FooterCom/>
+      <FooterCom />
     </>
   );
 }

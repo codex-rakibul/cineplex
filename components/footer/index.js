@@ -47,7 +47,6 @@ const renderData = (
         />
       </Head>
       <div className="bg-black p-4 items-center">
-        
         <div className="space-y-9 grid grid-cols-1 md:grid-cols-2   lg:grid-cols-4  ">
           <div className="text-[#6d6d6d] font-[650] text-[16px] leading-7">
             <div className="flex justify-start md:mt-10">

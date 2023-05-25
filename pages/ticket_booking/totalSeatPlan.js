@@ -22,7 +22,7 @@ const TotalSeatPlan = ({ allData, setAllData }) => {
         </div>
       </div>
       </div>
-      <div className="screen-container">
+      <div className="screen-container ">
         <div className="  shadow-sm md:mx-12 md:my-12 tvbox flex justify-center items-center md:text-5xl text-lg md:h-80 h-40">
           <video autoPlay muted loop>
             <source src={vb} />
