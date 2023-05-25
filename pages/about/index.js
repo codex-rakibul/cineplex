@@ -10,7 +10,7 @@ export default function About() {
     <div className={`  bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth} `}>
         <section className="text-gray-600 body-font">
-          <div className="md:py-40 h-auto">
+          <div className="md:py-20 py-10 h-auto">
             <div className="flex flex-col text-center w-full mb-20">
               <h1 className="text-2xl font-medium title-font mb-4 text-gray-900">
                 OUR TEAM
@@ -272,7 +272,7 @@ export default function About() {
     <div className={`  ${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth} `}>
         <section className="text-gray-600 body-font relative">
-          <div className="py-24  flex sm:flex-nowrap flex-wrap">
+          <div className="  flex sm:flex-nowrap flex-wrap">
             <div className="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
               <iframe
                 width="100%"
