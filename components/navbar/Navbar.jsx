@@ -13,16 +13,13 @@ const NavbarCom = () => {
       <nav className="z-10 w-full flex py-6 justify-between items-center navbar">
         {/* <Image src={logo} alt="hoobank" className="w-[124px] h[32px]" /> */}
         <Link href="/">
-          <div
-            style={{ color: "#e50813" }}
-            className={`font-poppins font-semibold cursor-pointer text-2xl `}
-          >
+          <h1 className={`font-poppins font-semibold cursor-pointer mainLogo `}>
             <i
               style={{ fontSize: "20px" }}
               className="png fas fa-play mr-2 w-4 h-4"
             />
             CINEPLEX BD
-          </div>
+          </h1>
         </Link>
 
         <ul className="list-none sm:flex hidden justify-end items-center flex-1">
