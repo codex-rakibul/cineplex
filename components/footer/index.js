@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../../style";
+import Head from "next/head";
 const linkData = [
   {
     id: 1,
@@ -35,112 +36,234 @@ const linkData = [
   },
 ];
 const renderData = (
-  <footer className={` bg-primary ${styles.paddingX} ${styles.flexCenter} `}>
+  <div className={` bg-primary ${styles.paddingX} ${styles.flexCenter} `}>
     <div className={`${styles.boxWidth} `}>
-      <div className="md:py-24 py-6  flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col ">
-        <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
-          <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-            <i
-              style={{ fontSize: "20px", color: "#e50813" }}
-              className="png fas fa-play mr-2 w-4 h-4"
-            />
-            <span className="ml-3 text-xl text-white">Cineplex BD</span>
-          </a>
-          <p className="mt-2 text-sm text-gray-500">Bogura, Bangladesh</p>
+      <Head>
+        <link
+          rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+          crossorigin="anonymous"
+        />
+      </Head>
+      <div className="bg-black p-4 items-center">
+        <div className="flex justify-center pt-10 pb-14 md:pb-9">
+          {" "}
+          <img
+            className="w-2/5 md:w-[25%] lg:w-[18%] xl:w-[15%]"
+            src="images/cucet-footer-logo.png"
+            alt=""
+            srcSet=""
+          />{" "}
         </div>
-        <div className="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first">
-          {linkData.map((item) => {
-            const { id, title, t1, t2, t3, t4 } = item;
-            return (
-              <div key={id} className="lg:w-1/4 md:w-1/2 w-full px-4">
-                <h2 className="title-font font-medium text-teal-600 tracking-widest text-xl mb-3 flex md:justify-start justify-center">
-                  {title}
-                </h2>
-                <nav className="list-none mb-10">
-                  <li>
-                    <a className="text-white hover:text-gray-800">{t1}</a>
-                  </li>
-                  <li>
-                    <a className="text-white hover:text-gray-800">{t2}</a>
-                  </li>
-                  <li>
-                    <a className="text-white hover:text-gray-800">{t3}</a>
-                  </li>
-                  <li>
-                    <a className="text-white hover:text-gray-800">{t4}</a>
-                  </li>
-                </nav>
+        <div className="space-y-9 grid grid-cols-1 md:grid-cols-2   lg:grid-cols-4  ">
+          <div className="text-[#6d6d6d] font-[650] text-[16px] leading-7">
+            <div className="flex justify-start md:mt-10">
+              <h1 className="text-white pb-[36px] font-sans uppercase font-normal tracking-wider underline underline-offset-[12px] decoration-red-500/90">
+                Inform{" "}
+              </h1>{" "}
+              <span className="text-white font-sans uppercase font-normal tracking-wider">
+                ation
+              </span>
+            </div>
+            <p>Registration Start Date</p>
+            <p>Registration End Date</p>
+            <p>Exam Last Date </p>
+          </div>
+          <div className="text-[#747474] text-[15px] font-[550] leading-7 tracking-wide md:">
+            <div>
+              <pre className="text-white pb-[34px] font-sans uppercase font-normal tracking-wider underline underline-offset-[12px] decoration-red-500/90">
+                {" "}
+                dates &nbsp;
+              </pre>
+            </div>
+            <p>23 Dec 2021</p>
+            <p>30 May 2022</p>
+            <p>23 Dec 2021 to 31 May 2022</p>
+          </div>
+          <div className="md:flex flex-col justify-between">
+            <div className="text-[#747474] text-[15px] font-[550] leading-7 tracking-wide">
+              <div className="flex justify-start">
+                <h1 className="text-white pb-[34px] font-sans uppercase font-normal tracking-wider underline underline-offset-[12px] decoration-red-500/90">
+                  About{" "}
+                </h1>{" "}
+                <span className="text-white font-sans uppercase font-normal tracking-wider">
+                  exam
+                </span>
               </div>
-            );
-          })}
+              <p className="">
+                {" "}
+                <a className="hover:text-[#cacaca]" href="#">
+                  Apply
+                </a>{" "}
+              </p>
+              <p className="">
+                {" "}
+                <a className="hover:text-[#cacaca]" href="#">
+                  Eligibility
+                </a>{" "}
+              </p>
+              <p className="">
+                {" "}
+                <a className="hover:text-[#cacaca]" href="#">
+                  Application Process
+                </a>{" "}
+              </p>
+              <p className="">
+                {" "}
+                <a className="hover:text-[#cacaca]" href="#">
+                  Syllabus
+                </a>{" "}
+              </p>
+            </div>
+            <div className="text-[#747474] text-[15px] font-[550] leading-6 tracking-wide mt-9 md:order-5 md:pt-32 lg:pb-28">
+              <div className="flex justify-start md:-mt-32">
+                <h1 className="text-white pb-[38px] font-sans uppercase font-normal tracking-wider underline underline-offset-[12px] decoration-red-500/90">
+                  suppor{" "}
+                </h1>{" "}
+                <span className="text-white font-sans uppercase font-normal tracking-wider">
+                  t
+                </span>
+              </div>
+              <p className="">
+                {" "}
+                <a href="#" className="hover:text-[#cacaca]">
+                  FAQ's
+                </a>{" "}
+              </p>
+            </div>
+          </div>
+          <div className="text-[#797878] text-[15px] font-[550] leading-6 tracking-wide md:order-4 lg:">
+            <div className="flex justify-start">
+              <h1 className="text-white pb-[38px] font-sans uppercase font-normal tracking-wider underline underline-offset-[12px] decoration-red-500/90">
+                get in t{" "}
+              </h1>{" "}
+              <span className="text-white font-sans uppercase font-normal tracking-wider">
+                ouch
+              </span>
+            </div>
+            <p className="space-x-3">
+              {" "}
+              <i className="fa fa-home text-[17px]" />
+              <strong className="text-[#8b8b8b] text-[15px] tracking-wide">
+                Our Company
+              </strong>{" "}
+            </p>
+            <div className="leading-7">
+              <p className="">
+                {" "}
+                NH-70 Chandigarh-Ludhiana Highway, <br /> Mohali, Punjab (INDIA){" "}
+                <br /> General Helpline No:+91 987-6543-210{" "}
+              </p>
+            </div>
+            <div className="leading-7 mt-4 text-[15px] font-[500]">
+              <p className="space-x-3 hover:text-[#cacaca]">
+                {" "}
+                <i className="fa fa-phone text-[17px]" />{" "}
+                <a href="#"> 1800 1800 88800</a>{" "}
+              </p>
+              <p className="space-x-3 hover:text-[#cacaca]">
+                {" "}
+                <i className="fa fa-phone text-[17px]" />{" "}
+                <a href="#">
+                  9946948000S ({" "}
+                  <span className="text-[13px] font-[500]">
+                    General Enquiry
+                  </span>{" "}
+                  )
+                </a>{" "}
+              </p>
+              <p className="space-x-3 hover:text-[#cacaca]">
+                {" "}
+                <i className="fa fa-phone text-[17px]" />{" "}
+                <a href="#">
+                  994694700&nbsp;({" "}
+                  <span className="text-[13px] font-[500]">
+                    Technical Support: CUCET
+                  </span>{" "}
+                  )
+                </a>{" "}
+              </p>
+              <p className="space-x-3 hover:text-[#cacaca]">
+                {" "}
+                <i className="fa fa-envelope text-[16px]" />{" "}
+                <a href="#">admin@Company.in</a>{" "}
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="">
-        <div className="  py-4  flex flex-wrap flex-col sm:flex-row">
-          <p className="text-gray-500 text-sm text-center sm:text-left">
-            © Cineplex BD
+        <div className="divide-y divide-[#747474] contrast-200 mt-3 mb-3 md:-mt-4 md:-mb-2 lg:-mt-16 xl:-mt-24">
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+        </div>
+        <div className="flex justify-center mb-4 md:mb-1 text-[#afafaf] text-center text-xl space-x-3">
+          <p>
+            {" "}
+            <a
+              href="#"
+              className="w-10 h-10 bg-[#474747] hover:text-blue-500 transform ease-in-out duration-500 hover:bg-white rounded-full inline-block pt-[7px]"
+            >
+              <i className="fa fa-facebook" />
+            </a>{" "}
           </p>
-          <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
-            <a className="text-teal-500">
-              <svg
-                fill="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-              >
-                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
-              </svg>
-            </a>
-            <a className="ml-3 text-gray-500">
-              <svg
-                fill="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-              >
-                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
-              </svg>
-            </a>
-            <a className="ml-3 text-gray-500">
-              <svg
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-              >
-                <rect width={20} height={20} x={2} y={2} rx={5} ry={5} />
-                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01" />
-              </svg>
-            </a>
-            <a className="ml-3 text-gray-500">
-              <svg
-                fill="currentColor"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={0}
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="none"
-                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
-                />
-                <circle cx={4} cy={4} r={2} stroke="none" />
-              </svg>
-            </a>
-          </span>
+          <p>
+            {" "}
+            <a
+              href="#"
+              className="w-10 h-10 bg-[#474747] hover:text-blue-500 transform ease-in-out duration-500 hover:bg-white rounded-full inline-block pt-[6px]"
+            >
+              <i className="fa fa-twitter" />
+            </a>{" "}
+          </p>
+          <p>
+            {" "}
+            <a
+              href="#"
+              className="w-10 h-10 bg-[#474747] hover:text-blue-500 transform ease-in-out duration-500 hover:bg-white rounded-full inline-block pt-[6px]"
+            >
+              <i className="fa fa-instagram" />
+            </a>{" "}
+          </p>
+          <p>
+            {" "}
+            <a
+              href="#"
+              className="w-10 h-10 bg-[#474747] hover:text-blue-500 transform ease-in-out duration-500 hover:bg-white rounded-full inline-block pt-[6px]"
+            >
+              <i className="fa fa-linkedin" />
+            </a>{" "}
+          </p>
+          <p>
+            {" "}
+            <a
+              href="#"
+              className="w-10 h-10 bg-[#474747] hover:text-blue-500 transform ease-in-out duration-500 hover:bg-white rounded-full inline-block pt-[6px]"
+            >
+              <i className="fa fa-youtube" />
+            </a>{" "}
+          </p>
+          <p>
+            {" "}
+            <a
+              href="#"
+              className="w-10 h-10 bg-[#474747] hover:text-blue-500 transform ease-in-out duration-500 hover:bg-white rounded-full inline-block pt-[6px]"
+            >
+              <i className="fa fa-pinterest" />
+            </a>{" "}
+          </p>
+          <p>
+            {" "}
+            <a
+              href="#"
+              className="w-10 h-10 bg-[#474747] hover:text-blue-500 transform ease-in-out duration-500 hover:bg-white rounded-full inline-block pt-[6px]"
+            >
+              <i className="fa fa-telegram" />
+            </a>{" "}
+          </p>
         </div>
       </div>
     </div>
-  </footer>
+  </div>
 );
 export default function FooterCom() {
   return <>{renderData}</>;
