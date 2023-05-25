@@ -7,7 +7,7 @@ export default function index() {
   return (
     <>
       <Head>
-        <title>Cineplex</title>
+        <title>Details</title>
         <link
           rel="stylesheet"
           href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"

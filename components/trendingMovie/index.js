@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../../style";
+import Link from "next/link";
 export default function TrendingMovie() {
   const renderData = (
     <div className={` bg-primary ${styles.paddingX} sm:${styles.flexCenter}`}>
@@ -23,8 +24,12 @@ export default function TrendingMovie() {
                 truffaut hexagon try-hard chambray.
               </p>
               <div className="grid grid-cols-2 gap-6">
-                <button className="btnB ">Buy Ticket</button>
-                <button className="btnD ">Details</button>
+                <Link href="/ok">
+                  <button className="btnB ">Buy Ticket</button>
+                </Link>
+                <Link href="/ok">
+                  <button className="btnD ">Details</button>
+                </Link>
               </div>
             </div>
           </div>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function MovieCard({ item }) {
@@ -14,7 +15,8 @@ export default function MovieCard({ item }) {
             {item?.name}
           </h2>
           <p className="leading-relaxed text-base pb-4">{item?.desc}</p>
-          <button className="btnB ">More Details</button>
+          <Link href="ok">
+          <button className="btnB ">More Details</button></Link>
         </div>
       </div>
     </div>

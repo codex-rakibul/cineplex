@@ -20,7 +20,7 @@ export default function UpMovie() {
             <div className="flex flex-wrap w-full mb-20">
               <div className="lg:w-1/2 w-full mb-6 lg:mb-0">
                 <h1 className="showName">UPCOMING MOVIE</h1>
-                <div className="h-1 w-32 bg-red-500 rounded" />
+                <div className="h-1 w-24 bg-red-700 rounded" />
               </div>
               <p className="lg:w-1/2 w-full leading-relaxed text-gray-500">
                 Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical

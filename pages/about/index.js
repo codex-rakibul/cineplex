@@ -12,7 +12,7 @@ export default function About() {
         <section className="text-gray-600 body-font">
           <div className="md:py-20 py-10 h-auto">
             <div className="flex flex-col text-center w-full mb-20">
-              <h1 className="text-2xl font-medium title-font mb-4 text-gray-900">
+              <h1 className="text-2xl font-medium title-font mb-4 text-white">
                 OUR TEAM
               </h1>
               <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
