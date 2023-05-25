@@ -2,7 +2,7 @@ import Navbar from "@/components/navbar";
 import Head from "next/head";
 import Link from "next/link";
 import React from "react";
-import styles from "../../style";
+import styles from "../../components/style";
 import FooterCom from "@/components/footer";
 export default function index() {
   return (

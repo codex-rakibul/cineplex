@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-import styles from "../../style";
+import styles from "../../components/style";
 export default function MovieDetails() {
   const router = useRouter();
   const item = router.query;

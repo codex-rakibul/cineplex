@@ -906,7 +906,7 @@ input:focus {
   font-family: "Saira Stencil One", sans-serif;
 }
 .mainLogo{
-  @apply md:text-4xl text-2xl;
+  @apply  text-2xl;
   letter-spacing: 0.05em;
   margin-bottom: 4px;
   color: #d62839;
