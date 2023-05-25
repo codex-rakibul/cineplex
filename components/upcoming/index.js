@@ -16,7 +16,7 @@ export default function UpMovie() {
     <div className={` ${styles.paddingX} sm:${styles.flexCenter}`}>
       <div className={`${styles.boxWidth} `}>
         <section className="text-gray-600 body-font">
-          <div className=" md:pt-10 pt-0 mx-auto">
+          <div className="  mx-auto">
             <div className="flex flex-wrap w-full mb-20">
               <div className="lg:w-1/2 w-full mb-6 lg:mb-0">
                 <h1 className="showName">
