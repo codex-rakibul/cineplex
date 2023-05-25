@@ -17,7 +17,7 @@ export const homeData = [
     name: "skull island",
     rating: 4.6,
     time: "2hr : 22mins",
-    desc: "The island, like its inhabitants, is wholly fictional. Kong's island home in the Pacific makes its first appearance, along with Kong himself, in the 1933 film King Kong. ",
+    desc: "Sand and dust storms (SDS), also known as sirocco, haboob, yellow dust, white storms, and the harmattan, are a natural phenomenon linked with land and water management and climate change.",
     starring: "Brenda Chapman, Jeff Nathanson",
     genres: "Adventures",
     tags: "Adventures,Animation,Family",

@@ -1,18 +1,25 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
 
 export default function MovieCard({ item }) {
   const { cover, name, rating, time, desc, starring, genres, tags, video } =
     item;
 
   return (
-    <SwiperSlide className="p-10 text-white">
-      <div className="grid gap-6 bg-black p-6 ">
-        <div>{name}</div>
-        <div>{desc}</div>
-        <div>skjajk</div>
-        <div>READ THE STORY</div>
+    <div className="xl:w-1/4 md:w-1/2 p-4">
+      <div className="bg-gray-100  rounded-lg">
+        <img
+          className="h-40 rounded w-full object-cover object-center "
+          src={item?.cover}
+          alt="content"
+        />
+        <div className="p-6">
+          <h2 className="text-4xl text-gray-900 font-medium title-font mb-4">
+            {item?.name}
+          </h2>
+          <p className="leading-relaxed text-base pb-4">{item?.desc}</p>
+          <button className="btnB ">More Details</button>
+        </div>
       </div>
-    </SwiperSlide>
+    </div>
   );
 }

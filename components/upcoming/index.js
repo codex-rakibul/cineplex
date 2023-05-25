@@ -15,75 +15,32 @@ export default function UpMovie() {
   return (
     <div className={` ${styles.paddingX} sm:${styles.flexCenter}`}>
       <div className={`${styles.boxWidth} `}>
-        <span className="showNameTrending">UPCOMMING MOVIE</span>
-        {
-          <Swiper
-            navigation={true}
-            slidesPerView={3}
-            breakpoints={{
-              1700: {
-                slidesPerView: 3,
-              },
-              // when window width is >= 768px (md device)
-              1086: {
-                slidesPerView: 2,
-              },
-              // when window width is < 768px (small device)
-              0: {
-                slidesPerView: 1,
-              },
-            }}
-            keyboard={{
-              enabled: true,
-            }}
-            autoplay={{
-              delay: 2000,
-            }}
-            modules={[Navigation, Mousewheel, Keyboard]}
-            className="mySwiper"
-          >
-            {homeData.map((item, index) => {
-              const {
-                id,
-                cover,
-                name,
-                rating,
-                time,
-                desc,
-                starring,
-                genres,
-                tags,
-                video,
-              } = item;
-              return (
-                <SwiperSlide
-                  key={index}
-                  className="md:p-10 md:pt-10 pt-6  text-white  "
-                >
-                  <div className="max-w-sm  bg-black  rounded-lg ">
-                    <a href="#">
-                      <img className="rounded-t-lg" src={cover} alt="" />
-                    </a>
-                    <div className="p-5">
-                      <a href="#">
-                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                          {name}
-                        </h5>
-                      </a>
-                      <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                        Here are the biggest enterprise technology acquisitions
-                        of 2021 so far, in reverse chronological order.
-                      </p>
-                      <Link href="/ticket_booking">
-                        <button className="btnB">Details</button>
-                      </Link>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              );
-            })}
-          </Swiper>
-        }
+        <section className="text-gray-600 body-font">
+          <div className=" md:pt-10 pt-0 mx-auto">
+            <div className="flex flex-wrap w-full mb-20">
+              <div className="lg:w-1/2 w-full mb-6 lg:mb-0">
+                <h1 className="showName">
+                  UPCOMING MOVIE
+                </h1>
+                <div className="h-1 w-32 bg-red-500 rounded" />
+              </div>
+              <p className="lg:w-1/2 w-full leading-relaxed text-gray-500">
+                Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
+                gentrify, subway tile poke farm-to-table. Franzen you probably
+                haven't heard of them man bun deep jianbing selfies heirloom
+                prism food truck ugh squid celiac humblebrag.
+              </p>
+            </div>
+            <div className="flex flex-wrap -m-4">
+              {
+                homeData.map((item,index)=>{
+                  return <MovieCard key={index} item={item}/>
+                })
+              }
+             
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );
