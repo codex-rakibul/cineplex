@@ -6,8 +6,8 @@ export const navLinks = [
     title: "HOME",
   },
   {
-    id: "upcoming",
-    title: "UPCOMMING MOVIES",
+    id: "upcoming_movies",
+    title: "UPCOMING MOVIES",
   },
   {
     id: "ticket_price",
