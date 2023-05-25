@@ -7,7 +7,6 @@ import React from "react";
 export default function UpcomingMovie() {
   const renderData = (
     <div>
-      <Navbar />
       <Head>
         <title>Cineplex</title>
         <link
@@ -17,6 +16,7 @@ export default function UpcomingMovie() {
           crossorigin="anonymous"
         />
       </Head>
+      <Navbar />
       <div className="py-10">
         <UpMovie />
       </div>
