@@ -29,7 +29,7 @@ export default function Done({ allData }) {
             <div className="ticket-info">
               <p className="date">
                 <span>CINEPLEX BD</span>
-                <span className="nov-10"> {allData.date}</span>
+                <span className="nov-10"> {allData?.date}</span>
                 <span></span>
               </p>
               <div className="show-name">
@@ -37,10 +37,10 @@ export default function Done({ allData }) {
                 <h2>CLASSIC</h2>
               </div>
               <div className="time">
-                <p>SHOW TIME :- {allData.selectShowtime}</p>
+                <p>SHOW TIME :- {allData?.selectShowtime}</p>
               </div>
               <div className="tagline">
-                <p>{allData.selectedSeats + " "}</p>
+                <p>{allData?.selectedSeats + " "}</p>
               </div>
               <p className="location">
                 <span>CINEPLEX BD </span>
@@ -60,12 +60,12 @@ export default function Done({ allData }) {
                 <p className="showName">CINEPLEX BD</p>
               </div>
               <div className="time">
-                <p>{allData.date}</p>
+                <p>{allData?.date}</p>
                 <p>SHOW TIME :- {allData.selectShowtime}</p>
                 <p>{allData.selectedSeats + " "}</p>
               </div>
 
-              <p className="ticket-number mt-2">#{allData.userId}</p>
+              <p className="ticket-number mt-2">#{allData?.userId}</p>
             </div>
           </div>
         </div>
