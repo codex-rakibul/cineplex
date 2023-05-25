@@ -6,7 +6,7 @@ import React from "react";
 
 export default function UpcomingMovie() {
   const renderData = (
-    <div>
+    <div className="bg-black">
       <Head>
         <title>Cineplex</title>
         <link
@@ -17,7 +17,7 @@ export default function UpcomingMovie() {
         />
       </Head>
       <Navbar />
-      <div className="py-10">
+      <div className="py-10 ">
         <UpMovie />
       </div>
       <FooterCom />

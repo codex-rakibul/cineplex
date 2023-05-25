@@ -1,12 +1,9 @@
 import React from "react";
 
 export default function MovieCard({ item }) {
-  const { cover, name, rating, time, desc, starring, genres, tags, video } =
-    item;
-
   return (
     <div className="xl:w-1/4 md:w-1/2 p-4">
-      <div className="bg-gray-100  rounded-lg">
+      <div className="bg-black upMovieBox rounded-lg">
         <img
           className="h-40 rounded w-full object-cover object-center "
           src={item?.cover}

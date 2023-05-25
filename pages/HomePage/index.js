@@ -28,7 +28,7 @@ export default function HomePage() {
       <div className=" h-full  md:py-10  pt-6 md:px-10 bg-gray-00 ">
         <TrendingMovie />
       </div>
-      <div className="bg-white z-0 md:h-full h-fit pt-10  pb-10 md:px-10  ">
+      <div className="bg-black z-0 md:h-full h-fit pt-10  pb-10 md:px-10  ">
         <UpMovie />
       </div>
 
