@@ -1,10 +1,6 @@
 import React, { useState } from "react";
-// import AdminNavBar from "./adminNavBar";
-import Link from "next/link";
 import Movie from "./movie";
 import DashboardCom from "./dashboard";
-import { Button } from "antd";
-
 const navData = [
   {
     id: 1,
