@@ -64,7 +64,6 @@ export default function Done({ allData }) {
                 <p>SHOW TIME :- {allData.selectShowtime}</p>
                 <p>{allData.selectedSeats + " "}</p>
               </div>
-
               <p className="ticket-number mt-2">#{allData?.userId}</p>
             </div>
           </div>

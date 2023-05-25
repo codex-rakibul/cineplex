@@ -15,8 +15,8 @@ const HomeCard = ({ item }) => {
       <div className={` content  ${styles.flexCenter} ${styles.paddingX} `}>
         <div className={`${styles.boxWidth} flex justify-between `}>
           <div className="details col">
-            <h1>{name}</h1>
-            <div className="rating md:flex">
+            <h1>{item?.name}</h1>
+            <div className="rating ">
               <div className="rate">
                 <i className="fas fa-star"></i>
                 <i className="fa fa-star"></i>
@@ -43,7 +43,7 @@ const HomeCard = ({ item }) => {
                 {tags}
               </h4>
             </div>
-            <div className="grid grid-cols-2 gap-4 mb-4 ">
+            <div className="grid grid-cols-2 gap-4 md:pb-20 pb-0 ">
               <Link href="/ticket_booking">
                 <button className="btnB ">Buy Ticket</button>
               </Link>

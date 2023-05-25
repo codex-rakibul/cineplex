@@ -168,6 +168,7 @@
   color: #fff;
 }
 .homeContainer {
+  
   position: relative;
 }
 .coverImage {
@@ -178,7 +179,6 @@
 }
 .coverImage img {
   width: 100vw;
-  height: 100vh;
   object-fit: cover;
 }
 .coverImage2 {
@@ -193,16 +193,10 @@
 }
 
 .homeContainer h1 {
-  margin-top: 80px;
-  font-size: 90px;
-  text-transform: uppercase;
-  font-weight: 800;
-  background-image: url("../public/images/texure.jpg");
-  background-repeat: repeat;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-font-smoothing: antialiased;
+  @apply md:text-6xl text-xl md:pt-20 pt-0 ;
+  letter-spacing: 0.05em;
+  color: #d62839;
+  font-family: "Saira Stencil One", sans-serif;
 }
 .coverImage::after {
   content: "";
@@ -229,7 +223,7 @@
   margin-right: 5px;
 }
 .rating label {
-  margin: 0 0px;
+  font-size: 30px;
 }
 .rating span {
   background-color: #6c757d;
@@ -294,13 +288,13 @@
   .home {
     position: relative;
     margin: 0;
-    height: 60vh !important;
   }
   .coverImage img {
     width: 100vw;
     height: 70vh !important;
   }
   .home .content {
+    @apply md:pt-20 py-10;
     flex-direction: column;
   }
   .home .row {
