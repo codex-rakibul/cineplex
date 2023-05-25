@@ -32,7 +32,7 @@ const renderData = (
             <button className="mt-10 rounded-lg">Visit Homepage</button>
           </Link>
         </div>
-        <div className="md:w-full w-full md:h-full h-full  bg-gray-200 rounded-xl overflow-hidden">
+        <div className="md:w-full w-full md:h-full h-full   rounded-xl overflow-hidden">
           <img
             src="https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif"
             alt=""
