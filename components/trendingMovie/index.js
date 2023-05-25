@@ -6,7 +6,7 @@ export default function TrendingMovie() {
       <div className={` bg-primary ${styles.paddingX} sm:${styles.flexCenter}`}>
         <div className={`${styles.boxWidth} `}>
           <section className="text-gray-600 body-font ">
-            <h1 className=" showNameTrending">TRENDING MOVIE</h1>
+            <h1 className=" showName">TRENDING MOVIE</h1>
             <div className=" mx-auto flex  md:py-10 py-6 md:flex-row flex-col items-center">
               <div className="lg:max-w-lg lg:w-full md:w-1/2 w-full mb-10 md:mb-0">
                 <img
