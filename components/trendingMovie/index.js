@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../style";
+import styles from "../../style";
 export default function TrendingMovie() {
   const renderData = (
     <div className={` bg-primary ${styles.paddingX} sm:${styles.flexCenter}`}>

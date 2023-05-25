@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../style";
+import styles from "../../style";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -19,9 +19,7 @@ export default function UpMovie() {
           <div className="  mx-auto">
             <div className="flex flex-wrap w-full mb-20">
               <div className="lg:w-1/2 w-full mb-6 lg:mb-0">
-                <h1 className="showName">
-                  UPCOMING MOVIE
-                </h1>
+                <h1 className="showName">UPCOMING MOVIE</h1>
                 <div className="h-1 w-32 bg-red-500 rounded" />
               </div>
               <p className="lg:w-1/2 w-full leading-relaxed text-gray-500">
@@ -32,12 +30,9 @@ export default function UpMovie() {
               </p>
             </div>
             <div className="flex flex-wrap -m-4">
-              {
-                homeData.map((item,index)=>{
-                  return <MovieCard key={index} item={item}/>
-                })
-              }
-             
+              {homeData.map((item, index) => {
+                return <MovieCard key={index} item={item} />;
+              })}
             </div>
           </div>
         </section>

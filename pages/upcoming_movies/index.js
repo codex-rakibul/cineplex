@@ -20,7 +20,9 @@ export default function UpcomingMovie() {
       <div className="py-10 ">
         <UpMovie />
       </div>
+      <div className="">
       <FooterCom />
+      </div>
     </div>
   );
   return <>{renderData}</>;

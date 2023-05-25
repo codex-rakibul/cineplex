@@ -1,12 +1,13 @@
 import React from "react";
-import styles from "../../components/style";
+import styles from "../../style";
 import Link from "next/link";
 
 const HomeCard = ({ item }) => {
   if (!item) {
     return null; // or display a fallback UI if necessary
   }
-  const { cover, name, rating, time, desc, starring, genres, tags, video } = item;
+  const { cover, name, rating, time, desc, starring, genres, tags, video } =
+    item;
   const renderData = (
     <div className="box">
       <div className="coverImage">
@@ -24,9 +25,7 @@ const HomeCard = ({ item }) => {
                 <i className="fa fa-star"></i>
                 <i className="fa fa-star-half"></i>
               </div>
-              <label className="flex justify-start items-start">
-                {time}
-              </label>
+              <label className="flex justify-start items-start">{time}</label>
             </div>
 
             <div className="cast">

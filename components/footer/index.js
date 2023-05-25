@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../style";
+import styles from "../../style";
 const linkData = [
   {
     id: 1,
@@ -35,11 +35,9 @@ const linkData = [
   },
 ];
 const renderData = (
-  <footer
-    className={` bg-primary ${styles.paddingX} ${styles.flexCenter}bg-black text-white body-font`}
-  >
+  <footer className={` bg-primary ${styles.paddingX} ${styles.flexCenter} `}>
     <div className={`${styles.boxWidth} `}>
-      <div className="md:py-24 py-6  flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+      <div className="md:py-24 py-6  flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col ">
         <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
           <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
             <i
