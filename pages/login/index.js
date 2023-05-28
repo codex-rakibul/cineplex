@@ -34,9 +34,14 @@ export default function index() {
 
       loginData.map((user) => {
         if (user.email == person.email && user.password == person.password) {
-          dispatch(addAuth(true));
-          dispatch(addUserAuthId(user.userId));
-          router.push("/");
+          if(user.email === "admin@gmail.com"){
+            router.push("/dashboard");
+          }else{
+            dispatch(addAuth(true));
+            dispatch(addUserAuthId(user.userId));
+            router.push("/");
+          }
+          
         }
       });
     },

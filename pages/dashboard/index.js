@@ -185,7 +185,7 @@ export default function index() {
                 >
                   <div className="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center">
                     <div>{svg}</div>
-                    <div>
+                    <div className="md:visible invisible flex justify-center items-center">
                       <p className="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400">
                         {title}
                       </p>
