@@ -1,3 +1,26 @@
+export const navLinks = [
+  {
+    id: "",
+    title: "HOME",
+  },
+  {
+    id: "upcoming_movies",
+    title: "UPCOMING MOVIES",
+  },
+  {
+    id: "ticket_price",
+    title: "TICKET PRICE",
+  },
+  {
+    id: "about",
+    title: "ABOUT",
+  },
+  {
+    id: "login",
+    title: "SIGN IN",
+  },
+];
+
 export const homeData = [
   {
     id: 1,

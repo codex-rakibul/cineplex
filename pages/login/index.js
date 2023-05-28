@@ -1,15 +1,19 @@
-import React, { useState } from "react";
-import Head from "next/head";
+import React from "react";
+import { useRouter } from "next/router";
 import Navbar from "../../components/navbar";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { message } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser } from "@/app/features/loginSlicer/loginSlice";
+import { v4 as uuidv4 } from "uuid";
+import { addAuth, addUserAuthId } from "@/app/features/basicAuthSlicer/basicAuthSlice";
+import Head from "next/head";
 
 export default function index() {
-  const [userSignUpData, setUserSignUpData] = useState();
-  console.log("User sign up uP data----------", userSignUpData);
-  const [userSignInData, setUserSignInData] = useState();
-  console.log("User sign in data----------", userSignInData);
+  const router = useRouter();
+  const loginData = useSelector((state) => state.loginReducer);
+  console.log(loginData);
+  const dispatch = useDispatch();
 
   const formikSignIn = useFormik({
     initialValues: {
@@ -26,21 +30,20 @@ export default function index() {
 
     onSubmit: (values) => {
       const person = values;
-      setUserSignInData(person);
 
-      if (
-        person.email === userSignUpData.email &&
-        person.password === userSignUpData.password
-      ) {
-        message.success(`Successfully signed in`);
-      } else {
-        message.success(`Your email and password wrong. Please try again`);
-      }
+      loginData.map((user) => {
+        if (user.email == person.email && user.password == person.password) {
+          dispatch(addAuth(true));
+          dispatch(addUserAuthId(user.userId));
+          router.push("/");
+        }
+      });
     },
   });
 
   const formikSignUP = useFormik({
     initialValues: {
+      userId: "",
       name: "",
       email: "",
       password: "",
@@ -48,18 +51,22 @@ export default function index() {
     validationSchema: yup.object({
       name: yup
         .string()
-        .min(2, "Name must have atlest 2 characters")
+        .min(2, "Name must have at least 2 characters")
         .required(),
       email: yup.string().email().required(),
       password: yup
         .string()
-        .min(6, "Name must have atlest 6 characters")
+        .min(6, "Name must have at least 6 characters")
         .required(),
     }),
 
-    onSubmit: (values) => {
-      const person = values;
-      setUserSignUpData(person);
+    onSubmit: (values, { resetForm }) => {
+      const person = { ...values, userId: uuidv4() };
+      dispatch(addUser(person));
+
+      const { name, email, password, userId } = values;
+
+      resetForm({ values: { userId: "", name: "", email: "", password: "" } });
     },
   });
 

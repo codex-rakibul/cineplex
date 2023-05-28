@@ -1,5 +1,11 @@
+import {
+  addDate,
+  addSelectShowtime,
+} from "@/app/features/ticketBookingSlicer/ticketBookingSlice";
 import Head from "next/head";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 const date = new Date();
 const weekday = [
   "Sunday",
@@ -101,27 +107,22 @@ function padZero(number) {
   return number < 10 ? "0" + number : number;
 }
 
-const TimeSchedule = ({ setAllData, allData }) => {
-  const [allDateTime, setAllDateTime] = useState([]);
+const TimeSchedule = () => {
+  const dispatch = useDispatch();
+  const ticketBookingData = useSelector((state) => state.ticketBookingReducer);
+
   const [selectDate, setSelectDate] = useState(false);
   const [selectTime, setSelectTime] = useState(false);
-  const [timeShow, setTimeShow] = useState(false);
 
   const handleSelectDate = (id, datePick) => {
-    setTimeShow(true);
+    dispatch(addDate(convertDayToDate(datePick.date)));
+
     setSelectDate(id);
-    setAllData({ ...allData, date: convertDayToDate(datePick.date) });
   };
   const handleSelectTime = (id, timePick) => {
-    setTimeShow(true);
-    setSelectTime(id);
-    setAllData({ ...allData, selectShowtime: timePick.time });
+    dispatch(addSelectShowtime(timePick.time));
 
-    setAllDateTime([
-      {
-        time: timePick.time,
-      },
-    ]);
+    setSelectTime(id);
   };
 
   const renderData = (
@@ -140,7 +141,7 @@ const TimeSchedule = ({ setAllData, allData }) => {
               status={selectDate === id}
               click={() => handleSelectDate(id, datePick)}
               datePick={datePick}
-              allData={allData}
+              ticketBookingData={ticketBookingData}
             />
           );
         })}
@@ -157,7 +158,7 @@ const TimeSchedule = ({ setAllData, allData }) => {
               status={selectTime === id}
               click={() => handleSelectTime(id, timePick)}
               timePick={timePick}
-              allData={allData}
+              ticketBookingData={ticketBookingData}
             />
           );
         })}
@@ -168,11 +169,15 @@ const TimeSchedule = ({ setAllData, allData }) => {
 };
 export default TimeSchedule;
 
-function SelectDate({ dateTime, click, status, datePick, allData }) {
+function SelectDate({ dateTime, click, status, datePick, ticketBookingData }) {
   return (
     <>
       <div
-        className={allData && allData.date && allData.date.includes(datePick.date) ? "bg-teal-600" : "bg-gray-600 date rounded-sm p-2 "}
+        className={
+          ticketBookingData && ticketBookingData.date && ticketBookingData.date.includes(datePick.date)
+            ? "bg-teal-600"
+            : "bg-gray-600 date rounded-sm p-2 "
+        }
         onClick={click}
       >
         <p className=" text-sm ">{datePick.date}</p>
@@ -182,12 +187,14 @@ function SelectDate({ dateTime, click, status, datePick, allData }) {
   );
 }
 
-function SelectTime({ timePick, click, status, allData }) {
+function SelectTime({ timePick, click, status, ticketBookingData }) {
   return (
     <>
       <div
         className={
-          allData && allData.selectShowtime && allData.selectShowtime.includes(timePick.time)
+          ticketBookingData &&
+          ticketBookingData.selectShowtime &&
+          ticketBookingData.selectShowtime.includes(timePick.time)
             ? "bg-teal-600"
             : "bg-gray-600 flex justify-center items-center p-2 rounded-sm"
         }

@@ -1,13 +1,18 @@
 import React from "react";
-import { Button, message, Steps, theme } from "antd";
 import Head from "next/head";
+import { useDispatch, useSelector } from "react-redux";
+import { addTotalPrice } from "@/app/features/ticketBookingSlicer/ticketBookingSlice";
 
-export default function Confirmation({ allData, setAllData }) {
-  if (!allData || !allData.selectedSeats) {
-    return null; 
-  }
-
-  const { selectedSeats, Sprice } = allData;
+export default function Confirmation() {
+  const seatType = useSelector((state) => state.allSeatReducer);
+  const dispatch = useDispatch();
+  dispatch(
+    addTotalPrice(
+      seatType.classic.length * 100 +
+        seatType.standard.length * 200 +
+        seatType.premium.length * 300
+    )
+  );
   const renderData = (
     <>
       <Head>
@@ -25,20 +30,61 @@ export default function Confirmation({ allData, setAllData }) {
               <div className="card-body px-4 p-4">
                 <h5 className="card-title  mt-1 text-2xl">LEADER</h5>
                 <p className="card-text text-muted mt-3">
-                  Ipsa earum saepe tempora, neque laudantium non itaque ullam
-                  reiciendis dolore explicabo!
+                  Your seat information
                 </p>
                 <div className="alert alert-light  plan ">
-                  <div className="col-6">
-                    <div>SEAT NO : {selectedSeats + " "}</div>
-                  </div>
-                  <div className="col-3 d-flex align-items-center ">
-                    <a href="#">
-                      {" "}
-                      TOTAL PRICE : {selectedSeats.length} * {Sprice} ={" "}
-                      {selectedSeats.length * Sprice}
-                      {/* { setAllData({ ...allData,totalPrice : allData.selectedSeats.length * allData.Sprice})} */}
-                    </a>
+                  <div className=" tickectBox  bg-white text-black">
+                    <table class="table-fixed w-full">
+                      <thead>
+                        <tr>
+                          <th>Type</th>
+                          <th>Seats No</th>
+                          <th>Price</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Classic</td>
+                          <td>{seatType.classic + " "}</td>
+                          {seatType.classic.length !== 0 && (
+                            <td>
+                              {seatType.classic.length} * 100 ={" "}
+                              {seatType.classic.length * 100}tk
+                            </td>
+                          )}
+                        </tr>
+                        <tr>
+                          <td>Standard</td>
+                          <td>{seatType.standard + " "}</td>
+                          {seatType.standard.length !== 0 && (
+                            <td>
+                              {seatType.standard.length} * 200 ={" "}
+                              {seatType.standard.length * 200}tk
+                            </td>
+                          )}
+                        </tr>
+                        <tr>
+                          <td>Premium</td>
+                          <td>{seatType.premium + " "}</td>
+                          {seatType.premium.length !== 0 && (
+                            <td>
+                              {seatType.premium.length} * 300 ={" "}
+                              {seatType.premium.length * 300}tk
+                            </td>
+                          )}
+                        </tr>
+                        <tr>
+                          <td>Total Price</td>
+                          <td></td>
+                          <td>
+                            {seatType.classic.length * 100 +
+                              seatType.standard.length * 200 +
+                              seatType.premium.length * 300}
+                            tk
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>

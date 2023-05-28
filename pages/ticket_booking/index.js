@@ -4,6 +4,8 @@ import TimeSchedule from "./timeshedule";
 import TotalSeatPlan from "./totalSeatPlan";
 import Done from "./done";
 import Confirmation from "./confirmation";
+import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
 const steps = [
   {
@@ -24,22 +26,15 @@ const steps = [
   },
 ];
 const TicketBooking = () => {
-  const [allData, setAllData] = useState({
-    selectShowtime: "",
-    date: "",
-    selectedSeats: [],
-    totalPrice: 0,
-    totalSeats: 0,
-    Sprice: 100,
-    Pprice: 200,
-    Cprice: 300,
-    userId: "10002",
-  });
-
- 
-
-  console.log("allData frm home---", allData);
-
+  const loginCheck = useSelector(
+    (state) => state.basicAuthReducer.loginChecked
+  );
+  const router = useRouter();
+  const ticketBookingData = useSelector((state) => state.ticketBookingReducer);
+  console.log(
+    "redux toolkit Ticket Booking  Index Page------",
+    ticketBookingData
+  );
   const { token } = theme.useToken();
   const [current, setCurrent] = useState(0);
 
@@ -71,13 +66,13 @@ const TicketBooking = () => {
           <Steps current={current} items={items} />
           <div style={contentStyle}>
             {steps[current].content == "time" ? (
-              <TimeSchedule setAllData={setAllData} allData={allData} />
+              <TimeSchedule />
             ) : steps[current].content == "seats" ? (
-              <TotalSeatPlan allData={allData} setAllData={setAllData} />
+              <TotalSeatPlan />
             ) : steps[current].content == "confirm" ? (
-              <Confirmation setAllData={setAllData} allData={allData} />
+              <Confirmation />
             ) : (
-              <Done allData={allData} />
+              <Done />
             )}
           </div>
           <div
@@ -104,21 +99,31 @@ const TicketBooking = () => {
                 className="flex items-center justify-center"
                 type="primary"
                 onClick={() => {
-                    if(steps[current].content == "time"){
-                      if (allData?.date !== "" && allData?.selectShowtime !== "") {
-                        next()
-                      } else{
-                        message.error("Please select a date and time")
-                      }
-                    }else if(steps[current].content == "seats"){
-                      if(allData.selectedSeats.length !== 0){
-                        next()
-                      }else{
-                        message.error("Please select a seat")
-                      }
-                    }else if(steps[current].content == "confirm"){
-                      next()
+                  if (steps[current].content == "time") {
+                    if (
+                      ticketBookingData?.date !== "" &&
+                      ticketBookingData?.selectShowtime !== ""
+                    ) {
+                      next();
+                    } else {
+                      message.error("Please select a date and time");
                     }
+                  } else if (steps[current].content == "seats") {
+                    if (ticketBookingData.selectedSeats.length !== 0) {
+                      next();
+                    } else {
+                      message.error("Please select a seat");
+                    }
+                  } else if (steps[current].content == "confirm") {
+                    if (loginCheck) {
+                      next();
+                    } else {
+                      message.error(
+                        "Please login first then confirm your ticket"
+                      );
+                      router.push("/login");
+                    }
+                  }
                 }}
               >
                 Next

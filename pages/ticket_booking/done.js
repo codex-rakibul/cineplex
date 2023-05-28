@@ -1,15 +1,12 @@
 import Head from "next/head";
 import React from "react";
 import { PlaySquareOutlined } from "@ant-design/icons";
-
-export default function Done({ allData }) {
-  const imgUrl =
-    "https://blockbusterbd.com/uploads/movies/posters/leader-amie-bangladesh-8826415191682089760.jpg";
-
-  if (!allData || !allData.date || !allData.selectShowtime || !allData.selectedSeats || !allData.userId) {
-    return null; // or show an error message
-  }
-
+import { useSelector } from "react-redux";
+const imgUrl =
+  "https://blockbusterbd.com/uploads/movies/posters/leader-amie-bangladesh-8826415191682089760.jpg";
+export default function Done() {
+  const ticketBookingData = useSelector((state) => state.ticketBookingReducer);
+ const userID = useSelector((state) => state.basicAuthReducer.userId);
   const renderData = (
     <div>
       <Head>
@@ -29,7 +26,7 @@ export default function Done({ allData }) {
             <div className="ticket-info">
               <p className="date">
                 <span>CINEPLEX BD</span>
-                <span className="nov-10"> {allData?.date}</span>
+                <span className="nov-10"> {ticketBookingData?.date}</span>
                 <span></span>
               </p>
               <div className="show-name">
@@ -37,10 +34,10 @@ export default function Done({ allData }) {
                 <h2>CLASSIC</h2>
               </div>
               <div className="time">
-                <p>SHOW TIME :- {allData?.selectShowtime}</p>
+                <p>SHOW TIME :- {ticketBookingData?.selectShowtime}</p>
               </div>
               <div className="tagline">
-                <p>{allData?.selectedSeats + " "}</p>
+                <p>{ticketBookingData?.selectedSeats + " "}</p>
               </div>
               <p className="location">
                 <span>CINEPLEX BD </span>
@@ -60,17 +57,17 @@ export default function Done({ allData }) {
                 <p className="showName">CINEPLEX BD</p>
               </div>
               <div className="time">
-                <p>{allData?.date}</p>
-                <p>SHOW TIME :- {allData.selectShowtime}</p>
-                <p>{allData.selectedSeats + " "}</p>
+                <p>{ticketBookingData?.date}</p>
+                <p>SHOW TIME :- {ticketBookingData.selectShowtime}</p>
+                <p>{ticketBookingData.selectedSeats + " "}</p>
               </div>
-              <p className="ticket-number mt-2">#{allData?.userId}</p>
+              <p className="ticket-number mt-2">#{userID}</p>
             </div>
           </div>
         </div>
       </div>
     </div>
   );
-  
+
   return <>{renderData}</>;
 }

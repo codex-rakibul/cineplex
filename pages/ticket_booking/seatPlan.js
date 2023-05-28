@@ -1,8 +1,7 @@
 import { allMovies } from "../../dummyData/movieData";
 import SeatComponents from "./seatComponents";
 
-const SeatsPlan = ({ allData, setAllData }) => {
-  console.log("seat: ", allData);
+const SeatsPlan = () => {
 
   const renderData = (
     <div className=" md:grid-cols-2  md:gap-20 grid grid-cols-1 gap-10 md:mt-0 mt-4 w-screen">
@@ -14,8 +13,7 @@ const SeatsPlan = ({ allData, setAllData }) => {
                 <div>
                   <SeatComponents
                     row={row[1]}
-                    allData={allData}
-                    setAllData={setAllData}
+                    rowNumber={row[0]}
                   />
                 </div>
               ) : (
@@ -33,8 +31,8 @@ const SeatsPlan = ({ allData, setAllData }) => {
                 <div>
                   <SeatComponents
                     row={row[1]}
-                    allData={allData}
-                    setAllData={setAllData}
+                    rowNumber={row[0]}
+                  
                   />
                 </div>
               ) : (

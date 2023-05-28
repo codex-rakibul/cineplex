@@ -74,7 +74,7 @@ export default function TicketPrice() {
 
             <div className="card2 card--3 ">
               <figure className="card__front flex justify-center items-center">
-                P E R M I U M
+                P R E M I U M
               </figure>
               <figure className="card__back flex justify-center items-center  text-2xl font-semibold">
                 300 <span className="mr-2"></span>{" "}

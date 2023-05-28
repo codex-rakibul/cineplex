@@ -1,12 +1,24 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { close, menu } from "../../assets";
-import { navLinks } from "../../constants";
+import { navLinks } from "../../dummyData/dummyData";
 import Image from "next/image";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import { addAuth } from "@/app/features/basicAuthSlicer/basicAuthSlice";
+import { message } from "antd";
 const NavbarCom = () => {
+  const loginCheck = useSelector(
+    (state) => state.basicAuthReducer.loginChecked
+  );
+  const dispatch = useDispatch();
+
   const router = useRouter();
   const [toggle, setToggle] = useState(false);
+  const handleLogout = () => {
+    message.success("Safely log out your account");
+    dispatch(addAuth(false));
+  };
 
   const renderData = (
     <div>
@@ -36,6 +48,24 @@ const NavbarCom = () => {
               >
                 {id != "login" ? (
                   <Link href={`/${nav.id}`}>{title}</Link>
+                ) : loginCheck ? (
+                  <div
+                    className="inline-flex items-center text-[16px]"
+                    onClick={() => handleLogout()}
+                  >
+                    LOGOUT
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      className="w-4 h-5 ml-1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                  </div>
                 ) : (
                   <Link href={`/${nav.id}`}>
                     <div className="inline-flex items-center text-[16px]">
@@ -81,19 +111,37 @@ const NavbarCom = () => {
                       index === navLinks.length - 1 ? "mr-0" : "mb-4"
                     } text-white`}
                   >
-                    {id != "signin" ? (
+                    {id != "login" ? (
                       <Link href={`/${nav.id}`}>{title}</Link>
+                    ) : loginCheck ? (
+                      <div
+                        className="inline-flex items-center text-[16px]"
+                        onClick={() => handleLogout()}
+                      >
+                        LOGOUT
+                        <svg
+                          fill="none"
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          className="w-4 h-5 ml-1"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                      </div>
                     ) : (
-                      <Link href="/login">
+                      <Link href={`/${nav.id}`}>
                         <div className="inline-flex items-center text-[16px]">
                           {title}
                           <svg
                             fill="none"
                             stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            class="w-4 h-5 ml-1"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            className="w-4 h-5 ml-1"
                             viewBox="0 0 24 24"
                           >
                             <path d="M5 12h14M12 5l7 7-7 7"></path>
