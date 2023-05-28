@@ -1,9 +1,16 @@
 export const allUserLoginData = [
+
   {
     userId: "hjugfihszghousrhoguhsropighoi1434",
     name: "Admin",
     email: "admin@gmail.com",
     password: "admin@gmail.com",
+  },
+  {
+    userId: "hjugfihszghousrhoguhsropighoi144",
+    name: "Sony",
+    email: "rakibulislam667s@gmail.com",
+    password: "rakibulislam667s@gmail.com",
   },
   {
     userId: "hjugfihszghousrhoguhsropighoi1",

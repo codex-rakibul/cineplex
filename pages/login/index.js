@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Navbar from "../../components/navbar";
 import { useFormik } from "formik";
@@ -6,11 +6,18 @@ import * as yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "@/app/features/loginSlicer/loginSlice";
 import { v4 as uuidv4 } from "uuid";
-import { addAuth, addUserAuthId } from "@/app/features/basicAuthSlicer/basicAuthSlice";
+import {
+  addAuth,
+  addUserAuthId,
+} from "@/app/features/basicAuthSlicer/basicAuthSlice";
 import Head from "next/head";
 import { message } from "antd";
 
 export default function index() {
+  const renderLoginError = (
+    <span className="text-red-600">Please enter valid email or password</span>
+  );
+  const [loginError,setLoginError] = useState(false);
   const router = useRouter();
   const loginData = useSelector((state) => state.loginReducer);
   console.log(loginData);
@@ -34,14 +41,17 @@ export default function index() {
 
       loginData.map((user) => {
         if (user.email == person.email && user.password == person.password) {
-          if(user.email === "admin@gmail.com"){
+          if (user.email === "admin@gmail.com") {
+            setLoginError(false);
             router.push("/dashboard");
-          }else{
+          } else {
+            setLoginError(false);
             dispatch(addAuth(true));
             dispatch(addUserAuthId(user.userId));
             router.push("/");
           }
-          
+        } else {
+          setLoginError(true);
         }
       });
     },
@@ -73,7 +83,7 @@ export default function index() {
       const { name, email, password, userId } = values;
 
       resetForm({ values: { userId: "", name: "", email: "", password: "" } });
-      message.success("Successfully submitted...Now yon can login"); 
+      message.success("Successfully submitted...Now yon can login");
     },
   });
 
@@ -143,6 +153,7 @@ export default function index() {
               <button className=" btns" type="submit">
                 Sign In
               </button>
+              {loginError === true ? renderLoginError:""}
             </form>
           </div>
           <div className="login">
