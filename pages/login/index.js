@@ -8,6 +8,7 @@ import { addUser } from "@/app/features/loginSlicer/loginSlice";
 import { v4 as uuidv4 } from "uuid";
 import { addAuth, addUserAuthId } from "@/app/features/basicAuthSlicer/basicAuthSlice";
 import Head from "next/head";
+import { message } from "antd";
 
 export default function index() {
   const router = useRouter();
@@ -67,6 +68,7 @@ export default function index() {
       const { name, email, password, userId } = values;
 
       resetForm({ values: { userId: "", name: "", email: "", password: "" } });
+      message.success("Successfully submitted...Now yon can login"); 
     },
   });
 
