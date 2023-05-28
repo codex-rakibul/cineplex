@@ -1,5 +1,4 @@
 export const allUserLoginData = [
-
   {
     userId: "hjugfihszghousrhoguhsropighoi1434",
     name: "Admin",

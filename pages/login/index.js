@@ -17,7 +17,7 @@ export default function index() {
   const renderLoginError = (
     <span className="text-red-600">Please enter valid email or password</span>
   );
-  const [loginError,setLoginError] = useState(false);
+  const [loginError, setLoginError] = useState(false);
   const router = useRouter();
   const loginData = useSelector((state) => state.loginReducer);
   console.log(loginData);
@@ -153,7 +153,7 @@ export default function index() {
               <button className=" btns" type="submit">
                 Sign In
               </button>
-              {loginError === true ? renderLoginError:""}
+              {loginError === true ? renderLoginError : ""}
             </form>
           </div>
           <div className="login">

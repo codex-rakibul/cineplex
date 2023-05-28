@@ -1,8 +1,8 @@
 import React from "react";
 
 export default function DashboardCom() {
-  return (
-    <>
+  const renderData = (
+    <div>
       <div id="24h">
         <h1 className="font-bold py-4 uppercase">Last 24h Statistics</h1>
         <div
@@ -746,6 +746,7 @@ export default function DashboardCom() {
           </table>
         </div>
       </div>
-    </>
+    </div>
   );
+  return <>{renderData}</>;
 }
