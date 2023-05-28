@@ -168,9 +168,9 @@ export default function index() {
             </div>
             <div>
               <p className="font-medium group-hover:text-indigo-400 leading-4">
-                Jim Smith
+                Sony
               </p>
-              <span className="text-xs text-slate-400">Pantazi LLC</span>
+              <span className="text-xs text-slate-400">Owner</span>
             </div>
           </a>
           <hr className="my-2 border-slate-700" />
@@ -183,10 +183,10 @@ export default function index() {
                   onClick={() => handleCom(com)}
                   className="navBtn "
                 >
-                  <div className="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center">
+                  <div className="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2  items-center">
                     <div>{svg}</div>
-                    <div className="md:visible invisible flex justify-center items-center">
-                      <p className="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400">
+                    <div className="">
+                      <p className="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400 hidden md:block">
                         {title}
                       </p>
                       <p className="text-slate-400 text-sm hidden md:block">
