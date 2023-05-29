@@ -859,31 +859,6 @@ input:focus {
   padding: 10px 20px;
 }
 
-/* .date {
-	border-top: 1px solid gray;
-	border-bottom: 1px solid gray;
-	padding: 5px 0;
-	font-weight: 700;
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-}
-
-.date span:first-child {
-	text-align: left;
-	width: 100px;
-}
-
-.date span:last-child {
-	text-align: right;
-	width: 100px;
-}
-
-.date .nov-10 {
-	color: #d62839;
-	font-size: 20px;
-	width: 150px;
-} */
 
 .show-name {
   font-size: 20px;
@@ -965,7 +940,8 @@ input:focus {
 }
 
 .right {
-  border-left: 1px dashed #404040;
+  @apply border-dashed border-gray-600  md:border-l border-l-0 md:border-t-0 border-t;
+  
 }
 
 .right .admit-one {
@@ -984,7 +960,15 @@ input:focus {
   justify-content: space-evenly;
   align-items: center;
 }
-
+.left .ticket-info{
+  background-color: #11101d;
+  height: 252px;
+  padding: 10px 10px 10px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
 .right .show-name h1 {
   font-size: 18px;
   font-family: "Barlow", sans-serif;

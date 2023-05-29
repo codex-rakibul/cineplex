@@ -8,12 +8,16 @@ import { addUser } from "@/app/features/loginSlicer/loginSlice";
 import { v4 as uuidv4 } from "uuid";
 import {
   addAuth,
+  addDonePage,
   addUserAuthId,
 } from "@/app/features/basicAuthSlicer/basicAuthSlice";
 import Head from "next/head";
 import { message } from "antd";
 
 export default function index() {
+  const { bookingSystem, donePage } = useSelector(
+    (state) => state.basicAuthReducer
+  );
   const renderLoginError = (
     <span className="text-red-600">Please enter valid email or password</span>
   );
@@ -44,6 +48,9 @@ export default function index() {
           if (user.email === "admin@gmail.com") {
             setLoginError(false);
             router.push("/dashboard");
+          } else if (bookingSystem) {
+            dispatch(addDonePage(true));
+            router.push("/ticket_booking");
           } else {
             setLoginError(false);
             dispatch(addAuth(true));
@@ -83,7 +90,12 @@ export default function index() {
       const { name, email, password, userId } = values;
 
       resetForm({ values: { userId: "", name: "", email: "", password: "" } });
-      message.success("Successfully submitted...Now yon can login");
+      if (bookingSystem) {
+        dispatch(addDonePage(true));
+        router.push("/ticket_booking");
+      } else {
+        message.success("Successfully submitted...Now yon can login");
+      }
     },
   });
 

@@ -53,7 +53,7 @@ export const homeData = [
     name: "Pirates Sea",
     rating: 4.8,
     time: "2hr : 22mins",
-    desc: "Piracy is an act of robbery or criminal violence by ship or boat-borne attackers upon another ship or a coastal area, typically with the goal of stealing cargo and other valuable items or properties. ",
+    desc: "Sand and dust storms (SDS), also known as sirocco, haboob, yellow dust, white storms, and the harmattan, are a natural phenomenon linked with land and water management and climate change.",
     starring: "James Chinlund, Jeff Nathanson",
     genres: "Adventures",
     tags: "Adventures,Action ",

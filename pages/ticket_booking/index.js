@@ -4,8 +4,10 @@ import TimeSchedule from "./timeshedule";
 import TotalSeatPlan from "./totalSeatPlan";
 import Done from "./done";
 import Confirmation from "./confirmation";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
+import Link from "next/link";
+import { addBookingSystem, addDonePage } from "@/app/features/basicAuthSlicer/basicAuthSlice";
 
 const steps = [
   {
@@ -26,15 +28,19 @@ const steps = [
   },
 ];
 const TicketBooking = () => {
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const ticketBookingData = useSelector((state) => state.ticketBookingReducer);
   const loginCheck = useSelector(
     (state) => state.basicAuthReducer.loginChecked
   );
-  const router = useRouter();
-  const ticketBookingData = useSelector((state) => state.ticketBookingReducer);
-  console.log(
-    "redux toolkit Ticket Booking  Index Page------",
-    ticketBookingData
-  );
+  const { donePage } = useSelector((state) => state.basicAuthReducer);
+
+  const handleUnLogin = () => {
+    dispatch(addBookingSystem(true));
+    router.push("/login");
+  };
+
   const { token } = theme.useToken();
   const [current, setCurrent] = useState(0);
 
@@ -59,13 +65,21 @@ const TicketBooking = () => {
     paddingTop: "20px",
   };
 
+  const handleDone = () => {
+    dispatch(addDonePage(false))
+    message.success("Ticket Confirmation has been confirmed successfully");
+    router.push("/");
+  };
+
   const renderData = (
     <div>
       <div className="h-screen bg-black">
         <div className="md:p-10 p-4 bg-black h-auto text-white ">
           <Steps current={current} items={items} />
           <div style={contentStyle}>
-            {steps[current].content == "time" ? (
+            {donePage ? (
+              <Done />
+            ) : steps[current].content == "time" ? (
               <TimeSchedule />
             ) : steps[current].content == "seats" ? (
               <TotalSeatPlan />
@@ -94,7 +108,7 @@ const TicketBooking = () => {
                 </button>
               )}
             </div>
-            {current < steps.length - 1 && (
+            {!donePage && current < steps.length - 1 && (
               <button
                 className="flex items-center justify-center"
                 type="primary"
@@ -116,27 +130,24 @@ const TicketBooking = () => {
                     }
                   } else if (steps[current].content == "confirm") {
                     if (loginCheck) {
+                      // handlePayment();
                       next();
                     } else {
                       message.error(
                         "Please login first then confirm your ticket"
                       );
-                      router.push("/login");
+                      handleUnLogin();
                     }
                   }
                 }}
               >
-                Next
+                {steps[current].content == "confirm" ? "Confirm" : "Next"}
               </button>
             )}
-            {current === steps.length - 1 && (
+            {(current === steps.length - 1 || donePage) && (
               <button
                 className="flex items-center justify-center"
-                onClick={() =>
-                  message.success(
-                    "Ticket Confirmation has been confirmed successfully"
-                  )
-                }
+                onClick={() => handleDone()}
               >
                 Done
               </button>
