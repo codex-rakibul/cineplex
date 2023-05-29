@@ -1,25 +1,29 @@
 import Head from "next/head";
-import imagesLoad from "../../public/images/bm1.jpg";
 import { PlaySquareOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
-import React, { useRef } from "react";
-import html2pdf from "html2pdf.js";
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
-import Image from "next/image";
-const imgUrl =
-  "https://blockbusterbd.com/uploads/movies/posters/leader-amie-bangladesh-8826415191682089760.jpg";
+import React, { useEffect, useRef } from "react";
+
 export default function Done() {
   const ticketRef = useRef(null);
-  const handleDownloadPDF = () => {
-    const element = ticketRef.current;
-    if (element) {
-      html2pdf()
-        .set({ html2canvas: { scale: 1 } })
-        .from(element)
-        .save();
-    }
-  };
+  useEffect(() => {
+    import("html2pdf.js").then((module) => {
+      const html2pdf = module.default;
+      const handleDownloadPDF = () => {
+        const element = ticketRef.current;
+        if (element) {
+          html2pdf()
+            .set({ html2canvas: { scale: 1 } })
+            .from(element)
+            .save();
+        }
+      };
+
+      const button = document.getElementById("downloadPDF");
+      if (button) {
+        button.addEventListener("click", handleDownloadPDF);
+      }
+    });
+  }, []);
 
   const ticketBookingData = useSelector((state) => state.ticketBookingReducer);
   const userID = useSelector((state) => state.basicAuthReducer.userId);
@@ -29,7 +33,7 @@ export default function Done() {
       <Head>
         <title>Ticket</title>
       </Head>
-      <div className="downloadPDF md:my-20 md:mx-40 mx-1 md:h-fit h-ful  mb-6 ">
+      <div className="downloadPDF md:my-20  md:mx-40 mx-1 md:h-fit h-ful  mb-6 ">
         <div
           ref={ticketRef}
           className="  ticket grid md:grid-cols-2 "
@@ -52,7 +56,7 @@ export default function Done() {
               <div className="tagline text-white">
                 <p>{ticketBookingData?.selectedSeats + " "}</p>
               </div>
-              <p className="location text-gray-400">
+              <p className="location text-gray-400 mt-4">
                 <span>CINEPLEX BD </span>
                 <PlaySquareOutlined />
                 <span>CINEPLEX BD</span>
@@ -73,9 +77,12 @@ export default function Done() {
             </div>
           </div>
         </div>
-        <button className="btns" onClick={handleDownloadPDF}>
+        {/* <button className="btns" onClick={handleDownloadPDF}>
         Download PDF
-      </button>
+      </button> */}
+      <button className="btns" id="downloadPDF">
+          Download PDF
+        </button>
       </div>
     </div>
   );
