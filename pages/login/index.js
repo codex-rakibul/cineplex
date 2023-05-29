@@ -93,9 +93,11 @@ export default function index() {
 
       resetForm({ values: { userId: "", name: "", email: "", password: "" } });
       if (bookingSystem) {
+        dispatch(addAuth(true));
         dispatch(addDonePage(true));
         router.push("/ticket_booking");
       } else {
+        dispatch(addAuth(true));
         message.success("Successfully submitted...Now yon can login");
       }
     },
