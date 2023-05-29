@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { addAuth } from "@/app/features/basicAuthSlicer/basicAuthSlice";
 import { message } from "antd";
+import { svg1, svg2 } from "./svg";
 const NavbarCom = () => {
   const loginCheck = useSelector(
     (state) => state.basicAuthReducer.loginChecked
@@ -22,7 +23,7 @@ const NavbarCom = () => {
 
   const renderData = (
     <div>
-      <nav className="z-10 w-full flex py-6 justify-between items-center navbar">
+      <nav className="z-10 w-full  py-6 flexStyle navbar">
         {/* <Image src={logo} alt="hoobank" className="w-[124px] h[32px]" /> */}
         <Link href="/">
           <h1 className={`font-poppins font-semibold cursor-pointer mainLogo `}>
@@ -54,33 +55,13 @@ const NavbarCom = () => {
                     onClick={() => handleLogout()}
                   >
                     LOGOUT
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      className="w-4 h-5 ml-1"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
+                    {svg1}
                   </div>
                 ) : (
                   <Link href={`/${nav.id}`}>
                     <div className="inline-flex items-center text-[16px]">
                       {title}
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        className="w-4 h-5 ml-1"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                      </svg>
+                      {svg2}
                     </div>
                   </Link>
                 )}
@@ -119,33 +100,13 @@ const NavbarCom = () => {
                         onClick={() => handleLogout()}
                       >
                         LOGOUT
-                        <svg
-                          fill="none"
-                          stroke="currentColor"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          className="w-4 h-5 ml-1"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M5 12h14M12 5l7 7-7 7"></path>
-                        </svg>
+                        {svg1}
                       </div>
                     ) : (
                       <Link href={`/${nav.id}`}>
                         <div className="inline-flex items-center text-[16px]">
                           {title}
-                          <svg
-                            fill="none"
-                            stroke="currentColor"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            className="w-4 h-5 ml-1"
-                            viewBox="0 0 24 24"
-                          >
-                            <path d="M5 12h14M12 5l7 7-7 7"></path>
-                          </svg>
+                          {svg2}
                         </div>
                       </Link>
                     )}

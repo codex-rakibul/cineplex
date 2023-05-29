@@ -14,8 +14,11 @@ export default function Done() {
           const ticketWidth = element.offsetWidth;
           const ticketHeight = element.offsetHeight;
           html2pdf()
-            .set({ html2canvas: { scale: 1 }, page: { format: [ticketWidth, ticketHeight] } })
-           
+            .set({
+              html2canvas: { scale: 1 },
+              page: { format: [ticketWidth, ticketHeight] },
+            })
+
             .from(element)
             .save("Ticket.pdf");
         }
@@ -36,7 +39,7 @@ export default function Done() {
       <Head>
         <title>Ticket</title>
       </Head>
-      <div className="downloadPDF md:my-20  md:mx-40 mx-1 md:h-fit h-ful  mb-6 ">
+      <div className=" md:my-20  md:mx-40   md:h-fit h-ful  mb-6 ">
         <div
           ref={ticketRef}
           className="  ticket grid md:grid-cols-2 "
@@ -81,8 +84,8 @@ export default function Done() {
           </div>
         </div>
 
-        <button className="btns" id="downloadPDF">
-          Download PDF
+        <button className="btn" id="downloadPDF">
+          Download Ticket
         </button>
       </div>
     </div>

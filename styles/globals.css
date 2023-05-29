@@ -952,6 +952,7 @@ input:focus {
   color: #505050;
 }
 
+
 .right .right-info-container {
   height: 250px;
   padding: 10px 10px 10px 30px;
@@ -1296,3 +1297,16 @@ input {
 .tickectBox{
   border: 1px dotted white;
 }
+/****************************************/
+/****************************************/
+/****************************************/
+.flexStyle{
+  @apply flex items-center justify-center;
+}
+.available{
+  @apply h-10 md:w-40 w-24 flexStyle rounded-sm;
+}
+.tk{
+  @apply font-bold  flexStyle;
+}
+

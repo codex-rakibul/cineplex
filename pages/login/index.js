@@ -24,7 +24,6 @@ export default function index() {
   const [loginError, setLoginError] = useState(false);
   const router = useRouter();
   const loginData = useSelector((state) => state.loginReducer);
-  console.log(loginData);
   const dispatch = useDispatch();
 
   const formikSignIn = useFormik({
@@ -42,9 +41,10 @@ export default function index() {
 
     onSubmit: (values) => {
       const person = values;
-
+      let matchFound = false;
       loginData.map((user) => {
-        if (user.email == person.email && user.password == person.password) {
+        if (user.email === person.email && user.password === person.password) {
+          matchFound = true;
           if (user.email === "admin@gmail.com") {
             setLoginError(false);
             router.push("/dashboard");
@@ -57,10 +57,11 @@ export default function index() {
             dispatch(addUserAuthId(user.userId));
             router.push("/");
           }
-        } else {
-          setLoginError(true);
         }
       });
+      if (!matchFound) {
+        setLoginError(true);
+      }
     },
   });
 

@@ -41,7 +41,6 @@ const Home = () => {
       <div className={` homeContainer`}>
         <Slider {...settings}>
           {homeData.map((item,index) => {
-            console.log(item)
             return (
                 <HomeCard key={index} item={item} />
             )

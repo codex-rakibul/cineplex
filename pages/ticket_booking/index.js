@@ -1,13 +1,15 @@
 import { message, Steps, theme } from "antd";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import TimeSchedule from "./timeshedule";
 import TotalSeatPlan from "./totalSeatPlan";
 import Done from "./done";
 import Confirmation from "./confirmation";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import Link from "next/link";
-import { addBookingSystem, addDonePage } from "@/app/features/basicAuthSlicer/basicAuthSlice";
+import {
+  addBookingSystem,
+  addDonePage,
+} from "@/app/features/basicAuthSlicer/basicAuthSlice";
 
 const steps = [
   {
@@ -60,13 +62,12 @@ const TicketBooking = () => {
     color: token.colorTextTertiary,
     backgroundColor: token.colorFillAlter,
     borderRadius: token.borderRadiusLG,
-    border: `1px dashed ${token.colorBorder}`,
-    marginTop: 30,
-    paddingTop: "20px",
+    border: `1px solid ${token.colorBorder}`,
+    marginTop: "30px",
   };
 
   const handleDone = () => {
-    dispatch(addDonePage(false))
+    dispatch(addDonePage(false));
     message.success("Ticket Confirmation has been confirmed successfully");
     router.push("/");
   };
@@ -98,7 +99,7 @@ const TicketBooking = () => {
             <div>
               {current > 0 && (
                 <button
-                  className="flex items-center justify-center"
+                  className="flexStyle"
                   style={{
                     marginTop: "0px",
                   }}
@@ -110,7 +111,7 @@ const TicketBooking = () => {
             </div>
             {!donePage && current < steps.length - 1 && (
               <button
-                className="flex items-center justify-center"
+                className="flexStyle"
                 type="primary"
                 onClick={() => {
                   if (steps[current].content == "time") {
@@ -145,10 +146,7 @@ const TicketBooking = () => {
               </button>
             )}
             {(current === steps.length - 1 || donePage) && (
-              <button
-                className="flex items-center justify-center"
-                onClick={() => handleDone()}
-              >
+              <button className="flexStyle" onClick={() => handleDone()}>
                 Done
               </button>
             )}

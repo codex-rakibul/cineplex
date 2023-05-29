@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { message } from "antd";
 import { useDispatch, useSelector } from "react-redux";
+import { seatCom } from "../../components/styleCom/totalSeatPlanStyle.js";
 import {
   addSelectedSeats,
-  addTotalPrice,
   updateSelectedSeats,
 } from "@/app/features/ticketBookingSlicer/ticketBookingSlice";
 import {
@@ -18,11 +18,11 @@ import {
 export default function SeatComponents({ row, rowNumber }) {
   const dispatch = useDispatch();
   const ticketBookingData = useSelector((state) => state.ticketBookingReducer);
-  const seatType = useSelector((state) => state.allSeatReducer);
+  //const seatType = useSelector((state) => state.allSeatReducer);
 
   const renderData = (
     <div>
-      <div className="grid md:grid-cols-10 md:gap-0 grid-cols-5 gap-4 md:grid-rows-2 grid-rows-3">
+      <div className={seatCom}>
         {row?.map((seat, index) => {
           const [seatSelected, setSeatSelected] = useState(false);
 
