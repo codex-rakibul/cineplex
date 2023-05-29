@@ -21,14 +21,14 @@ const TotalSeatPlan = () => {
               Selected
             </div>
           </div>
-          <div className="grid grid-cols-3 md:gap-10 gap-4 md:mt-8 md:mb-0 mb-4 text-white justify-center">
-            <div className="bg-gray-600 h-10 md:w-40 w-24 flex items-center justify-center rounded-sm">
+          <div className="grid grid-cols-3 md:gap-10 gap-4 md:mt-8 md:mb-0 mb-4 text-gray-600 font-bold justify-center">
+            <div className="">
               C: 100tk
             </div>
-            <div className="bg-red-600 h-10 md:w-40  w-24 flex items-center justify-center rounded-sm">
+            <div className=" h-10 md:w-40  w-24 flex items-center text-red-600 font-bold  justify-center rounded-sm">
               S: 200tk
             </div>
-            <div className="bg-teal-600 h-10 md:w-40 w-24 flex items-center justify-center rounded-sm">
+            <div className="text-teal-600 font-bold  h-10 md:w-40 w-24 flex items-center justify-center rounded-sm">
               P: 300tk
             </div>
           </div>
