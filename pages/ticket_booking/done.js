@@ -35,11 +35,11 @@ export default function Done() {
   const userID = useSelector((state) => state.basicAuthReducer.userId);
 
   const renderData = (
-    <div>
+    <div className="">
       <Head>
         <title>Ticket</title>
       </Head>
-      <div className=" md:my-20  md:mx-40   md:h-fit h-ful  mb-6 ">
+      <div className=" md:my-20  md:mx-40   md:h-fit h-ful ">
         <div
           ref={ticketRef}
           className="  ticket grid md:grid-cols-2 "

@@ -831,6 +831,7 @@ input:focus {
 
 /************ Ticket Done **************/
 .ticket {
+  border-radius: 100px;
   background: white;
 }
 
