@@ -11,10 +11,13 @@ export default function Done() {
       const handleDownloadPDF = () => {
         const element = ticketRef.current;
         if (element) {
+          const ticketWidth = element.offsetWidth;
+          const ticketHeight = element.offsetHeight;
           html2pdf()
-            .set({ html2canvas: { scale: 1 } })
+            .set({ html2canvas: { scale: 1 }, page: { format: [ticketWidth, ticketHeight] } })
+           
             .from(element)
-            .save();
+            .save("Ticket.pdf");
         }
       };
 
@@ -77,20 +80,13 @@ export default function Done() {
             </div>
           </div>
         </div>
-        {/* <button className="btns" onClick={handleDownloadPDF}>
-        Download PDF
-      </button> */}
-      <button className="btns" id="downloadPDF">
+
+        <button className="btns" id="downloadPDF">
           Download PDF
         </button>
       </div>
     </div>
   );
 
-  return (
-    <>
-      {renderData}
-      
-    </>
-  );
+  return <>{renderData}</>;
 }
