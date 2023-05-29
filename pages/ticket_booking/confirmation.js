@@ -63,7 +63,7 @@ export default function Confirmation() {
       <div className="flexStyle md:my-10">
         <div className="row justify-content-center " style={{ width: "500px" }}>
           <div className="col-md-1 md:my-5 ">
-            <div className=" r">
+            <div className=" ">
               <img
                 src="https://blockbusterbd.com/uploads/movies/posters/leader-amie-bangladesh-8826415191682089760.jpg"
                 className=" w-full h-60"

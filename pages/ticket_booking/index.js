@@ -1,5 +1,5 @@
 import { message, Steps, theme } from "antd";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TimeSchedule from "./timeshedule";
 import TotalSeatPlan from "./totalSeatPlan";
 import Done from "./done";
@@ -36,8 +36,15 @@ const TicketBooking = () => {
   const loginCheck = useSelector(
     (state) => state.basicAuthReducer.loginChecked
   );
+  console.log("loginCheck----------",loginCheck);
   const { donePage } = useSelector((state) => state.basicAuthReducer);
+  useEffect(() => {
+    if (donePage) {
+      setCurrent(current + 3);
+      dispatch(addDonePage(false));
 
+    }
+  }, []);
   const handleUnLogin = () => {
     dispatch(addBookingSystem(true));
     router.push("/login");

@@ -831,7 +831,6 @@ input:focus {
 
 /************ Ticket Done **************/
 .ticket {
-  border-radius: 100px;
   background: white;
 }
 
@@ -1311,3 +1310,6 @@ input {
   @apply font-bold  flexStyle;
 }
 
+.roundCom{
+  border-radius: 100px ;
+}

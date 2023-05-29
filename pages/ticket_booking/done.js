@@ -42,7 +42,7 @@ export default function Done() {
       <div className=" md:my-20  md:mx-40   md:h-fit h-ful ">
         <div
           ref={ticketRef}
-          className="  ticket grid md:grid-cols-2 "
+          className="  ticket grid md:grid-cols-2 roundCom "
           id="invoice"
         >
           <div className="left ">

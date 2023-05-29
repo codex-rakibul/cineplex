@@ -49,6 +49,7 @@ export default function index() {
             setLoginError(false);
             router.push("/dashboard");
           } else if (bookingSystem) {
+            dispatch(addAuth(true));
             dispatch(addDonePage(true));
             router.push("/ticket_booking");
           } else {
