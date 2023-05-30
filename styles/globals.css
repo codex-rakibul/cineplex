@@ -1318,10 +1318,10 @@ input {
   background: black !important;
   pointer-events: none !important;
 }
-:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper table {
+.no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper table {
   text-align: center !important;
 }
-:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
+.no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table-container
   table
   > thead
@@ -1329,7 +1329,7 @@ input {
   > *:first-child {
   border-start-start-radius: 0px !important;
 }
-:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
+.no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table-container
   table
   > thead
@@ -1337,30 +1337,29 @@ input {
   > *:last-child {
   border-start-end-radius: 0px !important;
 }
-:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
+.no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table-thead
   > tr
   > th,
-:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
+  .no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table-thead
   > tr
   > td {
-  
-  position: relative;
-  color: rgba(0, 0, 0, 0.88);
-  font-weight: 600;
   text-align: center !important;
-  background: #fafafa;
-  border-bottom: 1px solid #f0f0f0;
-  transition: background 0.2s ease;
 }
-:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
+.no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table-tbody
   > tr >td:first-child{
    border-bottom-left-radius: 10px !important;
 }
-:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
+.no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table-tbody
   > tr >td:last-child{
    border-bottom-right-radius: 10px !important;
+}
+.no-hover:where(.css-ed5zg0).ant-table-wrapper .ant-table {
+  
+  color: rgb(252 252 252 / 88%) !important;
+  background: black !important;
+
 }
