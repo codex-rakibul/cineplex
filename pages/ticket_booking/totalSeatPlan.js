@@ -11,19 +11,7 @@ import {
 } from "../../components/styleCom/totalSeatPlanStyle.js";
 
 const TotalSeatPlan = () => {
-  useEffect(() => {
-    const videoPlayer = document.getElementById("videoPlayer");
-
-    function isMobileDevice() {
-      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
-      );
-    }
-
-    if (isMobileDevice()) {
-      videoPlayer.removeAttribute("autoplay");
-    }
-  }, []);
+ 
   const renderData = (
     <div className="mt-6">
       <Head>
@@ -55,7 +43,7 @@ const TotalSeatPlan = () => {
       </div>
       <div className="screen-container ">
         <div className={thirdStyle}>
-          <video id="videoPlayer" autoPlay muted loop>
+          <video id="videoPlayer" autoPlay muted loop  playsInline>
             <source src={vb} />
           </video>
         </div>
