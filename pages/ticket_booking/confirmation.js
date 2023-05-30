@@ -85,7 +85,6 @@ export default function Confirmation() {
                 </div>
                 <Table
                 className="no-hover"
-                  style={{ borderRadius: "10px" }}
                   dataSource={dataSource}
                   columns={columns}
                   pagination={false}
