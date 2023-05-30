@@ -1,9 +1,12 @@
 import Head from "next/head";
 import { PlaySquareOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
-import React, { useEffect, useRef } from "react";
+import React, { use, useEffect, useRef } from "react";
 
 export default function Done() {
+  const ticketBookingData = useSelector((state) => state.ticketBookingReducer);
+  const userId = useSelector((state) => state.basicAuthReducer.userId);
+
   const ticketRef = useRef(null);
   useEffect(() => {
     import("html2pdf.js").then((module) => {
@@ -31,9 +34,7 @@ export default function Done() {
     });
   }, []);
 
-  const ticketBookingData = useSelector((state) => state.ticketBookingReducer);
-  const userID = useSelector((state) => state.basicAuthReducer.userId);
-
+  
   const renderData = (
     <div className="">
       <Head>
@@ -79,7 +80,7 @@ export default function Done() {
                 <p>SHOW TIME :- {ticketBookingData.selectShowtime}</p>
                 <p>{ticketBookingData.selectedSeats + " "}</p>
               </div>
-              <p className="ticket-number mt-2">#{userID}</p>
+              <p className="ticket-number mt-2">#{userId}</p>
             </div>
           </div>
         </div>

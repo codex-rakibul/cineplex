@@ -4,20 +4,21 @@ import Navbar from "../../components/navbar";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser } from "@/app/features/loginSlicer/loginSlice";
+import {
+  addUser,
+  updateUserStatus,
+} from "@/app/features/loginSlicer/loginSlice";
 import { v4 as uuidv4 } from "uuid";
 import {
   addAuth,
   addDonePage,
-  addUserAuthId,
+  addUserId,
 } from "@/app/features/basicAuthSlicer/basicAuthSlice";
 import Head from "next/head";
 import { message } from "antd";
 
 export default function index() {
-  const { bookingSystem, donePage } = useSelector(
-    (state) => state.basicAuthReducer
-  );
+  const { bookingSystem } = useSelector((state) => state.basicAuthReducer);
   const renderLoginError = (
     <span className="text-red-600">Please enter valid email or password</span>
   );
@@ -44,18 +45,27 @@ export default function index() {
       let matchFound = false;
       loginData.map((user) => {
         if (user.email === person.email && user.password === person.password) {
+          console.log("id--------", user.userId);
           matchFound = true;
-          if (user.email === "admin@gmail.com") {
+          if (user.role === "admin") {
             setLoginError(false);
             router.push("/dashboard");
           } else if (bookingSystem) {
             dispatch(addAuth(true));
             dispatch(addDonePage(true));
+            dispatch(addUserId(user.userId));
             router.push("/ticket_booking");
           } else {
             setLoginError(false);
             dispatch(addAuth(true));
-            dispatch(addUserAuthId(user.userId));
+            dispatch(addUserId(user.userId));
+            dispatch(
+              updateUserStatus({
+                email: user.email,
+                password: user.password,
+                status: "active",
+              })
+            );
             router.push("/");
           }
         }
@@ -86,20 +96,29 @@ export default function index() {
     }),
 
     onSubmit: (values, { resetForm }) => {
-      const person = { ...values, userId: uuidv4() };
+      const person = {
+        ...values,
+        userId: uuidv4(),
+        status: "active",
+        role: "user",
+      };
       dispatch(addUser(person));
 
       const { name, email, password, userId } = values;
-
-      resetForm({ values: { userId: "", name: "", email: "", password: "" } });
+    
       if (bookingSystem) {
         dispatch(addAuth(true));
         dispatch(addDonePage(true));
+        dispatch(addUserId(person.userId));
         router.push("/ticket_booking");
       } else {
         dispatch(addAuth(true));
+       dispatch(addUserId(person.userId));
+        router.push("/");
         message.success("Successfully submitted...Now yon can login");
       }
+
+      resetForm({ values: { userId: "", name: "", email: "", password: "" } });
     },
   });
 

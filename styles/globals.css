@@ -532,9 +532,7 @@ video {
   background-color: teal !important;
   border-color: teal !important;
 }
-.anticon {
-  color: white !important;
-}
+
 :where(.css-dev-only-do-not-override-ed5zg0).ant-steps
   .ant-steps-item-finish
   > .ant-steps-item-container
