@@ -40,13 +40,13 @@ export default function Done() {
       <Head>
         <title>Ticket</title>
       </Head>
-      <div className=" md:my-20  md:mx-40   md:h-fit h-ful ">
+      <div className=" md:my-20   md:mx-40   md:h-fit h-ful ">
         <div
           ref={ticketRef}
-          className="  ticket grid md:grid-cols-2 "
+          className="  ticket grid md:grid-cols-2  "
           id="invoice"
         >
-          <div className="left bg-black">
+          <div className="left  ">
             <div className="ticket-info md:rounded-t-none rounded-t-xl">
               <p className="date text-gray-400">
                 <span>CINEPLEX BD</span>

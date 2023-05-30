@@ -74,14 +74,17 @@ export default function Confirmation() {
               />
               <div className=" ">
                 <div className="bg-gray-900 ">
-                  <h5 className="card-title pt-2  text-2xl text-red-600 font-semibold">
+                  <div className="showName">
+                  <p className="showName" >
                     LEADER
-                  </h5>
+                  </p>
+                  </div>
                   <p className="card-text text-muted mt-1 text-gray-200 font-medium">
                     Your seat information
                   </p>
                 </div>
                 <Table
+                className="no-hover"
                   style={{ borderRadius: "10px" }}
                   dataSource={dataSource}
                   columns={columns}
