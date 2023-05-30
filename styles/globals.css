@@ -1321,7 +1321,7 @@ input {
 .no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper table {
   text-align: center !important;
 }
-.no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
+:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table-container
   table
   > thead
@@ -1329,7 +1329,7 @@ input {
   > *:first-child {
   border-start-start-radius: 0px !important;
 }
-.no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
+:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table-container
   table
   > thead
