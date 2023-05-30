@@ -151,9 +151,7 @@ export default function index() {
       <div className="grid grid-cols-12 mx-auto gap-2 sm:gap-4 md:gap-6 lg:gap-10 xl:gap-14 max-w-7xl my-10 px-2">
         {/* <AdminNavBar/> */}
         <div id="menu" className="bg-white/10 col-span-3 rounded-lg p-4 ">
-          <h1 className="font-bold text-lg lg:text-3xl bg-gradient-to-br from-white via-white/50 to-transparent bg-clip-text text-transparent">
-            Dashboard<span className="text-indigo-400">.</span>
-          </h1>
+          
           <p className="text-slate-400 text-sm mb-2">Welcome back,</p>
           <a
             href="#"
@@ -162,7 +160,7 @@ export default function index() {
             <div>
               <img
                 className="rounded-full w-10 h-10 relative object-cover"
-                src="https://img.freepik.com/free-photo/no-problem-concept-bearded-man-makes-okay-gesture-has-everything-control-all-fine-gesture-wears-spectacles-jumper-poses-against-pink-wall-says-i-got-this-guarantees-something_273609-42817.jpg?w=1800&t=st=1669749937~exp=1669750537~hmac=4c5ab249387d44d91df18065e1e33956daab805bee4638c7fdbf83c73d62f125"
+                src="https://scontent.fjsr11-1.fna.fbcdn.net/v/t39.30808-6/330385579_218641000678253_7500246096659885133_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeFmLraWdyhVYB1BWMbfbf2GQvShbJkQ3VJC9KFsmRDdUgHyXB58N8bZ5LsXDp1igbW1WBx5heTD-4wB8dwKyRE-&_nc_ohc=jtui3aoWTrgAX-KPTg7&_nc_ht=scontent.fjsr11-1.fna&oh=00_AfBXGGnhtVlk7hpRlDtlVfYngZoBHxTHzXxUpi8iZZHRwg&oe=647AE7A5"
                 alt=""
               />
             </div>
