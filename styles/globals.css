@@ -1317,25 +1317,29 @@ input {
   color: rgb(252 252 252 / 88%);
   background: black !important;
   pointer-events: none !important;
+  
 }
 .no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper table {
   text-align: center !important;
+  pointer-events: none !important;
 }
-:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
+.no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table-container
   table
   > thead
   > tr:first-child
   > *:first-child {
   border-start-start-radius: 0px !important;
+  pointer-events: none !important;
 }
-:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
+.no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table-container
   table
   > thead
   > tr:first-child
   > *:last-child {
   border-start-end-radius: 0px !important;
+  pointer-events: none !important;
 }
 .no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table-thead
@@ -1346,20 +1350,24 @@ input {
   > tr
   > td {
   text-align: center !important;
+  pointer-events: none !important;
 }
 .no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table-tbody
   > tr >td:first-child{
    border-bottom-left-radius: 10px !important;
+   pointer-events: none !important;
 }
 .no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table-tbody
   > tr >td:last-child{
    border-bottom-right-radius: 10px !important;
+   pointer-events: none !important;
 }
 .no-hover:where(.css-ed5zg0).ant-table-wrapper .ant-table {
   
   color: rgb(252 252 252 / 88%) !important;
   background: black !important;
+  pointer-events: none !important;
 
 }
