@@ -43,11 +43,11 @@ export default function Done() {
       <div className=" md:my-20  md:mx-40   md:h-fit h-ful ">
         <div
           ref={ticketRef}
-          className="  ticket grid md:grid-cols-2 roundCom "
+          className="  ticket grid md:grid-cols-2 "
           id="invoice"
         >
-          <div className="left ">
-            <div className="ticket-info">
+          <div className="left bg-black">
+            <div className="ticket-info md:rounded-t-none rounded-t-xl">
               <p className="date text-gray-400">
                 <span>CINEPLEX BD</span>
                 <span className="nov-10"> {ticketBookingData?.date}</span>
@@ -85,7 +85,7 @@ export default function Done() {
           </div>
         </div>
 
-        <button className="btn" id="downloadPDF">
+        <button className="btn md:rounded-b-none rounded-b-[7px]" id="downloadPDF">
           Download Ticket
         </button>
       </div>

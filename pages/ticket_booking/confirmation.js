@@ -61,16 +61,19 @@ export default function Confirmation() {
         <title>Confirmation</title>
       </Head>
       <div className="flexStyle md:my-10">
-        <div className="row justify-content-center " style={{ width: "500px" }}>
+        <div
+          className="row justify-content-center  "
+          style={{ width: "500px" }}
+        >
           <div className="col-md-1 md:my-5 ">
-            <div className=" ">
+            <div className="rounded-sm">
               <img
                 src="https://blockbusterbd.com/uploads/movies/posters/leader-amie-bangladesh-8826415191682089760.jpg"
-                className=" w-full h-60"
+                className=" w-full h-60 rounded-t-md"
                 alt="..."
               />
-              <div className="card-body">
-                <div className="bg-gray-900">
+              <div className=" ">
+                <div className="bg-gray-900 ">
                   <h5 className="card-title pt-2  text-2xl text-red-600 font-semibold">
                     LEADER
                   </h5>
@@ -78,16 +81,13 @@ export default function Confirmation() {
                     Your seat information
                   </p>
                 </div>
-                <div className="alert alert-light  plan ">
-                  <div className=" tickectBox  bg-white text-black">
-                    <Table
-                      dataSource={dataSource}
-                      columns={columns}
-                      pagination={false}
-                      rowKey={(record) => record.id} 
-                    />
-                  </div>
-                </div>
+                <Table
+                  style={{ borderRadius: "10px" }}
+                  dataSource={dataSource}
+                  columns={columns}
+                  pagination={false}
+                  rowKey={(record) => record.id}
+                />
               </div>
             </div>
           </div>

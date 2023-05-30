@@ -962,7 +962,7 @@ input:focus {
 .left .ticket-info{
   background-color: #11101d;
   height: 252px;
-  padding: 10px 10px 10px 30px;
+  padding: 10px 10px 10px 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -1306,8 +1306,4 @@ input {
 }
 .tk{
   @apply font-bold  flexStyle;
-}
-
-.roundCom{
-  border-radius: 100px ;
 }
