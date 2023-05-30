@@ -1,6 +1,6 @@
 import SeatsPlan from "./seatPlan";
 import vb from "./bg2.mp4";
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import {
   firstStyle,
@@ -11,6 +11,17 @@ import {
 } from "../../components/styleCom/totalSeatPlanStyle.js";
 
 const TotalSeatPlan = () => {
+  useEffect(() => {
+    const videoPlayer = document.getElementById('videoPlayer');
+
+    function isMobileDevice() {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+
+    if (isMobileDevice()) {
+      videoPlayer.removeAttribute('autoplay');
+    }
+  }, []);
   const renderData = (
     <div className="mt-6">
       <Head>
