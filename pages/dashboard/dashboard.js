@@ -379,12 +379,14 @@ export default function DashboardCom() {
       </div>
       <div id="last-users">
         <h1 className="font-bold py-4 uppercase">Last 24h users</h1>
+        <div className="overflow-y-auto bg-black">
         <Table
           dataSource={dataSource}
           columns={columns}
           pagination={false}
           rowKey={(record) => record.id}
         ></Table>
+        </div>
       </div>
     </div>
   );

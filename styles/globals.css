@@ -1312,18 +1312,18 @@ input {
 .tk {
   @apply font-bold  flexStyle;
 }
-.no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
+:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table {
   color: rgb(252 252 252 / 88%);
   background: black !important;
   pointer-events: none !important;
   
 }
-.no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper table {
+:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper table {
   text-align: center !important;
   pointer-events: none !important;
 }
-.no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
+:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table-container
   table
   > thead
@@ -1332,7 +1332,7 @@ input {
   border-start-start-radius: 0px !important;
   pointer-events: none !important;
 }
-.no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
+:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table-container
   table
   > thead
@@ -1341,7 +1341,7 @@ input {
   border-start-end-radius: 0px !important;
   pointer-events: none !important;
 }
-.no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
+:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table-thead
   > tr
   > th,
@@ -1352,19 +1352,19 @@ input {
   text-align: center !important;
   pointer-events: none !important;
 }
-.no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
+:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table-tbody
   > tr >td:first-child{
    border-bottom-left-radius: 10px !important;
    pointer-events: none !important;
 }
-.no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
+:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table-tbody
   > tr >td:last-child{
    border-bottom-right-radius: 10px !important;
    pointer-events: none !important;
 }
-.no-hover:where(.css-ed5zg0).ant-table-wrapper .ant-table {
+:where(.css-ed5zg0).ant-table-wrapper .ant-table {
   
   color: rgb(252 252 252 / 88%) !important;
   background: black !important;
