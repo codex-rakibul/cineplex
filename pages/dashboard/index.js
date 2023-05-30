@@ -152,7 +152,7 @@ export default function index() {
         {/* <AdminNavBar/> */}
         <div id="menu" className="bg-white/10 col-span-3 rounded-lg p-4 ">
           
-          <p className="text-slate-400 text-sm mb-2">Welcome back,</p>
+          <p className="text-slate-400 text-sm md:text-3xl mb-2">Welcome back,</p>
           <a
             href="#"
             className="flex flex-col space-y-2 md:space-y-0 md:flex-row mb-5 items-center md:space-x-2 hover:bg-white/10 group transition duration-150 ease-linear rounded-lg group w-full py-3 px-2"
