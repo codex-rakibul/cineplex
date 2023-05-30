@@ -12,14 +12,16 @@ import {
 
 const TotalSeatPlan = () => {
   useEffect(() => {
-    const videoPlayer = document.getElementById('videoPlayer');
+    const videoPlayer = document.getElementById("videoPlayer");
 
     function isMobileDevice() {
-      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      );
     }
 
     if (isMobileDevice()) {
-      videoPlayer.removeAttribute('autoplay');
+      videoPlayer.removeAttribute("autoplay");
     }
   }, []);
   const renderData = (
@@ -53,7 +55,7 @@ const TotalSeatPlan = () => {
       </div>
       <div className="screen-container ">
         <div className={thirdStyle}>
-          <video autoPlay muted loop>
+          <video id="videoPlayer" autoPlay muted loop>
             <source src={vb} />
           </video>
         </div>
