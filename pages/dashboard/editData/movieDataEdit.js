@@ -32,7 +32,7 @@ const FormDisabledDemo = () => {
               <Input />
             </Form.Item>
             <Form.Item label="RangePicker">
-              <RangePicker className="w-[100%]" />
+              <RangePicker className="w-[100%] " />
             </Form.Item>
 
             <Form.Item label="Description">
