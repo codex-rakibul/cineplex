@@ -22,7 +22,7 @@ const FormDisabledDemo = () => {
         <div><ArrowLeftOutlined className="text-2xl" onClick={()=>dispatch(addEditMovie(false))}/></div>
         <div className="mt-10">
           <Form labelCol={{ span: 6 }} style={{ maxWidth: 600 }}>
-            <Form.Item label="Name">
+            <Form.Item label="Name" >
               <Input />
             </Form.Item>
             <Form.Item label="Time">
