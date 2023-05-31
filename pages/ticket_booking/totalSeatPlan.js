@@ -9,9 +9,10 @@ import {
   allTitle,
   ticketPrice,
 } from "../../components/styleCom/totalSeatPlanStyle.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBangladeshiTakaSign } from "@fortawesome/free-solid-svg-icons";
 
 const TotalSeatPlan = () => {
- 
   const renderData = (
     <div className="mt-6">
       <Head>
@@ -33,8 +34,11 @@ const TotalSeatPlan = () => {
             {ticketPrice.map((item) => {
               const { id, title, className } = item;
               return (
-                <div key={id} className={`${className} tk`}>
-                  {title}
+                <div
+                  key={id}
+                  className={`${className} ml-1 text-xl  font-semibold `}
+                >
+                  {title} <FontAwesomeIcon icon={faBangladeshiTakaSign} />
                 </div>
               );
             })}
@@ -43,7 +47,7 @@ const TotalSeatPlan = () => {
       </div>
       <div className="screen-container ">
         <div className={thirdStyle}>
-          <video id="videoPlayer" autoPlay muted loop  playsInline>
+          <video id="videoPlayer" autoPlay muted loop playsInline>
             <source src={vb} />
           </video>
         </div>

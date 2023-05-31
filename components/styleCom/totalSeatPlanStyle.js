@@ -27,17 +27,17 @@ export const allTitle = [
   export const ticketPrice = [
     {
       id: 1,
-      title: "C: 100tk ",
+      title: "C: 100 ",
       className: "text-gray-600 ",
     },
     {
       id: 2,
-      title: "S: 200tk ",
+      title: "S: 200 ",
       className: "text-red-600 ",
     },
     {
       id: 3,
-      title: "P: 300tk ",
+      title: "P: 300 ",
       className: "text-teal-600 ",
     },
   ];

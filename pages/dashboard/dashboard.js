@@ -2,8 +2,48 @@ import React from "react";
 import { Table } from "antd";
 import { useSelector } from "react-redux";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBangladeshiTakaSign } from "@fortawesome/free-solid-svg-icons";
 export default function DashboardCom() {
   const loginData = useSelector((state) => state.loginReducer);
+  const lastIncomeData = [
+    {
+      id: 1,
+      name: "Sony",
+      date: "24 Nov 2022",
+      price: 600,
+    },
+    {
+      id: 2,
+      name: "Rakibul Islam",
+      date: "24 Nov 2022",
+      price: 900,
+    },
+    {
+      id: 3,
+      name: "Shamim",
+      date: "24 Nov 2022",
+      price: 1200,
+    },
+    {
+      id: 4,
+      name: "Tushar",
+      date: "24 Nov 2022",
+      price: 2000,
+    },
+    {
+      id: 5,
+      name: "Habib",
+      date: "24 Nov 2022",
+      price: 400,
+    },
+    {
+      id: 6,
+      name: "abcd",
+      date: "24 Nov 2022",
+      price: 100,
+    },
+  ];
   const dataSource = loginData
     .map((data, index) => {
       if (index !== 0) {
@@ -66,7 +106,7 @@ export default function DashboardCom() {
                   Users
                 </p>
                 <p className="text-white font-bold text-2xl inline-flex items-center space-x-2">
-                  <span>+28</span>
+                  <span>7+</span>
                   <span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -90,27 +130,14 @@ export default function DashboardCom() {
           <div className="bg-black/60 p-6 rounded-lg">
             <div className="flex flex-row space-x-4 items-center">
               <div id="stats-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="w-10 h-10 text-white"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
+              <FontAwesomeIcon className="text-4xl" icon={faBangladeshiTakaSign} />
               </div>
               <div>
                 <p className="text-teal-300 text-sm font-medium uppercase leading-4">
                   Income
                 </p>
                 <p className="text-white font-bold text-2xl inline-flex items-center space-x-2">
-                  <span>$2,873.88</span>
+                  <span><FontAwesomeIcon icon={faBangladeshiTakaSign} />5200</span>
                   <span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -183,13 +210,18 @@ export default function DashboardCom() {
           id="stats"
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
         >
-          <div className="bg-black/60 to-white/5 rounded-lg">
-            <div className="flex flex-row items-center">
+          
+          {lastIncomeData.map(item=>{
+            const {id,name,price,date} = item;
+            return <div key={id} className="bg-black/60 to-white/5 rounded-lg">
+            <div  className="flex flex-row items-center">
               <div className="text-3xl p-4">💰</div>
               <div className="p-2">
-                <p className="text-xl font-bold">348$</p>
-                <p className="text-gray-500 font-medium">Amber Gates</p>
-                <p className="text-gray-500 text-sm">24 Nov 2022</p>
+                <p className="text-xl font-bold">
+                  {price} <FontAwesomeIcon icon={faBangladeshiTakaSign} />
+                </p>
+                <p className="text-gray-500 font-medium">{name}</p>
+                <p className="text-gray-500 text-sm">{date}</p>
               </div>
             </div>
             <div className="border-t border-white/5 p-4">
@@ -215,166 +247,7 @@ export default function DashboardCom() {
               </a>
             </div>
           </div>
-          <div className="bg-black/60 to-white/5 rounded-lg">
-            <div className="flex flex-row items-center">
-              <div className="text-3xl p-4">💰</div>
-              <div className="p-2">
-                <p className="text-xl font-bold">68$</p>
-                <p className="text-gray-500 font-medium">Maia Kipper</p>
-                <p className="text-gray-500 text-sm">23 Nov 2022</p>
-              </div>
-            </div>
-            <div className="border-t border-white/5 p-4">
-              <a
-                href="#"
-                className="inline-flex space-x-2 items-center text-center"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
-                  />
-                </svg>
-                <span>Info</span>
-              </a>
-            </div>
-          </div>
-          <div className="bg-black/60 to-white/5 rounded-lg">
-            <div className="flex flex-row items-center">
-              <div className="text-3xl p-4">💰</div>
-              <div className="p-2">
-                <p className="text-xl font-bold">12$</p>
-                <p className="text-gray-500 font-medium">Oprah Milles</p>
-                <p className="text-gray-500 text-sm">23 Nov 2022</p>
-              </div>
-            </div>
-            <div className="border-t border-white/5 p-4">
-              <a
-                href="#"
-                className="inline-flex space-x-2 items-center text-center"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
-                  />
-                </svg>
-                <span>Info</span>
-              </a>
-            </div>
-          </div>
-          <div className="bg-black/60 to-white/5 rounded-lg">
-            <div className="flex flex-row items-center">
-              <div className="text-3xl p-4">💰</div>
-              <div className="p-2">
-                <p className="text-xl font-bold">105$</p>
-                <p className="text-gray-500 font-medium">Jonny Nite</p>
-                <p className="text-gray-500 text-sm">23 Nov 2022</p>
-              </div>
-            </div>
-            <div className="border-t border-white/5 p-4">
-              <a
-                href="#"
-                className="inline-flex space-x-2 items-center text-center"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
-                  />
-                </svg>
-                <span>Info</span>
-              </a>
-            </div>
-          </div>
-          <div className="bg-black/60 to-white/5 rounded-lg">
-            <div className="flex flex-row items-center">
-              <div className="text-3xl p-4">💰</div>
-              <div className="p-2">
-                <p className="text-xl font-bold">52$</p>
-                <p className="text-gray-500 font-medium">Megane Baile</p>
-                <p className="text-gray-500 text-sm">22 Nov 2022</p>
-              </div>
-            </div>
-            <div className="border-t border-white/5 p-4">
-              <a
-                href="#"
-                className="inline-flex space-x-2 items-center text-center"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
-                  />
-                </svg>
-                <span>Info</span>
-              </a>
-            </div>
-          </div>
-          <div className="bg-black/60 to-white/5 rounded-lg">
-            <div className="flex flex-row items-center">
-              <div className="text-3xl p-4">💰</div>
-              <div className="p-2">
-                <p className="text-xl font-bold">28$</p>
-                <p className="text-gray-500 font-medium">Tony Ankel</p>
-                <p className="text-gray-500 text-sm">22 Nov 2022</p>
-              </div>
-            </div>
-            <div className="border-t border-white/5 p-4">
-              <a
-                href="#"
-                className="inline-flex space-x-2 items-center text-center"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
-                  />
-                </svg>
-                <span>Info</span>
-              </a>
-            </div>
-          </div>
+          })}
         </div>
       </div>
       <div id="last-users">

@@ -21,21 +21,21 @@ export default function Confirmation() {
       type: "Classic",
       seat: `${seatType.classic + " "}`,
       price: `${seatType.classic.length} * 100 =
-    ${seatType.classic.length * 100}tk`,
+    ${seatType.classic.length * 100}৳`,
     },
     {
       id: 2,
       type: "Standard",
       seat: `${seatType.standard + " "}`,
       price: ` ${seatType.standard.length} * 200 =
-    ${seatType.standard.length * 200}tk`,
+    ${seatType.standard.length * 200}৳`,
     },
     {
       id: 3,
       type: "Premium",
       seat: `${seatType.premium + " "}`,
       price: `${seatType.premium.length} * 300 =
-    ${seatType.premium.length * 300}tk`,
+    ${seatType.premium.length * 300}৳`,
     },
     {
       id: 4,
@@ -46,7 +46,7 @@ export default function Confirmation() {
         seatType.standard.length * 200 +
         seatType.premium.length * 300
       }
-      tk`,
+      ৳`,
     },
   ];
   const columns = [
