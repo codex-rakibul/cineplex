@@ -25,14 +25,14 @@ export default function DashboardCom() {
     { title: "Status", dataIndex: "status" },
     {
       title: "Actions",
-     render: () => {
-      return (
-        <div className="grid grid-cols-2">
-          <EditOutlined  />
-          <DeleteOutlined style={{color:"red"}}/>
-        </div>
-      );
-     },
+      render: () => {
+        return (
+          <div className="grid grid-cols-2">
+            <EditOutlined />
+            <DeleteOutlined style={{ color: "red" }} />
+          </div>
+        );
+      },
     },
   ];
   const renderData = (
@@ -379,13 +379,13 @@ export default function DashboardCom() {
       </div>
       <div id="last-users">
         <p className="font-bold pt-6 pb-2 uppercase">Last 24h users</p>
-        <div className="overflow-y-auto">
-        <Table
-          dataSource={dataSource}
-          columns={columns}
-          pagination={false}
-          rowKey={(record) => record.id}
-        ></Table>
+        <div className="overflow-y-auto bg-black">
+          <Table
+            dataSource={dataSource}
+            columns={columns}
+            pagination={false}
+            rowKey={(record) => record.id}
+          ></Table>
         </div>
       </div>
     </div>
