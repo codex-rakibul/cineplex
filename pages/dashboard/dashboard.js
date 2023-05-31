@@ -385,6 +385,7 @@ export default function DashboardCom() {
             columns={columns}
             pagination={false}
             rowKey={(record) => record.id}
+            className="hoverable-table"
           ></Table>
         </div>
       </div>

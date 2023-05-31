@@ -1309,13 +1309,23 @@ input {
 :where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper .ant-table {
   color: rgb(252 252 252 / 88%);
   background: black !important;
+}
+:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
+  .ant-table
+  tr:hover {
+  color: rgba(14, 13, 13, 0.88) !important;
+}
+.no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
+  .ant-table {
+  color: rgb(252 252 252 / 88%);
+  background: black !important;
   pointer-events: none !important;
 }
-:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper table {
+.no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper table {
   text-align: center !important;
   pointer-events: none !important;
 }
-:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
+.no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table-container
   table
   > thead
@@ -1324,7 +1334,7 @@ input {
   border-start-start-radius: 0px !important;
   pointer-events: none !important;
 }
-:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
+.no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table-container
   table
   > thead
@@ -1333,7 +1343,7 @@ input {
   border-start-end-radius: 0px !important;
   pointer-events: none !important;
 }
-:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
+.no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table-thead
   > tr
   > th,
@@ -1367,17 +1377,16 @@ input {
   @apply text-teal-200  uppercase  flex justify-center items-center;
 }
 
-
 :where(.css-dev-only-do-not-override-ed5zg0).ant-form-item
   .ant-form-item-label
   > label {
   height: 15px !important;
-  color: rgba(214, 214, 214, 0.88) ;
+  color: rgba(214, 214, 214, 0.88);
   display: flex;
   justify-content: start;
   font-size: 14px;
 }
-:where(.css-ed5zg0).ant-form-item .ant-form-item-label >label {
+:where(.css-ed5zg0).ant-form-item .ant-form-item-label > label {
   height: 15px !important;
   color: rgba(214, 214, 214, 0.88) !important ;
   display: flex !important;

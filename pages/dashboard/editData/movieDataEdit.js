@@ -19,10 +19,15 @@ const FormDisabledDemo = () => {
   return (
     <>
       <div>
-        <div><ArrowLeftOutlined className="text-2xl" onClick={()=>dispatch(addEditMovie(false))}/></div>
+        <div>
+          <ArrowLeftOutlined
+            className="text-2xl"
+            onClick={() => dispatch(addEditMovie(false))}
+          />
+        </div>
         <div className="mt-10">
           <Form labelCol={{ span: 6 }} style={{ maxWidth: 600 }}>
-            <Form.Item label="Name" >
+            <Form.Item label="Name">
               <Input />
             </Form.Item>
             <Form.Item label="Time">
@@ -34,7 +39,6 @@ const FormDisabledDemo = () => {
             <Form.Item label="RangePicker">
               <RangePicker className="w-[100%] " />
             </Form.Item>
-
             <Form.Item label="Description">
               <TextArea rows={4} />
             </Form.Item>

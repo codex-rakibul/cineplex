@@ -75,7 +75,7 @@ export default function index() {
   };
   const renderData = (
     <div className="antialiased bg-black w-full min-h-screen text-slate-300 relative py-4">
-      <div className="grid grid-cols-12 mx-auto gap-2 sm:gap-4 md:gap-6 lg:gap-10 xl:gap-14 max-w-7xl my-10 px-2">
+      <div className="grid grid-cols-12 mx-auto gap-2 sm:gap-4 md:gap-6 lg:gap-10 xl:gap-14 max-w-7xl md:my-10 my-4 px-2">
         {/* <AdminNavBar/> */}
         <div id="menu" className="bg-white/10 col-span-3 rounded-lg p-4 ">
           <p className="text-slate-400 text-sm md:text-3xl mb-2">
