@@ -6,13 +6,18 @@ import {
   PlusSquareOutlined,
 } from "@ant-design/icons";
 import { Button, Table } from "antd";
+import { useDispatch } from "react-redux";
+import { addEditMovie } from "@/app/features/dashboardSlicer/editSlice";
+
 export default function Movie() {
+const dispatch = useDispatch();
+
   const dataSource = homeData
     .map((data, index) => {
       return {
         id: index,
         lists: data.id,
-        email: data.name,
+        name: data.name,
         status: data.date,
         image: data.cover,
       };
@@ -25,10 +30,10 @@ export default function Movie() {
       title: "Image",
       dataIndex: "image",
       render: (image) => {
-        return <img src={image} alt="Movie Image" width={50} height={50} />;
+        return <img src={image} alt="Movie Image" width={100} height={100} />;
       },
     },
-    { title: "Email", dataIndex: "email" },
+    { title: "Name", dataIndex: "name" },
     { title: "Status", dataIndex: "status" },
     {
       title: "Actions",
@@ -42,6 +47,11 @@ export default function Movie() {
       },
     },
   ];
+
+  const HandleEditMovie = () =>{
+    dispatch(addEditMovie(true))
+  }
+
   const runningMovies = (
     <div>
       <div className="flex justify-between ">
@@ -49,7 +59,7 @@ export default function Movie() {
           <h1 className="font-bold py-2 uppercase">Running Movie's</h1>
         </div>
         <div>
-          <Button id="addMovieButton" type="text">
+          <Button id="addMovieButton" type="text" onClick={()=>HandleEditMovie()}>
             Add Movie
             <PlusSquareOutlined />
           </Button>
@@ -72,7 +82,7 @@ export default function Movie() {
           <h1 className="font-bold py-2 uppercase">Upcomming Movie's</h1>
         </div>
         <div>
-          <Button id="addMovieButton" type="text">
+          <Button id="addMovieButton" type="text" onClick={()=>HandleEditMovie()}>
             Add Movie
             <PlusSquareOutlined />
           </Button>

@@ -378,7 +378,7 @@ export default function DashboardCom() {
         </div>
       </div>
       <div id="last-users">
-        <h1 className="font-bold py-4 uppercase">Last 24h users</h1>
+        <p className="font-bold pt-6 pb-2 uppercase">Last 24h users</p>
         <div className="overflow-y-auto">
         <Table
           dataSource={dataSource}

@@ -966,7 +966,6 @@ input:focus {
   font-family: "Saira Stencil One", sans-serif;
 }
 
-
 .barcode {
   height: 45px;
 }
@@ -1307,12 +1306,10 @@ input {
 .tk {
   @apply font-bold  flexStyle;
 }
-:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
-  .ant-table {
+:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper .ant-table {
   color: rgb(252 252 252 / 88%);
   background: black !important;
   pointer-events: none !important;
-  
 }
 :where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper table {
   text-align: center !important;
@@ -1340,7 +1337,7 @@ input {
   .ant-table-thead
   > tr
   > th,
-  .no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
+.no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table-thead
   > tr
   > td {
@@ -1349,27 +1346,39 @@ input {
 }
 :where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table-tbody
-  > tr >td:first-child{
-   border-bottom-left-radius: 10px !important;
-   pointer-events: none !important;
+  > tr
+  > td:first-child {
+  border-bottom-left-radius: 10px !important;
+  pointer-events: none !important;
 }
 :where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table-tbody
-  > tr >td:last-child{
-   border-bottom-right-radius: 10px !important;
-   pointer-events: none !important;
+  > tr
+  > td:last-child {
+  border-bottom-right-radius: 10px !important;
+  pointer-events: none !important;
 }
 :where(.css-ed5zg0).ant-table-wrapper .ant-table {
-  
   color: rgb(252 252 252 / 88%) !important;
   background: black !important;
   pointer-events: none !important;
-
 }
 #addMovieButton {
   @apply text-teal-200  uppercase  flex justify-center items-center;
 }
 
 #addMovieButton:hover {
-  @apply  text-teal-600 ;
+  @apply text-teal-600;
+}
+#allLabel {
+  color: white;
+}
+:where(.css-dev-only-do-not-override-ed5zg0).ant-form-item
+  .ant-form-item-label
+  > label {
+  height: 0px !important;
+  color: rgba(214, 214, 214, 0.88) !important;
+  display: flex;
+  justify-content: start;
+  font-size: 14px;
 }

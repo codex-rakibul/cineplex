@@ -3,6 +3,7 @@ import ticketBookingReducer from "../features/ticketBookingSlicer/ticketBookingS
 import loginReducer from "../features/loginSlicer/loginSlice";
 import basicAuthReducer from "../features/basicAuthSlicer/basicAuthSlice";
 import allSeatReducer from "../features/seatSlicer/seatSlice"
+import editReducer from "../features/dashboardSlicer/editSlice";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     loginReducer: loginReducer,
     basicAuthReducer: basicAuthReducer,
     allSeatReducer: allSeatReducer,
+    editReducer: editReducer,
   },
 });
 
