@@ -143,8 +143,11 @@ const navData = [
 
 export default function index() {
   const [contentCom, setContentCom] = useState();
-  const handleCom = (com) => {
-    setContentCom(com);
+  const [selectedNavItem, setSelectedNavItem] = useState(null); 
+  
+  const handleNavItemClick = (navItem) => {
+    setSelectedNavItem(navItem.id);
+    setContentCom(navItem.com);
   };
   const renderData = (
     <div className="antialiased bg-black w-full min-h-screen text-slate-300 relative py-4">
@@ -174,13 +177,15 @@ export default function index() {
           <hr className="my-2 border-slate-700" />
           <div id="menu" className="flex flex-col space-y-2 my-5">
             {navData.map((navIteam) => {
-              const { id, link, title, desc, svg, com } = navIteam;
+              const { id, title, desc, svg } = navIteam;
               return (
                 <button
-                  key={id}
-                  onClick={() => handleCom(com)}
-                  className="navBtn "
-                >
+                key={id}
+                onClick={() => handleNavItemClick(navIteam)}
+                className={`${
+                  selectedNavItem === id ? "bg-white/10" : "" // Apply the "bg-white/10" background for the selected nav item
+                } bg-black hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2`}
+              >
                   <div className="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2  items-center">
                     <div>{svg}</div>
                     <div className="">
