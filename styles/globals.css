@@ -1306,11 +1306,11 @@ input {
 .tk {
   @apply font-bold  flexStyle;
 }
-:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper .ant-table {
+.hoverable-table:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper .ant-table {
   color: rgb(252 252 252 / 88%);
   background: black !important;
 }
-:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
+.hoverable-table:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table
   tr:hover {
   color: rgba(14, 13, 13, 0.88) !important;
