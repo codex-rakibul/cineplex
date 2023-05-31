@@ -1382,7 +1382,7 @@ input {
   > label {
   height: 15px !important;
   color: rgba(214, 214, 214, 0.88);
-  display: flex;
+  display: flex !important;
   justify-content: start;
   font-size: 14px;
 }
@@ -1390,5 +1390,4 @@ input {
   height: 15px !important;
   color: rgba(214, 214, 214, 0.88) !important ;
   display: flex !important;
-  justify-content: start !important;
 }

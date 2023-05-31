@@ -43,6 +43,7 @@ export default function UserCom() {
         columns={columns}
         pagination={false}
         rowKey={(record) => record.id}
+        className="hoverable-table"
       ></Table>
     </div>
   );
