@@ -1,7 +1,11 @@
 import React from "react";
 import { homeData } from "../../dummyData/dummyData";
-import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
-import { Table } from "antd";
+import {
+  EditOutlined,
+  DeleteOutlined,
+  PlusSquareOutlined,
+} from "@ant-design/icons";
+import { Button, Table } from "antd";
 export default function Movie() {
   const dataSource = homeData
     .map((data, index) => {
@@ -45,7 +49,10 @@ export default function Movie() {
           <h1 className="font-bold py-2 uppercase">Running Movie's</h1>
         </div>
         <div>
-          <button className="rounded-sm py-2 bg-gray-600">Add Movie</button>
+          <Button id="addMovieButton" type="text">
+            Add Movie
+            <PlusSquareOutlined />
+          </Button>
         </div>
       </div>
       <div>
@@ -65,7 +72,10 @@ export default function Movie() {
           <h1 className="font-bold py-2 uppercase">Upcomming Movie's</h1>
         </div>
         <div>
-          <button className="rounded-sm py-2 bg-gray-600">Add Movie</button>
+          <Button id="addMovieButton" type="text">
+            Add Movie
+            <PlusSquareOutlined />
+          </Button>
         </div>
       </div>
       <div>

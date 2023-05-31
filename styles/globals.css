@@ -1366,3 +1366,10 @@ input {
   pointer-events: none !important;
 
 }
+#addMovieButton {
+  @apply text-teal-200  uppercase  flex justify-center items-center;
+}
+
+#addMovieButton:hover {
+  @apply  text-teal-600 ;
+}
