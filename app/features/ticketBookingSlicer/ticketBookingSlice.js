@@ -1,8 +1,8 @@
-import { createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialBookingData = {
   selectShowtime: "",
-  date: "",
+  fullDate: "",
   selectedSeats: [],
   totalPrice: 0,
   totalSeats: 0,
@@ -17,8 +17,8 @@ const ticketBookingSlice = createSlice({
   initialState: initialBookingData,
   reducers: {
     showTicketBookingData: (state) => state,
-    addDate: (state, action) => {
-      state.date = action.payload;
+    addFullDate: (state, action) => {
+      state.fullDate = action.payload;
     },
     addSelectShowtime: (state, action) => {
       state.selectShowtime = action.payload;
@@ -32,7 +32,7 @@ const ticketBookingSlice = createSlice({
       );
       state.selectedSeats = updatedSeats;
     },
-    addTotalPrice:(state, action) => {
+    addTotalPrice: (state, action) => {
       state.totalPrice = action.payload;
     },
   },
@@ -41,6 +41,7 @@ const ticketBookingSlice = createSlice({
 export const {
   showTicketBookingData,
   addDate,
+  addFullDate,
   addSelectShowtime,
   addSelectedSeats,
   updateSelectedSeats,

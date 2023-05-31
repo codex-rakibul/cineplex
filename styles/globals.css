@@ -891,7 +891,6 @@ input:focus {
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 10px;
   font-weight: 700;
 }
 
@@ -946,7 +945,7 @@ input:focus {
 
 .right .right-info-container {
   height: 250px;
-  padding: 10px 10px 10px 30px;
+  padding: 10px 10px 10px 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -962,13 +961,11 @@ input:focus {
   align-items: center;
 }
 .right .show-name h1 {
-  font-size: 18px;
-  font-family: "Barlow", sans-serif;
+  font-size: 32px;
+  letter-spacing: 0.05em;
+  font-family: "Saira Stencil One", sans-serif;
 }
 
-.right .time {
-  margin-top: 10px;
-}
 
 .barcode {
   height: 45px;

@@ -1,5 +1,45 @@
 export const date = new Date();
-export const weekday = [
+const currentDay = date.getDate();
+const totalDaysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+
+export const allDates = [
+  {
+    id: 1,
+    date: currentDay,
+    fullDate: date.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: '2-digit' }),
+  },
+  {
+    id: 2,
+    date: currentDay + 1 > totalDaysInMonth ? 1 : currentDay + 1,
+    fullDate: new Date(date.getFullYear(), date.getMonth(), currentDay + 1).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: '2-digit' }),
+  },
+  {
+    id: 3,
+    date: currentDay + 2 > totalDaysInMonth ? currentDay + 2 - totalDaysInMonth : currentDay + 2,
+    fullDate: new Date(date.getFullYear(), date.getMonth(), currentDay + 2).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: '2-digit' }),
+  },
+  {
+    id: 4,
+    date: currentDay + 3 > totalDaysInMonth ? currentDay + 3 - totalDaysInMonth : currentDay + 3,
+    fullDate: new Date(date.getFullYear(), date.getMonth(), currentDay + 3).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: '2-digit' }),
+  },
+  {
+    id: 5,
+    date: currentDay + 4 > totalDaysInMonth ? currentDay + 4 - totalDaysInMonth : currentDay + 4,
+    fullDate: new Date(date.getFullYear(), date.getMonth(), currentDay + 4).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: '2-digit' }),
+  },
+  {
+    id: 6,
+    date: currentDay + 5 > totalDaysInMonth ? currentDay + 5 - totalDaysInMonth : currentDay + 5,
+    fullDate: new Date(date.getFullYear(), date.getMonth(), currentDay + 5).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: '2-digit' }),
+  },
+  {
+    id: 7,
+    date: currentDay + 6 > totalDaysInMonth ? currentDay + 6 - totalDaysInMonth : currentDay + 6,
+    fullDate: new Date(date.getFullYear(), date.getMonth(), currentDay + 6).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: '2-digit' }),
+  },
+];
+  export const weekday = [
     "Sunday",
     "Monday",
     "Tuesday",
@@ -14,36 +54,6 @@ export const weekday = [
     "Thursday",
     "Friday",
     "Saturday",
-  ];
-  export const allDates = [
-    {
-      id: 1,
-      date: date.getDate(),
-    },
-    {
-      id: 2,
-      date: date.getDate() + 1,
-    },
-    {
-      id: 3,
-      date: date.getDate() + 2,
-    },
-    {
-      id: 4,
-      date: date.getDate() + 3,
-    },
-    {
-      id: 5,
-      date: date.getDate() + 4,
-    },
-    {
-      id: 6,
-      date: date.getDate() + 5,
-    },
-    {
-      id: 7,
-      date: date.getDate() + 6,
-    },
   ];
   export const allTimes = [
     {

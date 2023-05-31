@@ -34,7 +34,6 @@ export default function Done() {
     });
   }, []);
 
-  
   const renderData = (
     <div className="">
       <Head>
@@ -48,14 +47,12 @@ export default function Done() {
         >
           <div className="left  ">
             <div className="ticket-info md:rounded-t-none rounded-t-xl">
+              <p className="showName">CINEPLEX BD</p>
               <p className="date text-gray-400">
-                <span>CINEPLEX BD</span>
-                <span className="nov-10"> {ticketBookingData?.date}</span>
-                <span></span>
+                {ticketBookingData?.fullDate}
               </p>
               <div className="show-name">
                 <h1>LEADER</h1>
-                <h2>CLASSIC</h2>
               </div>
               <div className=" text-white">
                 <p>SHOW TIME :- {ticketBookingData?.selectShowtime}</p>
@@ -76,16 +73,21 @@ export default function Done() {
                 <p className="showName">CINEPLEX BD</p>
               </div>
               <div className="time">
-                <p>{ticketBookingData?.date}</p>
+                <p>{ticketBookingData?.fullDate}</p>
+                <div className="show-name">
+                  <h1>LEADER</h1>
+                </div>
                 <p>SHOW TIME :- {ticketBookingData.selectShowtime}</p>
                 <p>{ticketBookingData.selectedSeats + " "}</p>
               </div>
-              <p className="ticket-number mt-2">#{userId}</p>
+              <p className="ticket-number ">#{userId}</p>
             </div>
           </div>
         </div>
-
-        <button className="btn md:rounded-b-none rounded-b-[7px]" id="downloadPDF">
+        <button
+          className="btn md:rounded-b-none rounded-b-[7px]"
+          id="downloadPDF"
+        >
           Download Ticket
         </button>
       </div>
