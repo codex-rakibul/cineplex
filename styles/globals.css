@@ -1383,7 +1383,6 @@ input {
   height: 15px !important;
   color: rgba(214, 214, 214, 0.88);
   display: flex !important;
-  justify-content: start;
   font-size: 14px;
 }
 :where(.css-ed5zg0).ant-form-item .ant-form-item-label > label {
