@@ -132,7 +132,7 @@ export default function index() {
         </div>
         <div
           id="content"
-          className="bg-white/10 col-span-9 rounded-lg md:p-6 p-2"
+          className="bg-white/10 col-span-9 rounded-lg p-6"
         >
           {contentCom == null || undefined ? (
             <DashboardCom />

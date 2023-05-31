@@ -71,6 +71,7 @@ const dispatch = useDispatch();
           columns={columns}
           pagination={false}
           rowKey={(record) => record.id}
+          className="hoverable-table"
         ></Table>
       </div>
     </div>
@@ -94,6 +95,7 @@ const dispatch = useDispatch();
           columns={columns}
           pagination={false}
           rowKey={(record) => record.id}
+          className="hoverable-table"
         ></Table>
       </div>
     </div>
