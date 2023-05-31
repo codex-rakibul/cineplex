@@ -33,7 +33,7 @@ export const homeData = [
     tags: "Action, Adventures, Horror",
     cover: "../images/bm1.jpg",
     video: "../video/video1.mp4",
-    date: "20-Jan-1997",
+    movieDate: "2023-05-30",
   },
   {
     id: 2,
@@ -46,7 +46,7 @@ export const homeData = [
     tags: "Adventures,Animation,Family",
     cover: "../images/home2.jpg",
     video: "../video/video2.mp4",
-    date: "10-JUL-2021",
+    movieDate: "2023-05-30",
   },
   {
     id: 3,
@@ -59,7 +59,7 @@ export const homeData = [
     tags: "Adventures,Action ",
     cover: "../images/home3.jpg",
     video: "../video/video3.mp4",
-    date: "20-FEB-2010",
+    movieDate: "2023-05-30",
   },
   {
     id: 4,
@@ -72,7 +72,7 @@ export const homeData = [
     tags: "Action, Adventures, Horror",
     cover: "../images/home4.jpg",
     video: "../video/video4.mp4",
-    date: "12-Aug-2015",
+    movieDate: "2023-05-30",
   },
 ]
 export const upcome = [

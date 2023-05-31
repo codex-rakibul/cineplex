@@ -1359,19 +1359,16 @@ input {
   > tr
   > td:first-child {
   border-bottom-left-radius: 10px !important;
-  pointer-events: none !important;
 }
 :where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table-tbody
   > tr
   > td:last-child {
   border-bottom-right-radius: 10px !important;
-  pointer-events: none !important;
 }
 :where(.css-ed5zg0).ant-table-wrapper .ant-table {
   color: rgb(252 252 252 / 88%) !important;
   background: black !important;
-  pointer-events: none !important;
 }
 #addMovieButton {
   @apply text-teal-200  uppercase  flex justify-center items-center;

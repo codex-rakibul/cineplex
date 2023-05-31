@@ -1,25 +1,34 @@
 import React from "react";
-import { homeData } from "../../dummyData/dummyData";
 import {
   EditOutlined,
   DeleteOutlined,
   PlusSquareOutlined,
 } from "@ant-design/icons";
 import { Button, Table } from "antd";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addEditMovie } from "@/app/features/dashboardSlicer/editSlice";
+import { addEditMovieData } from "@/app/features/dashboardSlicer/allMovieSlice";
 
 export default function Movie() {
-const dispatch = useDispatch();
+  const {allMovieData} = useSelector((state) => state.allMovieReducer);
+  const dispatch = useDispatch();
+  const handleEditMovie = (data) => {
+    console.log(data)
+    dispatch(addEditMovie(true));
+    dispatch(addEditMovieData(data));
+    
+  };
+  const handleDeleteMovie = () => {};
 
-  const dataSource = homeData
-    .map((data, index) => {
+  const dataSource = allMovieData
+    .map((movieData, index) => {
       return {
         id: index,
-        lists: data.id,
-        name: data.name,
-        status: data.date,
-        image: data.cover,
+        lists: movieData.id,
+        name: movieData.name,
+        status: movieData.movieDate,
+        image: movieData.cover,
+        movieData: movieData,
       };
     })
     .filter(Boolean);
@@ -37,20 +46,23 @@ const dispatch = useDispatch();
     { title: "Status", dataIndex: "status" },
     {
       title: "Actions",
-      render: () => {
+      render: (record) => {
         return (
           <div className="grid grid-cols-2">
-            <EditOutlined />
-            <DeleteOutlined style={{ color: "red" }} />
+            <EditOutlined onClick={() => handleEditMovie(record.movieData)} />
+            <DeleteOutlined
+              style={{ color: "red" }}
+              onClick={() => handleDeleteMovie()}
+            />
           </div>
         );
       },
     },
   ];
 
-  const HandleEditMovie = () =>{
-    dispatch(addEditMovie(true))
-  }
+  const handleAddMovie = () => {
+    dispatch(addEditMovie(true));
+  };
 
   const runningMovies = (
     <div>
@@ -59,7 +71,11 @@ const dispatch = useDispatch();
           <h1 className="font-bold py-2 uppercase">Running Movie's</h1>
         </div>
         <div>
-          <Button id="addMovieButton" type="text" onClick={()=>HandleEditMovie()}>
+          <Button
+            id="addMovieButton"
+            type="text"
+            onClick={() => handleAddMovie()}
+          >
             Add Movie
             <PlusSquareOutlined />
           </Button>
@@ -83,7 +99,11 @@ const dispatch = useDispatch();
           <h1 className="font-bold py-2 uppercase">Upcomming Movie's</h1>
         </div>
         <div>
-          <Button id="addMovieButton" type="text" onClick={()=>HandleEditMovie()}>
+          <Button
+            id="addMovieButton"
+            type="text"
+            onClick={() => HandleEditMovie()}
+          >
             Add Movie
             <PlusSquareOutlined />
           </Button>

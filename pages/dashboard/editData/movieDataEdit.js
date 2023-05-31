@@ -1,10 +1,9 @@
 import React from "react";
 import { ArrowLeftOutlined, PlusOutlined } from "@ant-design/icons";
 import { Button, DatePicker, Form, Input, Upload } from "antd";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addEditMovie } from "@/app/features/dashboardSlicer/editSlice";
 
-const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
 const normFile = (e) => {
@@ -14,7 +13,9 @@ const normFile = (e) => {
   return e?.fileList;
 };
 
-const FormDisabledDemo = () => {
+export default function MovieDataEdit() {
+  const {editMovieData} = useSelector((state) => state.allMovieReducer);
+ console.log(editMovieData[0]?.movieDate)
   const dispatch = useDispatch();
   return (
     <>
@@ -28,19 +29,19 @@ const FormDisabledDemo = () => {
         <div className="mt-10">
           <Form labelCol={{ span: 6 }} style={{ maxWidth: 600 }}>
             <Form.Item label="Name">
-              <Input />
+              <Input value={editMovieData[0]?.name}/>
             </Form.Item>
             <Form.Item label="Time">
-              <Input />
+              <Input value={editMovieData[0]?.time}/>
             </Form.Item>
             <Form.Item label="Starring">
-              <Input />
+              <Input value={editMovieData[0]?.starring}/>
             </Form.Item>
-            <Form.Item label="RangePicker">
-              <RangePicker className="w-[100%] " />
+            <Form.Item label="Start Date">
+              <DatePicker className="w-[100%] " placeholder={editMovieData[0]?.movieDate} />
             </Form.Item>
             <Form.Item label="Description">
-              <TextArea rows={4} />
+              <TextArea rows={4} value={editMovieData[0]?.desc}/>
             </Form.Item>
 
             <Form.Item
@@ -60,7 +61,7 @@ const FormDisabledDemo = () => {
                 className="bg-white text-gray-600 py-5 flex justify-center items-center font-bold"
                 block
               >
-                Add Movie
+                {editMovieData[0]?"Update Movie":"Add Movie"}
               </Button>
             </Form.Item>
           </Form>
@@ -70,4 +71,4 @@ const FormDisabledDemo = () => {
   );
 };
 
-export default () => <FormDisabledDemo />;
+
