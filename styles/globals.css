@@ -1383,8 +1383,18 @@ input {
   display: flex !important;
   font-size: 14px;
 }
+:where(.css-dev-only-do-not-override-ed5zg0).ant-form-item
+  .ant-form-item-label
+  > label:hover{
+
+  color: black !important;
+}
 :where(.css-ed5zg0).ant-form-item .ant-form-item-label > label {
   height: 15px !important;
   color: rgba(214, 214, 214, 0.88) !important ;
   display: flex !important;
+}
+:where(.css-ed5zg0).ant-form-item .ant-form-item-label > label:hover {
+ 
+  color: black !important ;
 }
