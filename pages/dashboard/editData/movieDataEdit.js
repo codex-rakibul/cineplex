@@ -51,7 +51,7 @@ export default function MovieDataEdit() {
     dispatch(addEditMovieData(""));
     const movie = {
       ...newMovieData,
-      id: uuidv4().slice(0, 10),
+      id: uuidv4().slice(0, 5),
     };
     dispatch(addNewMovieData(movie));
     dispatch(addEditMovie(false));

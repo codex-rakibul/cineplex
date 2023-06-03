@@ -1306,16 +1306,15 @@ input {
 .tk {
   @apply font-bold  flexStyle;
 }
-.hoverable-table:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
-  .ant-table {
+.hoverable-table:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper .ant-table {
   color: rgb(252 252 252 / 88%);
   background: black !important;
 }
 .hoverable-table:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table
   tr:hover {
-  color: rgba(20, 20, 20, 0.88) !important;
-  background-color: black;
+  color: rgba(14, 13, 13, 0.88) !important;
+  background: white !important;
 }
 .no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table {
@@ -1368,7 +1367,34 @@ input {
   > td:last-child {
   border-bottom-right-radius: 10px !important;
 }
-
+:where(.css-ed5zg0).ant-table-wrapper .ant-table {
+  color: rgb(252 252 252 / 88%) !important;
+  background: black !important;
+}
 #addMovieButton {
   @apply text-teal-200  uppercase  flex justify-center items-center;
+}
+
+:where(.css-dev-only-do-not-override-ed5zg0).ant-form-item
+  .ant-form-item-label
+  > label {
+  height: 15px !important;
+  color: rgba(214, 214, 214, 0.88);
+  display: flex !important;
+  font-size: 14px;
+}
+:where(.css-dev-only-do-not-override-ed5zg0).ant-form-item
+  .ant-form-item-label
+  > label:hover{
+
+  color: black !important;
+}
+:where(.css-ed5zg0).ant-form-item .ant-form-item-label > label {
+  height: 15px !important;
+  color: rgba(214, 214, 214, 0.88) !important ;
+  display: flex !important;
+}
+:where(.css-ed5zg0).ant-form-item .ant-form-item-label > label:hover {
+
+  color: black !important ;
 }
