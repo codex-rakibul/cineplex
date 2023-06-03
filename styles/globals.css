@@ -1315,6 +1315,7 @@ input {
   .ant-table
   tr:hover {
   color: rgba(20, 20, 20, 0.88) !important;
+  background-color: black;
 }
 .no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table {
@@ -1371,4 +1372,3 @@ input {
 #addMovieButton {
   @apply text-teal-200  uppercase  flex justify-center items-center;
 }
-
