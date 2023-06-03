@@ -1368,6 +1368,7 @@ input {
   border-bottom-right-radius: 10px !important;
 }
 :where(.css-ed5zg0).ant-table-wrapper .ant-table {
+  color: white !important;
   background: black !important;
 }
 #addMovieButton {
@@ -1378,7 +1379,7 @@ input {
   .ant-form-item-label
   > label {
   height: 15px !important;
-  color: rgba(214, 214, 214, 0.88);
+  color: rgba(214, 214, 214, 0.88) !important;
   display: flex !important;
   font-size: 14px;
 }
