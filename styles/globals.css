@@ -1313,7 +1313,7 @@ input {
 .hoverable-table:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table
   tr:hover {
-  color: black ;
+  color: black !important;
   background: white !important;
 }
 .no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
@@ -1368,7 +1368,6 @@ input {
   border-bottom-right-radius: 10px !important;
 }
 :where(.css-ed5zg0).ant-table-wrapper .ant-table {
-  color: rgb(252 252 252 / 88%) !important;
   background: black !important;
 }
 #addMovieButton {
