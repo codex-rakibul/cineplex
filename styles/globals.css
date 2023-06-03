@@ -1313,7 +1313,7 @@ input {
 .hoverable-table:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
   .ant-table
   tr:hover {
-  color: rgba(14, 13, 13, 0.88) !important;
+  color: black ;
   background: white !important;
 }
 .no-hover:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
