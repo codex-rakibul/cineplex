@@ -1306,8 +1306,14 @@ input {
 .tk {
   @apply font-bold  flexStyle;
 }
-.hoverable-table:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper .ant-table {
-  color: rgb(252 252 252 / 88%);
+.hoverable-table:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
+  .ant-table {
+  background: black !important;
+}
+.hoverable-table:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
+  .ant-table
+  tr {
+  color: white !important;
   background: black !important;
 }
 .hoverable-table:where(.css-dev-only-do-not-override-ed5zg0).ant-table-wrapper
@@ -1382,8 +1388,7 @@ input {
 }
 :where(.css-dev-only-do-not-override-ed5zg0).ant-form-item
   .ant-form-item-label
-  > label:hover{
-
+  > label:hover {
   color: black !important;
 }
 :where(.css-ed5zg0).ant-form-item .ant-form-item-label > label {
@@ -1392,6 +1397,5 @@ input {
   display: flex !important;
 }
 :where(.css-ed5zg0).ant-form-item .ant-form-item-label > label:hover {
-
   color: black !important ;
 }
