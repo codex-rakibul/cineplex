@@ -6,19 +6,26 @@ import {
 } from "@ant-design/icons";
 import { Button, Table } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { addEditMovie } from "@/app/features/dashboardSlicer/editSlice";
-import { addEditMovieData } from "@/app/features/dashboardSlicer/allMovieSlice";
+import { addEditMovie, addNewMovie } from "@/app/features/dashboardSlicer/editSlice";
+import {
+  addEditMovieData,
+  deleteMovie,
+} from "@/app/features/dashboardSlicer/allMovieSlice";
 
 export default function Movie() {
-  const {allMovieData} = useSelector((state) => state.allMovieReducer);
+  const { allMovieData } = useSelector((state) => state.allMovieReducer);
   const dispatch = useDispatch();
   const handleEditMovie = (data) => {
-    console.log(data)
     dispatch(addEditMovie(true));
     dispatch(addEditMovieData(data));
+  };
+  const handleDeleteMovie = (data) => {
+    dispatch(deleteMovie(data.id));
     
   };
-  const handleDeleteMovie = () => {};
+  const handleAddMovie = () => {
+    dispatch(addNewMovie(true));
+  };
 
   const dataSource = allMovieData
     .map((movieData, index) => {
@@ -52,7 +59,7 @@ export default function Movie() {
             <EditOutlined onClick={() => handleEditMovie(record.movieData)} />
             <DeleteOutlined
               style={{ color: "red" }}
-              onClick={() => handleDeleteMovie()}
+              onClick={() => handleDeleteMovie(record.movieData)}
             />
           </div>
         );
@@ -60,9 +67,6 @@ export default function Movie() {
     },
   ];
 
-  const handleAddMovie = () => {
-    dispatch(addEditMovie(true));
-  };
 
   const runningMovies = (
     <div>
@@ -102,7 +106,7 @@ export default function Movie() {
           <Button
             id="addMovieButton"
             type="text"
-            onClick={() => HandleEditMovie()}
+            onClick={() => handleAddMovie()}
           >
             Add Movie
             <PlusSquareOutlined />

@@ -32,7 +32,7 @@ export const homeData = [
     genres: "Action",
     tags: "Action, Adventures, Horror",
     cover: "../images/bm1.jpg",
-    video: "../video/video1.mp4",
+    video: "../public/videos/bg2.mp4",
     movieDate: "2023-05-30",
   },
   {

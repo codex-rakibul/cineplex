@@ -15,7 +15,8 @@ import InvoicesCom from "./invoicesCom";
 import SettingCom from "./settingCom";
 import { useDispatch, useSelector } from "react-redux";
 import MovieDataEdit from "./editData/movieDataEdit";
-import { addEditMovie } from "@/app/features/dashboardSlicer/editSlice";
+import { addEditMovie, addNewMovie} from "@/app/features/dashboardSlicer/editSlice";
+import { addEditMovieData } from "@/app/features/dashboardSlicer/allMovieSlice";
 const navData = [
   {
     id: 1,
@@ -64,12 +65,13 @@ const navData = [
 export default function index() {
   const dispatch = useDispatch();
   const checkMovieEditPage = useSelector((state) => state.editReducer);
-
   const [contentCom, setContentCom] = useState();
   const [selectedNavItem, setSelectedNavItem] = useState(null);
 
   const handleNavItemClick = (navItem) => {
+    dispatch(addEditMovieData(""));
     dispatch(addEditMovie(false));
+    dispatch(addNewMovie(false));
     setSelectedNavItem(navItem.id);
     setContentCom(navItem.com);
   };
@@ -130,18 +132,15 @@ export default function index() {
             © 2023 Cineplex BD
           </p>
         </div>
-        <div
-          id="content"
-          className="bg-white/10 col-span-9 rounded-lg p-6"
-        >
+        <div id="content" className="bg-white/10 col-span-9 rounded-lg p-6">
           {contentCom == null || undefined ? (
             <DashboardCom />
-          ) : checkMovieEditPage.editMovie ? (
+          ) : checkMovieEditPage.editMovie || checkMovieEditPage.addMovie ? (
             <MovieDataEdit />
           ) : (
             contentCom
           )}
-           {/* <MovieDataEdit /> */}
+          {/* <MovieDataEdit /> */}
         </div>
       </div>
     </div>
