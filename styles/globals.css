@@ -1367,10 +1367,7 @@ input {
   > td:last-child {
   border-bottom-right-radius: 10px !important;
 }
-:where(.css-ed5zg0).ant-table-wrapper .ant-table .ant-table-tbody .ant-table-row:hover {
-  color: white !important;
-  background: black !important;
-}
+
 #addMovieButton {
   @apply text-teal-200  uppercase  flex justify-center items-center;
 }
