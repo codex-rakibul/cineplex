@@ -32,7 +32,7 @@ export default function Movie() {
     .map((movieData, index) => {
       return {
         id: index,
-        lists: movieData.id,
+        movieId: movieData.id,
         name: movieData.name,
         status: movieData.movieDate,
         image: movieData.cover,
@@ -42,7 +42,7 @@ export default function Movie() {
     .filter(Boolean);
 
   const columns = [
-    { title: "Lists", dataIndex: "lists" },
+    { title: "Movie Id", dataIndex: "movieId" },
     {
       title: "Image",
       dataIndex: "image",
