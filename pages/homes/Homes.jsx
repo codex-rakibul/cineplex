@@ -2,9 +2,13 @@ import React from "react";
 import Home from "./Home";
 import TrendingMovie from "@/components/trendingMovie";
 import UpMovie from "@/components/upcoming";
+import Head from "next/head";
 const Homes = () => {
   return (
     <>
+    <Head>
+      <title>Cineplex BD</title>
+    </Head>
       <section className="home ">
         <Home />
       </section>
