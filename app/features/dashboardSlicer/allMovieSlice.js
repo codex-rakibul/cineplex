@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { homeData } from "../../../dummyData/dummyData";
-import { message } from "antd";
 
 const initialState = {
   allMovieData: homeData,
@@ -36,7 +35,6 @@ const allMovieSlice = createSlice({
       state.allMovieData = state.allMovieData.filter(
         (movie) => movie.id !== movieId
       );
-      message.error("Successfully deleted");
     },
     addSingleNewMovie: (state, action) => {
       const { fieldName, fieldValue } = action.payload;
@@ -47,10 +45,8 @@ const allMovieSlice = createSlice({
     },
     addNewMovieData: (state, action) => {
       const newMovie = action.payload;
-      console.log(state.allMovieData)
       state.allMovieData = [...state.allMovieData, newMovie];
-    }
-    
+    },
   },
 });
 

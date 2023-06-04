@@ -1,32 +1,32 @@
-import React from "react"
-import { homeData } from "../../dummyData/dummyData";
-
-import Slider from "react-slick"
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
-import HomeCard from "./HomeCard"
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import HomeCard from "./HomeCard";
+import { useSelector } from "react-redux";
 
 const SampleNextArrow = (props) => {
   const { onClick } = props;
   return (
-    <div className='control-btn' onClick={onClick}>
-      <button className='next'>
-        <i className='fa fa-chevron-right'></i>
+    <div className="control-btn" onClick={onClick}>
+      <button className="next">
+        <i className="fa fa-chevron-right"></i>
       </button>
     </div>
-  )
-}
+  );
+};
 const SamplePrevArrow = (props) => {
   const { onClick } = props;
   return (
-    <div className='control-btn' onClick={onClick}>
-      <button className='prev'>
-        <i className='fa fa-chevron-left'></i>
+    <div className="control-btn" onClick={onClick}>
+      <button className="prev">
+        <i className="fa fa-chevron-left"></i>
       </button>
     </div>
-  )
-}
+  );
+};
 const Home = () => {
+  const movieData = useSelector((state) => state.allMovieReducer.allMovieData);
   const settings = {
     dots: false,
     infinite: true,
@@ -35,20 +35,18 @@ const Home = () => {
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-  }
+  };
   return (
     <>
       <div className={` homeContainer`}>
         <Slider {...settings}>
-          {homeData.map((item,index) => {
-            return (
-                <HomeCard key={index} item={item} />
-            )
+          {movieData.map((item, index) => {
+            return <HomeCard key={index} item={item} />;
           })}
         </Slider>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ArrowLeftOutlined, PlusOutlined } from "@ant-design/icons";
-import { Button, DatePicker, Form, Input, Upload } from "antd";
+import { Button, DatePicker, Form, Input, Upload, message } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import {
@@ -43,6 +43,7 @@ export default function MovieDataEdit() {
   };
   const handleUpadteMovie = () => {
     dispatch(updateAllMovie(editMovieData));
+    message.success("Updated successfully");
     dispatch(addEditMovieData(""));
     dispatch(addEditMovie(false));
     dispatch(addNewMovie(false));
@@ -54,6 +55,7 @@ export default function MovieDataEdit() {
       id: uuidv4().slice(0, 5),
     };
     dispatch(addNewMovieData(movie));
+    message.success("New movie added successfully");
     dispatch(addEditMovie(false));
     dispatch(addNewMovie(false));
   };
@@ -62,97 +64,97 @@ export default function MovieDataEdit() {
     dispatch(addEditMovie(false));
     dispatch(addNewMovie(false));
   };
-  return (
-    <>
+
+  const renderData = (
+    <div>
       <div>
-        <div>
-          <ArrowLeftOutlined
-            className="text-2xl"
-            onClick={() => handleBackButton()}
-          />
-        </div>
-        <div className="mt-10">
-          <Form labelCol={{ span: 6 }} style={{ maxWidth: 600 }}>
-            <Form.Item label="Name">
-              <Input
-                name="name"
-                value={editMovieData?.name}
-                onChange={handleNameChange}
-              />
-            </Form.Item>
-            <Form.Item label="Time">
-              <Input
-                name="time"
-                value={editMovieData?.time}
-                onChange={handleNameChange}
-              />
-            </Form.Item>
-            <Form.Item label="Starring">
-              <Input
-                name="starring"
-                value={editMovieData?.starring}
-                onChange={handleNameChange}
-              />
-            </Form.Item>
-            <Form.Item label="Start Date">
-              <DatePicker
-                className="w-[100%] "
-                placeholder={editMovieData?.movieDate}
-                onChange={(date, dateString) =>
-                  handleNameChange({
-                    target: { name: "movieDate", value: dateString },
-                  })
-                }
-              />
-            </Form.Item>
-            <Form.Item label="Description">
-              <TextArea
-                rows={4}
-                name="desc"
-                value={editMovieData?.desc}
-                onChange={handleNameChange}
-              />
-            </Form.Item>
-            <Form.Item
-              label="Upload"
-              valuePropName="fileList"
-              getValueFromEvent={normFile}
-            >
-              <Upload action="/upload.do" listType="picture-card">
-                <div>
-                  <PlusOutlined />
-                  <div style={{ marginTop: 8 }}>Upload</div>
-                </div>
-              </Upload>
-            </Form.Item>
-            <Form.Item label="Movie Image Link">
-              <Input
-                name="cover"
-                value={editMovieData?.cover}
-                onChange={handleNameChange}
-              />
-            </Form.Item>
-            <Form.Item label="Movie Trailer Link">
-              <Input
-                name="video"
-                value={editMovieData?.video}
-                onChange={handleNameChange}
-              />
-            </Form.Item>
-            <Form.Item>
-              <Button
-                onClick={() => {
-                  editMovie ? handleUpadteMovie() : handleAddNewMovie();
-                }}
-                className="bg-white text-gray-600 py-5 flex justify-center items-center font-bold"
-                block
-              >
-                {editMovie ? "Update Movie" : "Add Movie"}
-              </Button>
-            </Form.Item>
-          </Form>
-        </div>
+        <ArrowLeftOutlined
+          className="text-2xl"
+          onClick={() => handleBackButton()}
+        />
       </div>
-    </>
+      <div className="mt-10">
+        <Form labelCol={{ span: 6 }} style={{ maxWidth: 600 }}>
+          <Form.Item label="Name">
+            <Input
+              name="name"
+              value={editMovieData?.name}
+              onChange={handleNameChange}
+            />
+          </Form.Item>
+          <Form.Item label="Time">
+            <Input
+              name="time"
+              value={editMovieData?.time}
+              onChange={handleNameChange}
+            />
+          </Form.Item>
+          <Form.Item label="Starring">
+            <Input
+              name="starring"
+              value={editMovieData?.starring}
+              onChange={handleNameChange}
+            />
+          </Form.Item>
+          <Form.Item label="Start Date">
+            <DatePicker
+              className="w-[100%] "
+              placeholder={editMovieData?.movieDate}
+              onChange={(date, dateString) =>
+                handleNameChange({
+                  target: { name: "movieDate", value: dateString },
+                })
+              }
+            />
+          </Form.Item>
+          <Form.Item label="Description">
+            <TextArea
+              rows={4}
+              name="desc"
+              value={editMovieData?.desc}
+              onChange={handleNameChange}
+            />
+          </Form.Item>
+          <Form.Item
+            label="Upload"
+            valuePropName="fileList"
+            getValueFromEvent={normFile}
+          >
+            <Upload action="/upload.do" listType="picture-card">
+              <div>
+                <PlusOutlined />
+                <div style={{ marginTop: 8 }}>Upload</div>
+              </div>
+            </Upload>
+          </Form.Item>
+          <Form.Item label="Movie Image Link">
+            <Input
+              name="cover"
+              value={editMovieData?.cover}
+              onChange={handleNameChange}
+            />
+          </Form.Item>
+          <Form.Item label="Movie Trailer Link">
+            <Input
+              name="video"
+              value={editMovieData?.video}
+              onChange={handleNameChange}
+            />
+          </Form.Item>
+          <Form.Item>
+            <Button
+              onClick={() => {
+                editMovie ? handleUpadteMovie() : handleAddNewMovie();
+              }}
+              className="bg-white text-gray-600 py-5 flex justify-center items-center font-bold"
+              block
+            >
+              {editMovie ? "Update Movie" : "Add Movie"}
+            </Button>
+          </Form.Item>
+        </Form>
+      </div>
+    </div>
   );
+  return <>{renderData}</>;
 }

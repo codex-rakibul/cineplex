@@ -17,7 +17,7 @@ import {
 import Head from "next/head";
 import { message } from "antd";
 
-export default function index() {
+export default function Login() {
   const { bookingSystem } = useSelector((state) => state.basicAuthReducer);
   const renderLoginError = (
     <span className="text-red-600">Please enter valid email or password</span>
@@ -43,7 +43,7 @@ export default function index() {
     onSubmit: (values) => {
       const person = values;
       let matchFound = false;
-      loginData.map((user) => {
+      loginData.allUserData.map((user) => {
         if (user.email === person.email && user.password === person.password) {
           console.log("id--------", user.userId);
           matchFound = true;
@@ -105,7 +105,7 @@ export default function index() {
       dispatch(addUser(person));
 
       const { name, email, password, userId } = values;
-    
+
       if (bookingSystem) {
         dispatch(addAuth(true));
         dispatch(addDonePage(true));
@@ -113,7 +113,7 @@ export default function index() {
         router.push("/ticket_booking");
       } else {
         dispatch(addAuth(true));
-       dispatch(addUserId(person.userId));
+        dispatch(addUserId(person.userId));
         router.push("/");
         message.success("Successfully submitted...Now yon can login");
       }
@@ -146,18 +146,11 @@ export default function index() {
     );
 
   const renderData = (
-    <div className="bg-black h-screen">
+    <div className="bg-black h-screen  ">
       <Head>
         <title>Login</title>
-        <link
-          rel="stylesheet"
-          href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-          crossorigin="anonymous"
-        />
       </Head>
-      <Navbar />
-      <div className="bg-black  md:h-screen flex justify-center items-center md:pt-0 pt-16 md:pb-20 ">
+      <div className="bg-black h-full  flex justify-center items-center  md:py-20 py-0 ">
         <div className="main2 ">
           <input type="checkbox" id="chk" aria-hidden="true" />
           <div className="signup">

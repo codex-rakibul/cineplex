@@ -4,7 +4,7 @@ import {
   DeleteOutlined,
   PlusSquareOutlined,
 } from "@ant-design/icons";
-import { Button, Table } from "antd";
+import { Button, Table, message } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { addEditMovie, addNewMovie } from "@/app/features/dashboardSlicer/editSlice";
 import {
@@ -21,6 +21,7 @@ export default function Movie() {
   };
   const handleDeleteMovie = (data) => {
     dispatch(deleteMovie(data.id));
+    message.success("Successfully deleted");
     
   };
   const handleAddMovie = () => {

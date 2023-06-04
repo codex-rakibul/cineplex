@@ -8,32 +8,39 @@ import { useDispatch, useSelector } from "react-redux";
 import { addAuth } from "@/app/features/basicAuthSlicer/basicAuthSlice";
 import { message } from "antd";
 import { svg1, svg2 } from "./svg";
+import { addComponent } from "@/app/features/navComponentSlicer/navComponentSlice";
 const NavbarCom = () => {
+  const component = useSelector(
+    (state) => state.navComponentReducer.componentId
+  );
   const loginCheck = useSelector(
     (state) => state.basicAuthReducer.loginChecked
   );
   const dispatch = useDispatch();
-
-  const router = useRouter();
   const [toggle, setToggle] = useState(false);
   const handleLogout = () => {
     message.success("Safely log out your account");
     dispatch(addAuth(false));
+  };
+  const handleNavComponent = (id) => {
+    dispatch(addComponent(id));
   };
 
   const renderData = (
     <div>
       <nav className="z-10 w-full  py-6 flexStyle navbar">
         {/* <Image src={logo} alt="hoobank" className="w-[124px] h[32px]" /> */}
-        <Link href="/">
-          <h1 className={`font-poppins font-semibold cursor-pointer mainLogo `}>
-            <i
-              style={{ fontSize: "20px" }}
-              className="png fas fa-play mr-2 w-4 h-4"
-            />
-            CINEPLEX BD
-          </h1>
-        </Link>
+
+        <h1
+          onClick={() => handleNavComponent("")}
+          className={`font-poppins font-semibold cursor-pointer mainLogo `}
+        >
+          <i
+            style={{ fontSize: "20px" }}
+            className="png fas fa-play mr-2 w-4 h-4"
+          />
+          CINEPLEX BD
+        </h1>
 
         <ul className="list-none sm:flex hidden justify-end items-center flex-1">
           {navLinks.map((nav, index) => {
@@ -44,11 +51,14 @@ const NavbarCom = () => {
                 className={`font-poppins font-normal cursor-pointer text-[16px] ${
                   index === navLinks.length - 1 ? "mr-0" : "mr-10"
                 }  ${
-                  router.pathname == `/${nav.id}` ? "active" : ""
+                  component === id ||
+                  (id === "" && (component === null || component === undefined))
+                    ? "active"
+                    : ""
                 } text-white`}
               >
                 {id != "login" ? (
-                  <Link href={`/${nav.id}`}>{title}</Link>
+                  <div onClick={() => handleNavComponent(id)}>{title}</div>
                 ) : loginCheck ? (
                   <div
                     className="inline-flex items-center text-[16px]"
@@ -58,12 +68,12 @@ const NavbarCom = () => {
                     {svg1}
                   </div>
                 ) : (
-                  <Link href={`/${nav.id}`}>
+                  <div onClick={() => handleNavComponent(id)}>
                     <div className="inline-flex items-center text-[16px]">
                       {title}
                       {svg2}
                     </div>
-                  </Link>
+                  </div>
                 )}
               </li>
             );
@@ -85,6 +95,7 @@ const NavbarCom = () => {
             <ul className="list-none flex  flex-col justify-end items-center flex-1">
               {navLinks.map((nav, index) => {
                 const { id, title } = nav;
+
                 return (
                   <li
                     key={id}
@@ -93,7 +104,7 @@ const NavbarCom = () => {
                     } text-white`}
                   >
                     {id != "login" ? (
-                      <Link href={`/${nav.id}`}>{title}</Link>
+                      <div onClick={() => handleNavComponent(id)}>{title}</div>
                     ) : loginCheck ? (
                       <div
                         className="inline-flex items-center text-[16px]"
@@ -103,12 +114,13 @@ const NavbarCom = () => {
                         {svg1}
                       </div>
                     ) : (
-                      <Link href={`/${nav.id}`}>
-                        <div className="inline-flex items-center text-[16px]">
-                          {title}
-                          {svg2}
-                        </div>
-                      </Link>
+                      <div
+                        onClick={() => handleNavComponent(id)}
+                        className="inline-flex items-center text-[16px]"
+                      >
+                        {title}
+                        {svg2}
+                      </div>
                     )}
                   </li>
                 );

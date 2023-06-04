@@ -1,17 +1,10 @@
 import React from "react";
 import styles from "../style";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { Autoplay, Navigation, Mousewheel, Keyboard } from "swiper";
-import { RightOutlined, LeftOutlined } from "@ant-design/icons";
-
-import { homeData } from "../../dummyData/dummyData";
 import MovieCard from "./movieCard";
-import Link from "next/link";
+import { useSelector } from "react-redux";
 
 export default function UpMovie() {
+  const movieData = useSelector((state) => state.allMovieReducer.allMovieData);
   return (
     <div className={` ${styles.paddingX} sm:${styles.flexCenter}`}>
       <div className={`${styles.boxWidth} `}>
@@ -30,7 +23,7 @@ export default function UpMovie() {
               </p>
             </div>
             <div className="flex flex-wrap -m-4">
-              {homeData.map((item, index) => {
+              {movieData.map((item, index) => {
                 return <MovieCard key={index} item={item} />;
               })}
             </div>

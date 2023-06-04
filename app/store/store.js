@@ -5,6 +5,7 @@ import basicAuthReducer from "../features/basicAuthSlicer/basicAuthSlice";
 import allSeatReducer from "../features/seatSlicer/seatSlice";
 import editReducer from "../features/dashboardSlicer/editSlice";
 import allMovieReducer from "../features/dashboardSlicer/allMovieSlice";
+import navComponentReducer from "../features/navComponentSlicer/navComponentSlice";
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     allSeatReducer: allSeatReducer,
     editReducer: editReducer,
     allMovieReducer: allMovieReducer,
+    navComponentReducer:navComponentReducer,
   },
 });
 

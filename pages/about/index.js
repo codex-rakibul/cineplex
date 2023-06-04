@@ -1,5 +1,3 @@
-import FooterCom from "@/components/footer";
-import Navbar from "@/components/navbar";
 import React from "react";
 import styles from "../../components/style";
 import Head from "next/head";
@@ -372,20 +370,12 @@ export default function About() {
   );
 
   const renderData = (
-    <div className="bg-black h-full md:h-screen">
+    <div className="bg-black h-full ">
       <Head>
-        <title>Cineplex</title>
-        <link
-          rel="stylesheet"
-          href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-          crossorigin="anonymous"
-        />
+        <title>About</title>
       </Head>
-      <Navbar />
       {ourTeam}
       {contact}
-      <FooterCom />
     </div>
   );
   return <>{renderData}</>;

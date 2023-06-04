@@ -15,8 +15,14 @@ import InvoicesCom from "./invoicesCom";
 import SettingCom from "./settingCom";
 import { useDispatch, useSelector } from "react-redux";
 import MovieDataEdit from "./editData/movieDataEdit";
-import { addEditMovie, addNewMovie} from "@/app/features/dashboardSlicer/editSlice";
+import {
+  addEditMovie,
+  addEdituser,
+  addNewMovie,
+} from "@/app/features/dashboardSlicer/editSlice";
 import { addEditMovieData } from "@/app/features/dashboardSlicer/allMovieSlice";
+import UserDataEdit from "./editData/userDataEdit";
+import Link from "next/link";
 const navData = [
   {
     id: 1,
@@ -64,7 +70,9 @@ const navData = [
 
 export default function index() {
   const dispatch = useDispatch();
-  const checkMovieEditPage = useSelector((state) => state.editReducer);
+  const { editMovie, addMovie, editUser } = useSelector(
+    (state) => state.editReducer
+  );
   const [contentCom, setContentCom] = useState();
   const [selectedNavItem, setSelectedNavItem] = useState(null);
 
@@ -72,6 +80,7 @@ export default function index() {
     dispatch(addEditMovieData(""));
     dispatch(addEditMovie(false));
     dispatch(addNewMovie(false));
+    dispatch(addEdituser(false));
     setSelectedNavItem(navItem.id);
     setContentCom(navItem.com);
   };
@@ -80,9 +89,11 @@ export default function index() {
       <div className="grid grid-cols-12 mx-auto gap-2 sm:gap-4 md:gap-6 lg:gap-10 xl:gap-14 max-w-7xl md:my-10 my-4 px-2">
         {/* <AdminNavBar/> */}
         <div id="menu" className="bg-white/10 col-span-3 rounded-lg p-4 ">
-          <p className="text-slate-400 text-sm md:text-3xl mb-2">
-            Welcome back,
-          </p>
+          <Link href="/">
+            <p className="text-slate-400 text-sm md:text-3xl mb-2">
+              CINEPLEX BD
+            </p>
+          </Link>
           <a
             href="#"
             className="flex flex-col space-y-2 md:space-y-0 md:flex-row mb-5 items-center md:space-x-2 hover:bg-white/10 group transition duration-150 ease-linear rounded-lg group w-full py-3 px-2"
@@ -135,8 +146,10 @@ export default function index() {
         <div id="content" className="bg-white/10 col-span-9 rounded-lg p-6">
           {contentCom == null || undefined ? (
             <DashboardCom />
-          ) : checkMovieEditPage.editMovie || checkMovieEditPage.addMovie ? (
+          ) : editMovie || addMovie ? (
             <MovieDataEdit />
+          ) : editUser ? (
+            <UserDataEdit />
           ) : (
             contentCom
           )}

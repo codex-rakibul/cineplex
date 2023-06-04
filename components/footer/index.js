@@ -1,51 +1,9 @@
 import React from "react";
 import styles from "../style";
-import Head from "next/head";
-const linkData = [
-  {
-    id: 1,
-    title: "CATEGORIES",
-    t1: "First Link",
-    t2: "Second Link",
-    t3: "Third Link",
-    t4: "Fourth Link",
-  },
-  {
-    id: 2,
-    title: "CATEGORIES",
-    t1: "First Link",
-    t2: "Second Link",
-    t3: "Third Link",
-    t4: "Fourth Link",
-  },
-  {
-    id: 3,
-    title: "CATEGORIES",
-    t1: "First Link",
-    t2: "Second Link",
-    t3: "Third Link",
-    t4: "Fourth Link",
-  },
-  {
-    id: 4,
-    title: "CATEGORIES",
-    t1: "First Link",
-    t2: "Second Link",
-    t3: "Third Link",
-    t4: "Fourth Link",
-  },
-];
+
 const renderData = (
   <div className={` bg-primary ${styles.paddingX} ${styles.flexCenter} `}>
     <div className={`${styles.boxWidth} `}>
-      <Head>
-        <link
-          rel="stylesheet"
-          href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-          crossorigin="anonymous"
-        />
-      </Head>
       <div className="bg-black p-4 items-center">
         <div className="space-y-9 grid grid-cols-1 md:grid-cols-2   lg:grid-cols-4  ">
           <div className="text-[#6d6d6d] font-[650] text-[16px] leading-7">

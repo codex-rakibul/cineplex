@@ -3,8 +3,6 @@ import $ from "jquery";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBangladeshiTakaSign } from "@fortawesome/free-solid-svg-icons";
 import Head from "next/head";
-import Navbar from "@/components/navbar";
-import FooterCom from "@/components/footer";
 export default function TicketPrice() {
   useEffect(() => {
     // const handleClick = (e) => {
@@ -36,56 +34,56 @@ export default function TicketPrice() {
   }, []);
 
   const renderData = (
-    <div >
+    <div>
       <Head>
-          <title>Ticket Price</title>
-          <link
-            rel="stylesheet"
-            href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-            integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-            crossorigin="anonymous"
-          />
-        </Head>
-        <Navbar />
+        <title>Ticket Price</title>
+      </Head>
       <div className=" bg-black md:py-48 flex items-center justify-center">
-        
         <div className=" ">
-        <div >
-          <div className=" cardTable md:grid md:grid-cols-3 md:gap-56  ">
-            <div className="card2 card--1 md:mb-0  md:mt-0 mt-16 mb-16">
-              <figure className="card__front flex justify-center items-center">
-                C L A S S I C
-              </figure>
-              <figure className="card__back flex justify-center items-center text-2xl font-semibold">
-                100 <span className="mr-2"></span>{" "}
-                <FontAwesomeIcon icon={faBangladeshiTakaSign} className="h-6" />
-              </figure>
-            </div>
+          <div>
+            <div className=" cardTable md:grid md:grid-cols-3 md:gap-56  ">
+              <div className="card2 card--1 md:mb-0  md:mt-0 mt-16 mb-16">
+                <figure className="card__front flex justify-center items-center">
+                  C L A S S I C
+                </figure>
+                <figure className="card__back flex justify-center items-center text-2xl font-semibold">
+                  100 <span className="mr-2"></span>{" "}
+                  <FontAwesomeIcon
+                    icon={faBangladeshiTakaSign}
+                    className="h-6"
+                  />
+                </figure>
+              </div>
 
-            <div className="card2 card--2 ">
-              <figure className="card__front flex justify-center items-center text-uppercase">
-                S T A N D A R D
-              </figure>
-              <figure className="card__back flex justify-center items-center  text-2xl font-semibold">
-                200 <span className="mr-2"></span>{" "}
-                <FontAwesomeIcon icon={faBangladeshiTakaSign} className="h-6" />
-              </figure>
-            </div>
+              <div className="card2 card--2 ">
+                <figure className="card__front flex justify-center items-center text-uppercase">
+                  S T A N D A R D
+                </figure>
+                <figure className="card__back flex justify-center items-center  text-2xl font-semibold">
+                  200 <span className="mr-2"></span>{" "}
+                  <FontAwesomeIcon
+                    icon={faBangladeshiTakaSign}
+                    className="h-6"
+                  />
+                </figure>
+              </div>
 
-            <div className="card2 card--3 ">
-              <figure className="card__front flex justify-center items-center">
-                P R E M I U M
-              </figure>
-              <figure className="card__back flex justify-center items-center  text-2xl font-semibold">
-                300 <span className="mr-2"></span>{" "}
-                <FontAwesomeIcon icon={faBangladeshiTakaSign} className="h-6" />
-              </figure>
+              <div className="card2 card--3 ">
+                <figure className="card__front flex justify-center items-center">
+                  P R E M I U M
+                </figure>
+                <figure className="card__back flex justify-center items-center  text-2xl font-semibold">
+                  300 <span className="mr-2"></span>{" "}
+                  <FontAwesomeIcon
+                    icon={faBangladeshiTakaSign}
+                    className="h-6"
+                  />
+                </figure>
+              </div>
             </div>
           </div>
         </div>
-        </div>
       </div>
-      <FooterCom />
     </div>
   );
 
