@@ -36,7 +36,7 @@ const TimeSchedule = () => {
       <Head>
         <title>Time Shedule</title>
       </Head>
-      <h2 className="text-teal-600 text-2xl font-bold">Pick a Date and Time</h2>
+      <h2 className="text-teal-600 text-2xl font-bold">Pick a date and time</h2>
       <div className="grid md:grid-cols-7 grid-cols-2 gap-4 text-white md:m-20 m-6 ">
         {allDates.map((datePick, key) => {
           const { id } = datePick;
