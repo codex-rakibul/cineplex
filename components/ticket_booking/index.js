@@ -6,10 +6,12 @@ import Done from "./done";
 import Confirmation from "./confirmation";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
+import styles from "../style";
 import {
   addBookingSystem,
   addDonePage,
 } from "@/app/features/basicAuthSlicer/basicAuthSlice";
+import { addComponent } from "@/app/features/navComponentSlicer/navComponentSlice";
 
 const steps = [
   {
@@ -36,18 +38,17 @@ const TicketBooking = () => {
   const loginCheck = useSelector(
     (state) => state.basicAuthReducer.loginChecked
   );
-  console.log("loginCheck----------",loginCheck);
+  console.log("loginCheck----------", loginCheck);
   const { donePage } = useSelector((state) => state.basicAuthReducer);
   useEffect(() => {
     if (donePage) {
       setCurrent(current + 3);
       dispatch(addDonePage(false));
-
     }
   }, []);
   const handleUnLogin = () => {
     dispatch(addBookingSystem(true));
-    router.push("/login");
+    dispatch(addComponent("login"));
   };
 
   const { token } = theme.useToken();
@@ -76,13 +77,13 @@ const TicketBooking = () => {
   const handleDone = () => {
     dispatch(addDonePage(false));
     message.success("Ticket Confirmation has been confirmed successfully");
-    router.push("/");
+    dispatch(addComponent(""));
   };
 
   const renderData = (
-    <div>
-      <div className="h-screen bg-black">
-        <div className="md:p-10 p-4 bg-black h-auto text-white ">
+    <div className={` h-fit bg-black ${styles.paddingX} sm:${styles.flexCenter}`}>
+      <div className={`h-full bg-black ${styles.boxWidth} `}>
+        <div className="md:py-10 py-4 bg-black h-auto text-white ">
           <Steps current={current} items={items} />
           <div style={contentStyle}>
             {donePage ? (

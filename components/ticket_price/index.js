@@ -34,7 +34,7 @@ export default function TicketPrice() {
   }, []);
 
   const renderData = (
-    <div>
+    <>
       <Head>
         <title>Ticket Price</title>
       </Head>
@@ -84,7 +84,7 @@ export default function TicketPrice() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 
   return <>{renderData}</>;

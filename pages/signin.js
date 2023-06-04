@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import Navbar from "../../components/navbar";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,6 +15,7 @@ import {
 } from "@/app/features/basicAuthSlicer/basicAuthSlice";
 import Head from "next/head";
 import { message } from "antd";
+import { addComponent } from "@/app/features/navComponentSlicer/navComponentSlice";
 
 export default function Login() {
   const { bookingSystem } = useSelector((state) => state.basicAuthReducer);
@@ -54,7 +54,7 @@ export default function Login() {
             dispatch(addAuth(true));
             dispatch(addDonePage(true));
             dispatch(addUserId(user.userId));
-            router.push("/ticket_booking");
+            dispatch(addComponent("ticket_booking"));
           } else {
             setLoginError(false);
             dispatch(addAuth(true));
@@ -66,7 +66,7 @@ export default function Login() {
                 status: "active",
               })
             );
-            router.push("/");
+            dispatch(addComponent(""));
           }
         }
       });
@@ -110,11 +110,11 @@ export default function Login() {
         dispatch(addAuth(true));
         dispatch(addDonePage(true));
         dispatch(addUserId(person.userId));
-        router.push("/ticket_booking");
+        dispatch(addComponent("ticket_booking"));
       } else {
         dispatch(addAuth(true));
         dispatch(addUserId(person.userId));
-        router.push("/");
+        dispatch(addComponent(""));
         message.success("Successfully submitted...Now yon can login");
       }
 
@@ -150,7 +150,7 @@ export default function Login() {
       <Head>
         <title>Login</title>
       </Head>
-      <div className="bg-black h-full  flex justify-center items-center  md:py-20 py-0 ">
+      <div className="bg-black h-full  flex justify-center items-center  md:py-20 py-0 mb:pb-0 pb-10 ">
         <div className="main2 ">
           <input type="checkbox" id="chk" aria-hidden="true" />
           <div className="signup">

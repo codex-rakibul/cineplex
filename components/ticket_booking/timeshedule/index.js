@@ -19,7 +19,7 @@ const TimeSchedule = () => {
 
   const [selectDate, setSelectDate] = useState(false);
   const [selectTime, setSelectTime] = useState(false);
-  console.log("fullDate...........",ticketBookingData)
+  console.log("fullDate...........", ticketBookingData);
 
   const handleSelectDate = (id, datePick) => {
     dispatch(addFullDate(datePick.fullDate));
@@ -36,7 +36,7 @@ const TimeSchedule = () => {
       <Head>
         <title>Time Shedule</title>
       </Head>
-      <h2 className="text-teal-600 text-2xl font-bold">Pick a Date</h2>
+      <h2 className="text-teal-600 text-2xl font-bold">Pick a Date and Time</h2>
       <div className="grid md:grid-cols-7 grid-cols-2 gap-4 text-white md:m-20 m-6 ">
         {allDates.map((datePick, key) => {
           const { id } = datePick;
@@ -49,11 +49,10 @@ const TimeSchedule = () => {
               datePick={datePick}
               ticketBookingData={ticketBookingData}
             />
-          
           );
         })}
       </div>
-      <h2 className="text-teal-600 text-2xl font-bold">Pick a Time</h2>
+
       <div
         className={` text-white grid md:grid-cols-4 grid-cols-2 gap-6  md:m-20 m-6 cursor-pointer `}
       >

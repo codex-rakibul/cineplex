@@ -1,6 +1,7 @@
 import React from "react";
-import styles from "../../components/style";
+import styles from "../style";
 import Head from "next/head";
+import LayoutCom from "@/components/layout";
 const mapUrl =
   "https://maps.google.com/maps?width=100%&height=600&hl=en&q=Bogura,Bangladesh&ie=UTF8&t=&z=14&iwloc=B&output=embed";
 export default function About() {

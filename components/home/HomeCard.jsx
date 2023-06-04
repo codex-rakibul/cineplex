@@ -1,8 +1,11 @@
 import React from "react";
-import styles from "../../components/style";
+import styles from "../style";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { addComponent } from "@/app/features/navComponentSlicer/navComponentSlice";
 
 const HomeCard = ({ item }) => {
+  const dispatch = useDispatch();
   if (!item) {
     return null; // or display a fallback UI if necessary
   }
@@ -43,12 +46,12 @@ const HomeCard = ({ item }) => {
               </h4>
             </div>
             <div className="grid grid-cols-2 gap-4 md:pb-20 pb-0 ">
-              <Link href="/ticket_booking">
+              <div onClick={()=>dispatch(addComponent("ticket_booking"))}>
                 <button className="btnB ">Buy Ticket</button>
-              </Link>
-              <Link href="/details">
+              </div>
+              <div onClick={()=>dispatch(addComponent("details"))}>
                 <button className=" btnD">Details</button>
-              </Link>
+              </div>
             </div>
           </div>
           <div className="palyButton row ">

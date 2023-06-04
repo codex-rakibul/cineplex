@@ -1,21 +1,28 @@
-import Head from "next/head";
 import React, { useEffect, useState } from "react";
-import Homes from "../homes/Homes";
-import Navbar from "@/components/navbar";
-import FooterCom from "@/components/footer";
 import { useSelector } from "react-redux";
-import UpcomingMovie from "../upcoming_movies";
-import TicketPrice from "../ticket_price";
-import About from "../about";
-import Login from "../login";
+import UpcomingMovie from "../../components/upcoming_movies";
+import TicketPrice from "../../components/ticket_price";
+import About from "../../components/about";
+import Login from "../signin";
+import Homes from "../../components/home";
+import LayoutCom from "@/components/layout";
+import TicketBooking from "@/components/ticket_booking";
+import DetailsPage from "@/components/details";
 
 export default function HomePage() {
   const [com, setCom] = useState();
   const component = useSelector(
     (state) => state.navComponentReducer.componentId
   );
+ 
+
   useEffect(() => {
-    if (component === undefined || component === null || component === "") {
+    if (
+      component === undefined ||
+      component === null ||
+      component === "/home" ||
+      component === ""
+    ) {
       setCom(<Homes />);
     } else if (component === "upcoming_movies") {
       setCom(<UpcomingMovie />);
@@ -25,18 +32,18 @@ export default function HomePage() {
       setCom(<About />);
     } else if (component === "login") {
       setCom(<Login />);
+    }else if(component === "ticket_booking") {
+      setCom(<TicketBooking />)
+    }else if(component === "details"){
+      setCom(<DetailsPage/>)
     }
   }, [component]);
+
   const renderData = (
-    <>
-      <div className="bg-black">
-        <div className=" h-fit ">
-          <Navbar />
-        </div>
+    <LayoutCom>
         {com}
-        {component !== "login" && <FooterCom />}
-      </div>
-    </>
+      
+    </LayoutCom>
   );
   return <>{renderData}</>;
 }

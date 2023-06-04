@@ -1,11 +1,12 @@
-import Navbar from "@/components/navbar";
 import Head from "next/head";
 import Link from "next/link";
 import React from "react";
-import styles from "../../components/style";
-import FooterCom from "@/components/footer";
-export default function index() {
-  return (
+import styles from "../style";
+import { addComponent } from "@/app/features/navComponentSlicer/navComponentSlice";
+import { useDispatch } from "react-redux";
+export default function DetailsPage() {
+  const dispatch = useDispatch();
+  const renderData = (
     <>
       <Head>
         <title>Details</title>
@@ -16,7 +17,6 @@ export default function index() {
           crossorigin="anonymous"
         />
       </Head>
-      <Navbar />
       <div className={`  ${styles.paddingX} sm:${styles.flexCenter}`}>
         <div className={`${styles.boxWidth} `}>
           <section className="text-gray-600 body-font overflow-hidden">
@@ -142,9 +142,11 @@ export default function index() {
                   </p>
 
                   <div className="flex mt-4">
-                    <Link href="/ticket_booking">
+                    <div
+                      onClick={() => dispatch(addComponent("ticket_booking"))}
+                    >
                       <button className="btns">Buy Ticket</button>
-                    </Link>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -215,7 +217,7 @@ export default function index() {
           </section>
         </div>
       </div>
-      <FooterCom />
     </>
   );
+  return <>{renderData}</>;
 }
