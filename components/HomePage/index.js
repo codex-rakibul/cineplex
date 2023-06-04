@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import UpcomingMovie from "../../components/upcoming_movies";
-import TicketPrice from "../../components/ticket_price";
-import About from "../../components/about";
-import Login from "../signin";
-import Homes from "../../components/home";
+import UpcomingMovie from "../upcoming_movies";
+import TicketPrice from "../ticket_price";
+import About from "../about";
+import Login from "../../pages/signin";
+import Homes from "../home";
 import LayoutCom from "@/components/layout";
 import TicketBooking from "@/components/ticket_booking";
 import DetailsPage from "@/components/details";
@@ -14,7 +14,6 @@ export default function HomePage() {
   const component = useSelector(
     (state) => state.navComponentReducer.componentId
   );
- 
 
   useEffect(() => {
     if (
@@ -32,18 +31,13 @@ export default function HomePage() {
       setCom(<About />);
     } else if (component === "login") {
       setCom(<Login />);
-    }else if(component === "ticket_booking") {
-      setCom(<TicketBooking />)
-    }else if(component === "details"){
-      setCom(<DetailsPage/>)
+    } else if (component === "ticket_booking") {
+      setCom(<TicketBooking />);
+    } else if (component === "details") {
+      setCom(<DetailsPage />);
     }
   }, [component]);
 
-  const renderData = (
-    <LayoutCom>
-        {com}
-      
-    </LayoutCom>
-  );
+  const renderData = <LayoutCom>{com}</LayoutCom>;
   return <>{renderData}</>;
 }
