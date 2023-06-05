@@ -15,7 +15,7 @@ export default function TrendingMovie() {
                 src="https://assets.gadgets360cdn.com/pricee/assets/product/202301/Evil-Dead-Rise_1673850219.jpg"
               />
             </div>
-            <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+            <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16  flex-col md:items-start md:text-left items-center text-center">
               <p className="showName">EVIL DEAD RISE</p>
               <p className="mb-8 leading-relaxed">
                 Copper mug try-hard pitchfork pour-over freegan heirloom neutra
@@ -23,13 +23,17 @@ export default function TrendingMovie() {
                 park mlkshk tote bag selvage hot chicken authentic tumeric
                 truffaut hexagon try-hard chambray.
               </p>
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-2 gap-4 ">
+                <div>
                 <Link href="/ok">
                   <button className="btnB ">Buy Ticket</button>
                 </Link>
+                </div>
+                <div>
                 <Link href="/ok">
                   <button className="btnD ">Details</button>
                 </Link>
+                </div>
               </div>
             </div>
           </div>

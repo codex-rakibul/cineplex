@@ -47,7 +47,7 @@ const NavbarCom = () => {
       <nav className="z-10 w-full  py-6 flexStyle navbar">
         {/* <Image src={logo} alt="hoobank" className="w-[124px] h[32px]" /> */}
         <Link href="/">
-          <h1 className={`font-poppins font-semibold cursor-pointer mainLogo `}>
+          <h1 className={` cursor-pointer mainLogo `}>
             <i
               style={{ fontSize: "20px" }}
               className="png fas fa-play mr-2 w-4 h-4"

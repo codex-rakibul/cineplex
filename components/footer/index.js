@@ -141,7 +141,7 @@ const renderData = (
             </div>
           </div>
         </div>
-        <div className="divide-y divide-[#747474] contrast-200 mt-3 mb-3 md:-mt-4 md:-mb-2 lg:-mt-16 xl:-mt-24">
+        <div className="divide-y divide-[#747474] contrast-200 mt-3 mb-3 md:-mt-4 md:-mb-2 lg:-mt-16 xl:-mt-24 pt-6">
           <p>&nbsp;</p>
           <p>&nbsp;</p>
         </div>
