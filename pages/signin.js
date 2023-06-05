@@ -15,7 +15,6 @@ import {
 } from "@/app/features/basicAuthSlicer/basicAuthSlice";
 import Head from "next/head";
 import { message } from "antd";
-import { addComponent } from "@/app/features/navComponentSlicer/navComponentSlice";
 
 export default function Login() {
   const { bookingSystem } = useSelector((state) => state.basicAuthReducer);
@@ -50,7 +49,6 @@ export default function Login() {
             status: "active",
           };
           localStorage.setItem("user", JSON.stringify(person));
-          console.log("id--------", user.userId);
           matchFound = true;
           if (user.role === "admin") {
             setLoginError(false);

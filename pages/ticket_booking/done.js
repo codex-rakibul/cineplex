@@ -1,9 +1,10 @@
 import Head from "next/head";
 import { PlaySquareOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
-import React, { use, useEffect, useRef } from "react";
+import React, { use, useEffect, useRef, useState } from "react";
 
 export default function Done() {
+  const [localStorageUserData, setLocalStorageUserData] = useState();
   const ticketBookingData = useSelector((state) => state.ticketBookingReducer);
   const userId = useSelector((state) => state.basicAuthReducer.userId);
 
@@ -32,6 +33,12 @@ export default function Done() {
         button.addEventListener("click", handleDownloadPDF);
       }
     });
+  }, []);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const user = JSON.parse(localStorage.getItem("user"));
+      setLocalStorageUserData(user);
+    }
   }, []);
 
   const renderData = (
@@ -80,7 +87,7 @@ export default function Done() {
                 <p>SHOW TIME :- {ticketBookingData.selectShowtime}</p>
                 <p>{ticketBookingData.selectedSeats + " "}</p>
               </div>
-              <p className="ticket-number ">#{userId}</p>
+              <p className="ticket-number ">#{localStorageUserData?.userId}</p>
             </div>
           </div>
         </div>
