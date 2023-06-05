@@ -92,7 +92,7 @@ const NavbarCom = () => {
                       index === navLinks.length - 1 ? "mr-0" : "mb-4"
                     } text-white`}
                   >
-                    {id != "login" ? (
+                    {id != "signin" ? (
                       <Link href={`/${nav.id}`}>{title}</Link>
                     ) : loginCheck ? (
                       <div

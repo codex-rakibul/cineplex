@@ -110,11 +110,11 @@ export default function Login() {
         dispatch(addAuth(true));
         dispatch(addDonePage(true));
         dispatch(addUserId(person.userId));
-        dispatch(addComponent("ticket_booking"));
+        router.push("/ticket_booking");
       } else {
         dispatch(addAuth(true));
         dispatch(addUserId(person.userId));
-        dispatch(addComponent(""));
+        router.push("/");
         message.success("Successfully submitted...Now yon can login");
       }
 
