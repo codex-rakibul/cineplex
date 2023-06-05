@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { close, menu } from "../../assets";
 import { navLinks } from "../../dummyData/dummyData";
@@ -8,17 +8,37 @@ import { useDispatch, useSelector } from "react-redux";
 import { addAuth } from "@/app/features/basicAuthSlicer/basicAuthSlice";
 import { message } from "antd";
 import { svg1, svg2 } from "./svg";
+
 const NavbarCom = () => {
+  const [localStorageUserData, setLocalStorageUserData] = useState();
+  console.log("setLocalStorageUserData----------", localStorageUserData);
   const loginCheck = useSelector(
     (state) => state.basicAuthReducer.loginChecked
   );
   const dispatch = useDispatch();
 
   const router = useRouter();
+
   const [toggle, setToggle] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const user = JSON.parse(localStorage.getItem("user"));
+      setLocalStorageUserData(user);
+    }
+  }, [loginCheck]);
   const handleLogout = () => {
     message.success("Safely log out your account");
+    router.push("/");
     dispatch(addAuth(false));
+    const user = JSON.parse(localStorage.getItem("user"));
+    const person = {
+      ...user,
+      status: "inactive",
+    };
+    localStorage.setItem("user", JSON.stringify(person));
+    
+    
   };
 
   const renderData = (
@@ -49,7 +69,7 @@ const NavbarCom = () => {
               >
                 {id != "signin" ? (
                   <Link href={`/${nav.id}`}>{title}</Link>
-                ) : loginCheck ? (
+                ) : localStorageUserData?.status !== "inactive" ? (
                   <div
                     className="inline-flex items-center text-[16px]"
                     onClick={() => handleLogout()}
@@ -94,7 +114,7 @@ const NavbarCom = () => {
                   >
                     {id != "signin" ? (
                       <Link href={`/${nav.id}`}>{title}</Link>
-                    ) : loginCheck ? (
+                    ) : localStorageUserData?.status !== "inactive" ? (
                       <div
                         className="inline-flex items-center text-[16px]"
                         onClick={() => handleLogout()}

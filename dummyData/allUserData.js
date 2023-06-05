@@ -12,7 +12,7 @@ export const allUserLoginData = [
     name: "Sony",
     email: "rakibulislam667s@gmail.com",
     password: "rakibulislam667s@gmail.com",
-    status: "Inactive",
+    status: "inactive",
     role:"user",
   },
   {
@@ -20,7 +20,7 @@ export const allUserLoginData = [
     name: "Rakibul Islam",
     email: "rakibul@gmail.com",
     password: "rakibul@gmail.com",
-    status: "Inactive",
+    status: "inactive",
     role:"user",
   },
   {
@@ -28,7 +28,7 @@ export const allUserLoginData = [
     name: "Shamim",
     email: "shamim@gmail.com",
     password: "12345678",
-    status: "Inactive",
+    status: "inactive",
     role:"user",
   },
   {
@@ -36,7 +36,7 @@ export const allUserLoginData = [
     name: "Tushar",
     email: "tushar@gmail.com",
     password: "12345678",
-    status: "Inactive",
+    status: "inactive",
     role:"user",
   },
   {
@@ -44,7 +44,7 @@ export const allUserLoginData = [
     name: "Habib",
     email: "habibl@gmail.com",
     password: "12345678",
-    status: "Inactive",
+    status: "inactive",
     role:"user",
   },
   {
@@ -52,7 +52,7 @@ export const allUserLoginData = [
     name: "abcd",
     email: "abcd@gmail.com",
     password: "12345678",
-    status: "Inactive",
+    status: "inactive",
     role:"user",
   },
 ];

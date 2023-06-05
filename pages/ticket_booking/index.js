@@ -11,7 +11,7 @@ import {
   addBookingSystem,
   addDonePage,
 } from "@/app/features/basicAuthSlicer/basicAuthSlice";
-import { addComponent } from "@/app/features/navComponentSlicer/navComponentSlice";
+
 
 const steps = [
   {
@@ -32,6 +32,7 @@ const steps = [
   },
 ];
 const TicketBooking = () => {
+  const [localStorageUserData, setLocalStorageUserData] = useState();
   const dispatch = useDispatch();
   const router = useRouter();
   const ticketBookingData = useSelector((state) => state.ticketBookingReducer);
@@ -40,6 +41,13 @@ const TicketBooking = () => {
   );
   console.log("loginCheck----------", loginCheck);
   const { donePage } = useSelector((state) => state.basicAuthReducer);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const user = JSON.parse(localStorage.getItem("user"));
+      setLocalStorageUserData(user);
+    }
+  }, [loginCheck]);
+
   useEffect(() => {
     if (donePage) {
       setCurrent(current + 3);
@@ -75,9 +83,10 @@ const TicketBooking = () => {
   };
 
   const handleDone = () => {
+    message.success("Ticket confirmation successfully done");
     dispatch(addDonePage(false));
-    message.success("Ticket Confirmation has been confirmed successfully");
-    router.push("signin");
+    router.push("/");
+    
   };
 
   const renderData = (
@@ -140,8 +149,7 @@ const TicketBooking = () => {
                       message.error("Please select a seat");
                     }
                   } else if (steps[current].content == "confirm") {
-                    if (loginCheck) {
-                      // handlePayment();
+                    if (localStorageUserData.status === "active") {
                       next();
                     } else {
                       message.error(

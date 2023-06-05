@@ -35,6 +35,9 @@ const ticketBookingSlice = createSlice({
     addTotalPrice: (state, action) => {
       state.totalPrice = action.payload;
     },
+    removeData:(state, action) => {
+      state.selectedSeats =[""];
+    },
   },
 });
 
@@ -46,5 +49,6 @@ export const {
   addSelectedSeats,
   updateSelectedSeats,
   addTotalPrice,
+  removeData
 } = ticketBookingSlice.actions;
 export default ticketBookingSlice.reducer;

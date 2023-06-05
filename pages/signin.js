@@ -45,6 +45,11 @@ export default function Login() {
       let matchFound = false;
       loginData.allUserData.map((user) => {
         if (user.email === person.email && user.password === person.password) {
+          const person = {
+            ...user,
+            status: "active",
+          };
+          localStorage.setItem("user", JSON.stringify(person));
           console.log("id--------", user.userId);
           matchFound = true;
           if (user.role === "admin") {
@@ -68,6 +73,7 @@ export default function Login() {
             );
             router.push("/");
           }
+         
         }
       });
       if (!matchFound) {
@@ -83,6 +89,7 @@ export default function Login() {
       email: "",
       password: "",
     },
+
     validationSchema: yup.object({
       name: yup
         .string()
@@ -102,6 +109,7 @@ export default function Login() {
         status: "active",
         role: "user",
       };
+      localStorage.setItem("user", JSON.stringify(person));
       dispatch(addUser(person));
 
       const { name, email, password, userId } = values;
