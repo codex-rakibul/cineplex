@@ -56,7 +56,7 @@ const TicketBooking = () => {
   }, []);
   const handleUnLogin = () => {
     dispatch(addBookingSystem(true));
-    router.push("signin");
+    router.push("/signin");
   };
 
   const { token } = theme.useToken();
