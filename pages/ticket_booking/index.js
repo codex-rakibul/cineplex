@@ -77,7 +77,7 @@ const TicketBooking = () => {
   const handleDone = () => {
     dispatch(addDonePage(false));
     message.success("Ticket Confirmation has been confirmed successfully");
-    dispatch(addComponent(""));
+    router.push("signin");
   };
 
   const renderData = (
