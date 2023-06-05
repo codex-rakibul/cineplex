@@ -46,3 +46,6 @@ const renderData = (
 export default function Error() {
   return <>{renderData}</>;
 }
+Error.getLayout = function PageLayout(page) {
+  return <>{page}</>;
+};

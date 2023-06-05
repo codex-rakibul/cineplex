@@ -54,7 +54,7 @@ export default function Login() {
             dispatch(addAuth(true));
             dispatch(addDonePage(true));
             dispatch(addUserId(user.userId));
-            dispatch(addComponent("ticket_booking"));
+            router.push("/ticket_booking");
           } else {
             setLoginError(false);
             dispatch(addAuth(true));
@@ -66,7 +66,7 @@ export default function Login() {
                 status: "active",
               })
             );
-            dispatch(addComponent(""));
+            router.push("/");
           }
         }
       });

@@ -69,7 +69,7 @@ const navData = [
   },
 ];
 
-export default function index() {
+export default function Dashboard() {
   const dispatch = useDispatch();
   const { editMovie, addMovie, editUser } = useSelector(
     (state) => state.editReducer
@@ -106,7 +106,7 @@ export default function index() {
               <div>
                 <img
                   className="rounded-full w-10 h-10 relative object-cover"
-                  src="https://scontent.fjsr11-1.fna.fbcdn.net/v/t39.30808-6/330385579_218641000678253_7500246096659885133_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeFmLraWdyhVYB1BWMbfbf2GQvShbJkQ3VJC9KFsmRDdUgHyXB58N8bZ5LsXDp1igbW1WBx5heTD-4wB8dwKyRE-&_nc_ohc=jtui3aoWTrgAX-KPTg7&_nc_ht=scontent.fjsr11-1.fna&oh=00_AfBXGGnhtVlk7hpRlDtlVfYngZoBHxTHzXxUpi8iZZHRwg&oe=647AE7A5"
+                  src="https://scontent.fjsr11-1.fna.fbcdn.net/v/t39.30808-1/330385579_218641000678253_7500246096659885133_n.jpg?stp=dst-jpg_p240x240&_nc_cat=101&ccb=1-7&_nc_sid=7206a8&_nc_eui2=AeFmLraWdyhVYB1BWMbfbf2GQvShbJkQ3VJC9KFsmRDdUgHyXB58N8bZ5LsXDp1igbW1WBx5heTD-4wB8dwKyRE-&_nc_ohc=wOPYYWSpe_sAX_zxuTl&_nc_ht=scontent.fjsr11-1.fna&oh=00_AfB8kX1flu1-wPnELFuGPlr8hDbBHvQpfkTMUBR1sDPFfA&oe=6482A623"
                   alt=""
                 />
               </div>
@@ -166,3 +166,7 @@ export default function index() {
   );
   return <>{renderData}</>;
 }
+
+Dashboard.getLayout = function PageLayout(page) {
+  return <>{page}</>;
+};

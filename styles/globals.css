@@ -524,7 +524,7 @@ video {
 }
 
 .screen-container {
-  @apply xl:mx-40 mx-6;
+  @apply  mx-6;
   perspective: 2000px;
 }
 .ant-steps-item-icon {

@@ -1,10 +1,12 @@
 import React from "react";
-import styles from "../style";
+import styles from "../../components/style";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { addComponent } from "@/app/features/navComponentSlicer/navComponentSlice";
+import { useRouter } from "next/router";
 
 const HomeCard = ({ item }) => {
+  const router = useRouter();
   const dispatch = useDispatch();
   if (!item) {
     return null; // or display a fallback UI if necessary
@@ -46,10 +48,10 @@ const HomeCard = ({ item }) => {
               </h4>
             </div>
             <div className="grid grid-cols-2 gap-4 md:pb-20 pb-0 ">
-              <div onClick={()=>dispatch(addComponent("ticket_booking"))}>
+              <div onClick={() => router.push("/ticket_booking")}>
                 <button className="btnB ">Buy Ticket</button>
               </div>
-              <div onClick={()=>dispatch(addComponent("details"))}>
+              <div onClick={() => router.push("/details")}>
                 <button className=" btnD">Details</button>
               </div>
             </div>

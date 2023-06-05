@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../style";
+import styles from "../../components/style";
 import Head from "next/head";
 import LayoutCom from "@/components/layout";
 const mapUrl =

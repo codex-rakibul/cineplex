@@ -1,11 +1,9 @@
 import Head from "next/head";
-import Link from "next/link";
 import React from "react";
-import styles from "../style";
-import { addComponent } from "@/app/features/navComponentSlicer/navComponentSlice";
-import { useDispatch } from "react-redux";
+import styles from "../../components/style";
+import { useRouter } from "next/router";
 export default function DetailsPage() {
-  const dispatch = useDispatch();
+  const router = useRouter();
   const renderData = (
     <>
       <Head>
@@ -28,9 +26,6 @@ export default function DetailsPage() {
                   src="https://dummyimage.com/400x400"
                 />
                 <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-                  <h2 className="text-sm title-font text-gray-500 tracking-widest">
-                    BRAND NAME
-                  </h2>
                   <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
                     The Catcher in the Rye
                   </h1>
@@ -143,7 +138,7 @@ export default function DetailsPage() {
 
                   <div className="flex mt-4">
                     <div
-                      onClick={() => dispatch(addComponent("ticket_booking"))}
+                      onClick={() =>router.push("ticket_booking") }
                     >
                       <button className="btns">Buy Ticket</button>
                     </div>

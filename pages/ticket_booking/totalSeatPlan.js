@@ -51,8 +51,8 @@ const TotalSeatPlan = () => {
             <source src={vb} />
           </video>
         </div>
-        <div className="flex md:m-20  m-4">
-          <SeatsPlan />
+        <div className="flex md:mx-10 pt-8 relative">
+          <SeatsPlan className=" absolute"/>
         </div>
       </div>
     </div>

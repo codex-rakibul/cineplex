@@ -3,11 +3,11 @@ import { useSelector } from "react-redux";
 import UpcomingMovie from "../upcoming_movies";
 import TicketPrice from "../ticket_price";
 import About from "../about";
-import Login from "../../pages/signin";
+import Login from "../signin";
 import Homes from "../home";
 import LayoutCom from "@/components/layout";
-import TicketBooking from "@/components/ticket_booking";
-import DetailsPage from "@/components/details";
+import DetailsPage from "@/pages/details";
+import PrivateRoute from "@/utils/privateRoute";
 
 export default function HomePage() {
   const [com, setCom] = useState();
@@ -32,12 +32,12 @@ export default function HomePage() {
     } else if (component === "login") {
       setCom(<Login />);
     } else if (component === "ticket_booking") {
-      setCom(<TicketBooking />);
+      setCom(<Login />);
     } else if (component === "details") {
       setCom(<DetailsPage />);
     }
   }, [component]);
 
   const renderData = <LayoutCom>{com}</LayoutCom>;
-  return <>{renderData}</>;
+  return <PrivateRoute>{renderData}</PrivateRoute>;
 }

@@ -77,7 +77,7 @@ export default function SeatComponents({ row, rowNumber }) {
 
           return (
             <div className="" key={index}>
-              <div>
+              <div className="">
                 {index === 0 && (
                   <span>
                     {(seat.seatNumber === "A1" ||
@@ -107,7 +107,7 @@ export default function SeatComponents({ row, rowNumber }) {
                     ticketBookingData.selectedSeats?.includes(seat.seatNumber)
                       ? "bg-teal-600"
                       : ""
-                  } p-2 m-2 rounded-t-lg text-white cursor-pointer seat`}
+                  }  md:text-md text-sm p-2 md:p-2  m-2 rounded-t-lg text-white cursor-pointer seat`}
                 >
                   {seat.seatNumber}
                 </span>

@@ -1,11 +1,12 @@
-import HomePage from "../components/HomePage";
-import Homes from "../components/home";
+import HomePage from "./homePage";
+import Homes from "./home";
 
 export default function index() {
   return (
     <>
       <div className=" w-full overflow-hidden">
-        <HomePage />
+        {/* <HomePage /> */}
+        <Homes/>
       </div>
     </>
   );

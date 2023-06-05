@@ -5,32 +5,32 @@ import { faBangladeshiTakaSign } from "@fortawesome/free-solid-svg-icons";
 import Head from "next/head";
 export default function TicketPrice() {
   useEffect(() => {
-    // const handleClick = (e) => {
-    //   const element = e.target;
-    //   const card = $(element).closest(".card2");
-
-    //   $(card).toggleClass("is--flipped");
-    // };
-
-    // $(document).on("click", ".card2", handleClick);
-
-    // return () => {
-    //   $(document).off("click", ".card2", handleClick);
-    // };
-    const handleHover = (e) => {
+    const handleClick = (e) => {
       const element = e.target;
       const card = $(element).closest(".card2");
 
       $(card).toggleClass("is--flipped");
     };
 
-    $(document).on("mouseenter", ".card2", handleHover);
-    $(document).on("mouseleave", ".card2", handleHover);
+    $(document).on("click", ".card2", handleClick);
 
     return () => {
-      $(document).off("mouseenter", ".card2", handleHover);
-      $(document).off("mouseleave", ".card2", handleHover);
+      $(document).off("click", ".card2", handleClick);
     };
+    // const handleHover = (e) => {
+    //   const element = e.target;
+    //   const card = $(element).closest(".card2");
+
+    //   $(card).toggleClass("is--flipped");
+    // };
+
+    // $(document).on("mouseenter", ".card2", handleHover);
+    // $(document).on("mouseleave", ".card2", handleHover);
+
+    // return () => {
+    //   $(document).off("mouseenter", ".card2", handleHover);
+    //   $(document).off("mouseleave", ".card2", handleHover);
+    // };
   }, []);
 
   const renderData = (

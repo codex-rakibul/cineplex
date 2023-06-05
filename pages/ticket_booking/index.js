@@ -6,7 +6,7 @@ import Done from "./done";
 import Confirmation from "./confirmation";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import styles from "../style";
+import styles from "../../components/style";
 import {
   addBookingSystem,
   addDonePage,
@@ -48,7 +48,7 @@ const TicketBooking = () => {
   }, []);
   const handleUnLogin = () => {
     dispatch(addBookingSystem(true));
-    dispatch(addComponent("login"));
+    router.push("signin");
   };
 
   const { token } = theme.useToken();
@@ -81,7 +81,9 @@ const TicketBooking = () => {
   };
 
   const renderData = (
-    <div className={` h-fit bg-black ${styles.paddingX} sm:${styles.flexCenter}`}>
+    <div
+      className={` h-fit bg-black ${styles.paddingX} sm:${styles.flexCenter}`}
+    >
       <div className={`h-full bg-black ${styles.boxWidth} `}>
         <div className="md:py-10 py-4 bg-black h-auto text-white ">
           <Steps current={current} items={items} />
@@ -124,7 +126,7 @@ const TicketBooking = () => {
                 onClick={() => {
                   if (steps[current].content == "time") {
                     if (
-                      ticketBookingData?.date !== "" &&
+                      ticketBookingData?.fullDate !== "" &&
                       ticketBookingData?.selectShowtime !== ""
                     ) {
                       next();
