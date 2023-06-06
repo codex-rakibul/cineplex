@@ -37,7 +37,6 @@ const NavbarCom = () => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const user = JSON.parse(localStorage.getItem("user"));
-      console.log("click-----", user.status);
       setLocalStorageUserData(user);
     }
   }, [loginCheck,logoutData]);

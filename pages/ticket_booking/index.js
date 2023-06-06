@@ -33,13 +33,14 @@ const steps = [
 ];
 const TicketBooking = () => {
   const [localStorageUserData, setLocalStorageUserData] = useState();
+  const [ticketBookingLocalStorageData, setTicketBookingLocalStorageData] =
+  useState();
   const dispatch = useDispatch();
   const router = useRouter();
   const ticketBookingData = useSelector((state) => state.ticketBookingReducer);
   const loginCheck = useSelector(
     (state) => state.basicAuthReducer.loginChecked
   );
-  console.log("loginCheck----------", loginCheck);
   const { donePage } = useSelector((state) => state.basicAuthReducer);
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -53,7 +54,16 @@ const TicketBooking = () => {
       setCurrent(current + 3);
       dispatch(addDonePage(false));
     }
-  }, []);
+  }, [donePage]);
+
+  useEffect(() => {
+    const ticketBookingLocalStorageData = JSON.parse(
+      localStorage.getItem("ticketBooking")
+    );
+    setTicketBookingLocalStorageData(ticketBookingLocalStorageData);
+  }, [ticketBookingData]);
+
+
   const handleUnLogin = () => {
     dispatch(addBookingSystem(true));
     router.push("/signin");
@@ -86,7 +96,6 @@ const TicketBooking = () => {
     message.success("Ticket confirmation successfully done");
     dispatch(addDonePage(false));
     router.push("/");
-    
   };
 
   const renderData = (
@@ -135,15 +144,15 @@ const TicketBooking = () => {
                 onClick={() => {
                   if (steps[current].content == "time") {
                     if (
-                      ticketBookingData?.fullDate !== "" &&
-                      ticketBookingData?.selectShowtime !== ""
+                      ticketBookingLocalStorageData?.fullDate !== "" &&
+                      ticketBookingLocalStorageData?.selectShowtime !== ""
                     ) {
                       next();
                     } else {
                       message.error("Please select a date and time");
                     }
                   } else if (steps[current].content == "seats") {
-                    if (ticketBookingData.selectedSeats.length !== 0) {
+                    if (ticketBookingLocalStorageData?.selectedSeats.length !== 0) {
                       next();
                     } else {
                       message.error("Please select a seat");

@@ -1,51 +1,59 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import { useDispatch, useSelector } from "react-redux";
 import { addTotalPrice } from "@/app/features/ticketBookingSlicer/ticketBookingSlice";
 import { Table } from "antd";
 
 export default function Confirmation() {
+  const [ticketBookingLocalStorageData, setTicketBookingLocalStorageData] =
+    useState();
   const seatType = useSelector((state) => state.allSeatReducer);
   const dispatch = useDispatch();
   useEffect(() => {
+    const ticketBookingLocalStorageData = JSON.parse(
+      localStorage.getItem("ticketBooking")
+    );
+    setTicketBookingLocalStorageData(ticketBookingLocalStorageData);
     const totalPrice =
-      seatType.classic.length * 100 +
-      seatType.standard.length * 200 +
-      seatType.premium.length * 300;
+      ticketBookingLocalStorageData?.classic.length * 100 +
+      ticketBookingLocalStorageData?.standard.length * 200 +
+      ticketBookingLocalStorageData?.premium.length * 300;
     dispatch(addTotalPrice(totalPrice));
-  }, [dispatch, seatType]);
+
+    ticketBookingLocalStorageData.totalPrice = totalPrice;
+    localStorage.setItem(
+      "ticketBooking",
+      JSON.stringify(ticketBookingLocalStorageData)
+    );
+  }, [ seatType]);
 
   const dataSource = [
     {
       id: 1,
       type: "Classic",
-      seat: `${seatType.classic + " "}`,
-      price: `${seatType.classic.length} * 100 =
-    ${seatType.classic.length * 100}৳`,
+      seat: `${ticketBookingLocalStorageData?.classic + " "}`,
+      price: `${ticketBookingLocalStorageData?.classic.length} * 100 =
+    ${ticketBookingLocalStorageData?.classic.length * 100}৳`,
     },
     {
       id: 2,
       type: "Standard",
-      seat: `${seatType.standard + " "}`,
-      price: ` ${seatType.standard.length} * 200 =
-    ${seatType.standard.length * 200}৳`,
+      seat: `${ticketBookingLocalStorageData?.standard + " "}`,
+      price: ` ${ticketBookingLocalStorageData?.standard.length} * 200 =
+    ${ticketBookingLocalStorageData?.standard.length * 200}৳`,
     },
     {
       id: 3,
       type: "Premium",
-      seat: `${seatType.premium + " "}`,
-      price: `${seatType.premium.length} * 300 =
-    ${seatType.premium.length * 300}৳`,
+      seat: `${ticketBookingLocalStorageData?.premium + " "}`,
+      price: `${ticketBookingLocalStorageData?.premium.length} * 300 =
+    ${ticketBookingLocalStorageData?.premium.length * 300}৳`,
     },
     {
       id: 4,
       type: "Total Price",
       seat: "",
-      price: `= ${
-        seatType.classic.length * 100 +
-        seatType.standard.length * 200 +
-        seatType.premium.length * 300
-      }
+      price: `= ${ticketBookingLocalStorageData?.totalPrice}
       ৳`,
     },
   ];
@@ -75,16 +83,14 @@ export default function Confirmation() {
               <div className=" ">
                 <div className="bg-gray-900 ">
                   <div className="showName">
-                  <p className="showName" >
-                    LEADER
-                  </p>
+                    <p className="showName">LEADER</p>
                   </div>
                   <p className="card-text text-muted mt-1 text-gray-200 font-medium">
                     Your seat information
                   </p>
                 </div>
                 <Table
-                className="no-hover"
+                  className="no-hover"
                   dataSource={dataSource}
                   columns={columns}
                   pagination={false}

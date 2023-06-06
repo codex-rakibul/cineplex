@@ -3,7 +3,7 @@ import {
   addSelectShowtime,
 } from "@/app/features/ticketBookingSlicer/ticketBookingSlice";
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   date,
@@ -16,17 +16,31 @@ import {
 const TimeSchedule = () => {
   const dispatch = useDispatch();
   const ticketBookingData = useSelector((state) => state.ticketBookingReducer);
-
+  const [ticketBookingLocalStorageData, setTicketBookingLocalStorageData] =
+    useState();
+  console.log(
+    "time Com---------",
+    ticketBookingLocalStorageData
+  );
   const [selectDate, setSelectDate] = useState(false);
   const [selectTime, setSelectTime] = useState(false);
-  console.log("fullDate...........", ticketBookingData);
+
+  useEffect(() => {
+    const ticketBookingLocalStorageData = JSON.parse(
+      localStorage.getItem("ticketBooking")
+    );
+    setTicketBookingLocalStorageData(ticketBookingLocalStorageData);
+  }, [ticketBookingData]);
 
   const handleSelectDate = (id, datePick) => {
+    ticketBookingLocalStorageData.fullDate = datePick.fullDate;
+    localStorage.setItem("ticketBooking", JSON.stringify(ticketBookingLocalStorageData));
     dispatch(addFullDate(datePick.fullDate));
     setSelectDate(id);
   };
-
   const handleSelectTime = (id, timePick) => {
+    ticketBookingLocalStorageData.selectShowtime = timePick.time;
+    localStorage.setItem("ticketBooking", JSON.stringify(ticketBookingLocalStorageData));
     dispatch(addSelectShowtime(timePick.time));
     setSelectTime(id);
   };
@@ -48,6 +62,7 @@ const TimeSchedule = () => {
               click={() => handleSelectDate(id, datePick)}
               datePick={datePick}
               ticketBookingData={ticketBookingData}
+              ticketBookingLocalStorageData={ticketBookingLocalStorageData}
             />
           );
         })}
@@ -65,6 +80,7 @@ const TimeSchedule = () => {
               click={() => handleSelectTime(id, timePick)}
               timePick={timePick}
               ticketBookingData={ticketBookingData}
+              ticketBookingLocalStorageData={ticketBookingLocalStorageData}
             />
           );
         })}
@@ -75,13 +91,11 @@ const TimeSchedule = () => {
 };
 export default TimeSchedule;
 
-function SelectDate({ dateTime, click, datePick, ticketBookingData }) {
+function SelectDate({ dateTime, click, datePick, ticketBookingData,ticketBookingLocalStorageData }) {
   return (
     <div
       className={
-        ticketBookingData &&
-        ticketBookingData.fullDate &&
-        ticketBookingData.fullDate.includes(datePick.fullDate)
+        ticketBookingLocalStorageData?.fullDate.includes(datePick.fullDate)
           ? "bg-teal-600"
           : "bg-gray-600 date rounded-sm p-2"
       }
@@ -93,14 +107,12 @@ function SelectDate({ dateTime, click, datePick, ticketBookingData }) {
   );
 }
 
-function SelectTime({ timePick, click, ticketBookingData }) {
+function SelectTime({ timePick, click, ticketBookingData,ticketBookingLocalStorageData }) {
   return (
     <>
       <div
         className={
-          ticketBookingData &&
-          ticketBookingData.selectShowtime &&
-          ticketBookingData.selectShowtime.includes(timePick.time)
+          ticketBookingLocalStorageData?.selectShowtime.includes(timePick.time)
             ? "bg-teal-600"
             : "bg-gray-600 flexStyle p-2 rounded-sm"
         }

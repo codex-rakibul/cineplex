@@ -1,15 +1,16 @@
 import Head from "next/head";
 import { PlaySquareOutlined } from "@ant-design/icons";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import React, { use, useEffect, useRef, useState } from "react";
 
 export default function Done() {
+  const [ticketBookingLocalStorageData, setTicketBookingLocalStorageData] =
+    useState();
   const [localStorageUserData, setLocalStorageUserData] = useState();
-  const ticketBookingData = useSelector((state) => state.ticketBookingReducer);
-  const userId = useSelector((state) => state.basicAuthReducer.userId);
-
   const ticketRef = useRef(null);
+ 
   useEffect(() => {
+    
     import("html2pdf.js").then((module) => {
       const html2pdf = module.default;
       const handleDownloadPDF = () => {
@@ -38,6 +39,11 @@ export default function Done() {
     if (typeof window !== "undefined") {
       const user = JSON.parse(localStorage.getItem("user"));
       setLocalStorageUserData(user);
+      const ticketBookingLocalStorageData = JSON.parse(
+        localStorage.getItem("ticketBooking")
+      );
+      setTicketBookingLocalStorageData(ticketBookingLocalStorageData);
+      
     }
   }, []);
 
@@ -56,16 +62,16 @@ export default function Done() {
             <div className="ticket-info md:rounded-t-none rounded-t-xl">
               <p className="showName">CINEPLEX BD</p>
               <p className="date text-gray-400">
-                {ticketBookingData?.fullDate}
+                {ticketBookingLocalStorageData?.fullDate}
               </p>
               <div className="show-name">
                 <h1>LEADER</h1>
               </div>
               <div className=" text-white">
-                <p>SHOW TIME :- {ticketBookingData?.selectShowtime}</p>
+                <p>SHOW TIME :- {ticketBookingLocalStorageData?.selectShowtime}</p>
               </div>
               <div className="tagline text-white">
-                <p>{ticketBookingData?.selectedSeats + " "}</p>
+                <p>{ticketBookingLocalStorageData?.selectedSeats + " "}</p>
               </div>
               <p className="location text-gray-400 mt-4">
                 <span>CINEPLEX BD </span>
@@ -80,12 +86,12 @@ export default function Done() {
                 <p className="showName">CINEPLEX BD</p>
               </div>
               <div className="time">
-                <p>{ticketBookingData?.fullDate}</p>
+                <p>{ticketBookingLocalStorageData?.fullDate}</p>
                 <div className="show-name">
                   <h1>LEADER</h1>
                 </div>
-                <p>SHOW TIME :- {ticketBookingData.selectShowtime}</p>
-                <p>{ticketBookingData.selectedSeats + " "}</p>
+                <p>SHOW TIME :- {ticketBookingLocalStorageData?.selectShowtime}</p>
+                <p>{ticketBookingLocalStorageData?.selectedSeats + " "}</p>
               </div>
               <p className="ticket-number ">#{localStorageUserData?.userId}</p>
             </div>

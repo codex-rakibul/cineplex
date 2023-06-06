@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { message } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { seatCom } from "../../components/styleCom/totalSeatPlanStyle.js";
@@ -16,9 +16,19 @@ import {
 } from "@/app/features/seatSlicer/seatSlice";
 
 export default function SeatComponents({ row, rowNumber }) {
+  const [ticketBookingLocalStorageData, setTicketBookingLocalStorageData] =
+    useState();
+ 
   const dispatch = useDispatch();
   const ticketBookingData = useSelector((state) => state.ticketBookingReducer);
-  //const seatType = useSelector((state) => state.allSeatReducer);
+  const ticketType = useSelector((state) => state.allSeatReducer);
+
+  useEffect(() => {
+    const ticketBookingLocalStorageData = JSON.parse(
+      localStorage.getItem("ticketBooking")
+    );
+    setTicketBookingLocalStorageData(ticketBookingLocalStorageData);
+  }, [ticketBookingData,ticketType]);
 
   const renderData = (
     <div>
@@ -29,7 +39,11 @@ export default function SeatComponents({ row, rowNumber }) {
           const onSeatHandle = () => {
             setSeatSelected(!seatSelected);
 
-            if (!ticketBookingData.selectedSeats.includes(seat.seatNumber)) {
+            if (
+              !ticketBookingLocalStorageData.selectedSeats.includes(
+                seat.seatNumber
+              )
+            ) {
               message.success(`Your Selected Seat: "${seat.seatNumber}"`);
               if (
                 rowNumber === "row0" ||
@@ -38,6 +52,11 @@ export default function SeatComponents({ row, rowNumber }) {
                 rowNumber === "row6"
               ) {
                 dispatch(addClassicSeat(seat.seatNumber));
+                ticketBookingLocalStorageData.classic.push(seat.seatNumber);
+                localStorage.setItem(
+                  "ticketBooking",
+                  JSON.stringify(ticketBookingLocalStorageData)
+                );
               }
               if (
                 rowNumber === "row2" ||
@@ -46,11 +65,26 @@ export default function SeatComponents({ row, rowNumber }) {
                 rowNumber === "row8"
               ) {
                 dispatch(addStandardSeat(seat.seatNumber));
+                ticketBookingLocalStorageData.standard.push(seat.seatNumber);
+                localStorage.setItem(
+                  "ticketBooking",
+                  JSON.stringify(ticketBookingLocalStorageData)
+                );
               }
               if (rowNumber === "row4" || rowNumber === "row9") {
                 dispatch(addPremiumSeat(seat.seatNumber));
+                ticketBookingLocalStorageData.premium.push(seat.seatNumber);
+                localStorage.setItem(
+                  "ticketBooking",
+                  JSON.stringify(ticketBookingLocalStorageData)
+                );
               }
               dispatch(addSelectedSeats(seat.seatNumber));
+              ticketBookingLocalStorageData.selectedSeats.push(seat.seatNumber);
+              localStorage.setItem(
+                "ticketBooking",
+                JSON.stringify(ticketBookingLocalStorageData)
+              );
             } else {
               if (
                 rowNumber === "row0" ||
@@ -59,6 +93,14 @@ export default function SeatComponents({ row, rowNumber }) {
                 rowNumber === "row6"
               ) {
                 dispatch(removeClassicSeat(seat.seatNumber));
+                ticketBookingLocalStorageData.classic =
+                  ticketBookingLocalStorageData.classic.filter(
+                    (classic) => classic !== seat.seatNumber
+                  );
+                localStorage.setItem(
+                  "ticketBooking",
+                  JSON.stringify(ticketBookingLocalStorageData)
+                );
               }
               if (
                 rowNumber === "row2" ||
@@ -67,11 +109,35 @@ export default function SeatComponents({ row, rowNumber }) {
                 rowNumber === "row8"
               ) {
                 dispatch(removeStandardSeat(seat.seatNumber));
+                ticketBookingLocalStorageData.standard =
+                  ticketBookingLocalStorageData.standard.filter(
+                    (standard) => standard !== seat.seatNumber
+                  );
+                localStorage.setItem(
+                  "ticketBooking",
+                  JSON.stringify(ticketBookingLocalStorageData)
+                );
               }
               if (rowNumber === "row4" || rowNumber === "row9") {
                 dispatch(removePremiumSeat(seat.seatNumber));
+                ticketBookingLocalStorageData.premium =
+                  ticketBookingLocalStorageData.premium.filter(
+                    (premium) => premium !== seat.seatNumber
+                  );
+                localStorage.setItem(
+                  "ticketBooking",
+                  JSON.stringify(ticketBookingLocalStorageData)
+                );
               }
               dispatch(updateSelectedSeats(seat.seatNumber));
+              ticketBookingLocalStorageData.selectedSeats =
+                ticketBookingLocalStorageData.selectedSeats.filter(
+                  (selectedSeat) => selectedSeat !== seat.seatNumber
+                );
+              localStorage.setItem(
+                "ticketBooking",
+                JSON.stringify(ticketBookingLocalStorageData)
+              );
             }
           };
 
@@ -104,7 +170,9 @@ export default function SeatComponents({ row, rowNumber }) {
                       : () => onSeatHandle()
                   }
                   className={`${seat.isBooked ? "bg-red-600" : "bg-gray-600"} ${
-                    ticketBookingData.selectedSeats?.includes(seat.seatNumber)
+                    ticketBookingLocalStorageData?.selectedSeats.includes(
+                      seat.seatNumber
+                    )
                       ? "bg-teal-600"
                       : ""
                   }  md:text-md text-sm p-2 md:p-2  m-2 rounded-t-lg text-white cursor-pointer seat`}
