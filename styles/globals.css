@@ -358,17 +358,21 @@ video {
 
 /*        Tickect Booking             */
 .tvbox {
+  @apply rounded-l-3xl rounded-r-3xl;
   background: #cfcfcf;
-  transform: rotateX(-75deg);
+  transform: rotateX(-66deg);
   box-shadow: 0 170px 600px rgba(177, 174, 174, 0.75);
  
 }
 .seatBox{
-  box-shadow: 0 170px 600px rgba(177, 174, 174, 0.75);
+  box-shadow:   20px 150px 700pxrgba(251, 253, 253, 0.75);
 }
 
 .screen-container {
  perspective: 2000px;
+}
+.seatBorder{
+  border-bottom: 3px solid rgb(255, 250, 250);
 }
 .ant-steps-item-icon {
   background-color: teal !important;

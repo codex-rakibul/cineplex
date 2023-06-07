@@ -48,7 +48,7 @@ const TotalSeatPlan = () => {
             </div>
           </div>
           <div className="screen-container">
-            <div className={thirdStyle}></div>
+            <div className={`${thirdStyle} seatBox`}></div>
           </div>
         </div>
       </div>

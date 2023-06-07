@@ -143,7 +143,7 @@ export default function SeatComponents({ row, rowNumber }) {
 
           return (
             <div className="" key={index}>
-              <div className="">
+              <div className="seatBorder">
                 {index === 0 && (
                   <span>
                     {(seat.seatNumber === "A1" ||
