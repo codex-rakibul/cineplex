@@ -53,8 +53,8 @@ const TotalSeatPlan = () => {
           </div>
         </div>
       </div>
-      <div className="ss:overflow-y-hidden overflow-y-auto ss:pt-8 ss:px-0 px-6 ">
-        <div className="ss:w-[100%] w-[1200px] ">
+      <div className="ss:overflow-y-hidden overflow-y-auto  ss:px-0 px-6 ">
+        <div className="ss:w-[100%] w-[1200px] ss:mt-12">
           <SeatsPlan className="  " />
         </div>
       </div>
