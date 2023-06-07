@@ -358,24 +358,17 @@ video {
 
 /*        Tickect Booking             */
 .tvbox {
-  transform: rotateX(-45deg);
-  /* background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url("https://media.tenor.com/pm9r3P7e0AoAAAAC/movie-intro.gif"); */
-
-  box-shadow: 0 7px 30px rgba(255, 255, 255, 0.75);
-  animation: mymove 8s infinite;
+  background: #cfcfcf;
+  transform: rotateX(-75deg);
+  box-shadow: 0 170px 600px rgba(177, 174, 174, 0.75);
+ 
 }
-@keyframes mymove {
-  80% {
-    box-shadow: 0 7px 30px rgb(87, 121, 214);
-  }
+.seatBox{
+  box-shadow: 0 170px 600px rgba(177, 174, 174, 0.75);
 }
 
 .screen-container {
-  @apply mx-6;
-  perspective: 2000px;
+ perspective: 2000px;
 }
 .ant-steps-item-icon {
   background-color: teal !important;

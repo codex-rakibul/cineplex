@@ -2,10 +2,11 @@ export const firstStyle =
   "grid grid-cols-3 md:gap-10 gap-4 md:mt-8 md:mb-0 mb-4 text-white justify-center";
 export const sStyle = "grid grid-cols-3 md:gap-10 gap-4 md:mt-8 md:mb-0 mb-4 ";
 export const thirdStyle =
-  "flexStyle  shadow-sm md:mx-12 md:my-12 tvbox  md:text-5xl text-lg md:h-80 h-40 relative";
-export const  seatPlan = "md:grid-cols-2  md:gap-20 grid grid-cols-1 gap-8 md:mt-0 mt-4 w-screen";
-export const seatCom = "grid md:grid-cols-10 md:gap-10 grid-cols-5 gap-4 md:grid-rows-2 grid-rows-3"
+  "flexStyle   mx-4 tvbox  text-lg md:h-90 h-40 relative";
+export const  seatPlan = " grid-cols-2  gap-24 grid   md:mt-0   ";
+export const seatCom = "grid grid-cols-10   gap-4  grid-rows-2 "
 
+//ss:w-[100%] w-[1200px] 
 //   Mapping Data 
 export const allTitle = [
     {

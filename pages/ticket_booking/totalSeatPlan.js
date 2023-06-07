@@ -14,45 +14,47 @@ import { faBangladeshiTakaSign } from "@fortawesome/free-solid-svg-icons";
 
 const TotalSeatPlan = () => {
   const renderData = (
-    <div className="mt-6">
-      <Head>
-        <title>Seats Plan</title>
-      </Head>
-      <div className="flexStyle">
-        <div className="grid grid-rows-2">
-          <div className={firstStyle}>
-            {allTitle.map((item) => {
-              const { id, title, className } = item;
-              return (
-                <div key={id} className={`${className} available`}>
-                  {title}
-                </div>
-              );
-            })}
+    <div className="ss:mx-10">
+      <div className="mt-6  w-[100%] ">
+        <div className=" ">
+          <Head>
+            <title>Seats Plan</title>
+          </Head>
+          <div className="flexStyle ">
+            <div className="grid grid-rows-2">
+              <div className={firstStyle}>
+                {allTitle.map((item) => {
+                  const { id, title, className } = item;
+                  return (
+                    <div key={id} className={`${className} available`}>
+                      {title}
+                    </div>
+                  );
+                })}
+              </div>
+              <div className={sStyle}>
+                {ticketPrice.map((item) => {
+                  const { id, title, className } = item;
+                  return (
+                    <div
+                      key={id}
+                      className={`${className} ml-1 text-xl  font-semibold `}
+                    >
+                      {title} <FontAwesomeIcon icon={faBangladeshiTakaSign} />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
-          <div className={sStyle}>
-            {ticketPrice.map((item) => {
-              const { id, title, className } = item;
-              return (
-                <div
-                  key={id}
-                  className={`${className} ml-1 text-xl  font-semibold `}
-                >
-                  {title} <FontAwesomeIcon icon={faBangladeshiTakaSign} />
-                </div>
-              );
-            })}
+          <div className="screen-container">
+            <div className={thirdStyle}></div>
           </div>
         </div>
       </div>
-      <div className="screen-container ">
-        <div className={thirdStyle}>
-          <video id="videoPlayer" autoPlay muted loop playsInline>
-            <source src={vb} />
-          </video>
-        </div>
-        <div className="flex md:mx-10 pt-8 relative">
-          <SeatsPlan className=" absolute"/>
+      <div className="ss:overflow-y-hidden overflow-y-auto ss:pt-8 ss:px-0 px-6 ">
+        <div className="ss:w-[100%] w-[1200px] ">
+          <SeatsPlan className="  " />
         </div>
       </div>
     </div>
