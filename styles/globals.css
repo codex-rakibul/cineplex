@@ -357,7 +357,7 @@ video {
 
 /*        Tickect Booking             */
 .tvbox {
-  @apply md:rounded-l-3xl rounded-l-xl md:rounded-r-3xl rounded-r-3xl;
+  @apply md:rounded-l-3xl rounded-l-xl md:rounded-r-3xl rounded-r-xl;
   background: #cfcfcf;
   transform: rotateX(-66deg);
   box-shadow: 0 10px 30px rgba(177, 174, 174, 0.75);
