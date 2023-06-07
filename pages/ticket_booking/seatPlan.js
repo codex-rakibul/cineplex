@@ -4,7 +4,7 @@ import { seatPlan } from "../../components/styleCom/totalSeatPlanStyle.js";
 const SeatsPlan = () => {
   const renderData = (
     <div className={seatPlan}>
-      <div>
+      <div >
         {Object.entries(allMovies[0].seats).map((row, index) => {
           return (
             <div key={index}>
