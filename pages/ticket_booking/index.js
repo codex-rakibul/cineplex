@@ -12,7 +12,6 @@ import {
   addDonePage,
 } from "@/app/features/basicAuthSlicer/basicAuthSlice";
 
-
 const steps = [
   {
     title: "Time Shedule",
@@ -34,20 +33,14 @@ const steps = [
 const TicketBooking = () => {
   const [localStorageUserData, setLocalStorageUserData] = useState();
   const [ticketBookingLocalStorageData, setTicketBookingLocalStorageData] =
-  useState();
+    useState();
+
   const dispatch = useDispatch();
   const router = useRouter();
   const ticketBookingData = useSelector((state) => state.ticketBookingReducer);
-  const loginCheck = useSelector(
-    (state) => state.basicAuthReducer.loginChecked
-  );
+  const loginCheck = useSelector((state) => state.basicAuthReducer);
   const { donePage } = useSelector((state) => state.basicAuthReducer);
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const user = JSON.parse(localStorage.getItem("user"));
-      setLocalStorageUserData(user);
-    }
-  }, [loginCheck]);
+  useEffect(() => {}, []);
 
   useEffect(() => {
     if (donePage) {
@@ -61,8 +54,13 @@ const TicketBooking = () => {
       localStorage.getItem("ticketBooking")
     );
     setTicketBookingLocalStorageData(ticketBookingLocalStorageData);
+    const user = JSON.parse(localStorage.getItem("user"));
+    setLocalStorageUserData(user);
+    console.log(
+      "localStorageUserData.status-----",
+      localStorageUserData?.status
+    );
   }, [ticketBookingData]);
-
 
   const handleUnLogin = () => {
     dispatch(addBookingSystem(true));
@@ -127,7 +125,7 @@ const TicketBooking = () => {
             <div>
               {current > 0 && (
                 <button
-                  className="flexStyle"
+                  className="flexStyle rounded-sm"
                   style={{
                     marginTop: "0px",
                   }}
@@ -139,7 +137,7 @@ const TicketBooking = () => {
             </div>
             {!donePage && current < steps.length - 1 && (
               <button
-                className="flexStyle"
+                className="flexStyle rounded-sm"
                 type="primary"
                 onClick={() => {
                   if (steps[current].content == "time") {
@@ -152,13 +150,15 @@ const TicketBooking = () => {
                       message.error("Please select a date and time");
                     }
                   } else if (steps[current].content == "seats") {
-                    if (ticketBookingLocalStorageData?.selectedSeats.length !== 0) {
+                    if (
+                      ticketBookingLocalStorageData?.selectedSeats.length !== 0
+                    ) {
                       next();
                     } else {
                       message.error("Please select a seat");
                     }
                   } else if (steps[current].content == "confirm") {
-                    if (localStorageUserData.status === "active") {
+                    if (localStorageUserData?.status === "active") {
                       next();
                     } else {
                       message.error(
@@ -173,7 +173,10 @@ const TicketBooking = () => {
               </button>
             )}
             {(current === steps.length - 1 || donePage) && (
-              <button className="flexStyle" onClick={() => handleDone()}>
+              <button
+                className="flexStyle rounded-sm"
+                onClick={() => handleDone()}
+              >
                 Done
               </button>
             )}

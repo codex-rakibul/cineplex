@@ -359,7 +359,7 @@ video {
 .tvbox {
   @apply md:rounded-l-3xl rounded-l-xl md:rounded-r-3xl rounded-r-xl;
   background: #cfcfcf;
-  transform: rotateX(-66deg);
+  transform: rotatex(-65deg);
   box-shadow: 0 10px 30px rgba(177, 174, 174, 0.75);
 }
 .seatBox {
@@ -367,7 +367,7 @@ video {
 }
 
 .screen-container {
-  perspective: 2000px;
+  perspective: 1500px;
 }
 .seatBorder {
   border-bottom: 3px solid rgb(255, 250, 250);
@@ -1147,7 +1147,7 @@ input {
   @apply flex items-center justify-center;
 }
 .available {
-  @apply h-10 md:w-40 w-24 flexStyle rounded-sm;
+  @apply ss:h-6 h-4 ss:w-6 w-4 flexStyle rounded-t-lg mr-2;
 }
 .tk {
   @apply font-bold  flexStyle;

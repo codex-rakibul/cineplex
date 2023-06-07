@@ -50,7 +50,7 @@ const TimeSchedule = () => {
       <Head>
         <title>Time Shedule</title>
       </Head>
-      <h2 className="text-teal-600 text-2xl font-bold">Pick a date and time</h2>
+      <h2 className="text-gray-600 text-2xl font-bold">Pick a date & time</h2>
       <div className="grid md:grid-cols-7 grid-cols-2 gap-4 text-white md:m-20 m-6 ">
         {allDates.map((datePick, key) => {
           const { id } = datePick;
@@ -96,7 +96,7 @@ function SelectDate({ dateTime, click, datePick, ticketBookingData,ticketBooking
     <div
       className={
         ticketBookingLocalStorageData?.fullDate.includes(datePick.fullDate)
-          ? "bg-teal-600"
+          ? "bg-teal-600 date rounded-sm p-2"
           : "bg-gray-600 date rounded-sm p-2"
       }
       onClick={click}
@@ -113,7 +113,7 @@ function SelectTime({ timePick, click, ticketBookingData,ticketBookingLocalStora
       <div
         className={
           ticketBookingLocalStorageData?.selectShowtime.includes(timePick.time)
-            ? "bg-teal-600"
+            ? "bg-teal-600 flexStyle p-2 rounded-sm"
             : "bg-gray-600 flexStyle p-2 rounded-sm"
         }
         onClick={click}

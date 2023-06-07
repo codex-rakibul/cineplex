@@ -21,13 +21,14 @@ const TotalSeatPlan = () => {
             <title>Seats Plan</title>
           </Head>
           <div className="flexStyle ">
-            <div className="grid grid-rows-2">
+            <div className="grid grid-rows-2 px-2">
               <div className={firstStyle}>
                 {allTitle.map((item) => {
                   const { id, title, className } = item;
                   return (
-                    <div key={id} className={`${className} available`}>
-                      {title}
+                    <div key={id} className="flex justify-center items-center">
+                      <div  className={`${className} available `}></div>
+                     <div className=""> { title }</div>
                     </div>
                   );
                 })}
@@ -38,7 +39,7 @@ const TotalSeatPlan = () => {
                   return (
                     <div
                       key={id}
-                      className={`${className} ml-1 text-xl  font-semibold `}
+                      className={`${className} ml-1 text-md  font-semibold `}
                     >
                       {title} <FontAwesomeIcon icon={faBangladeshiTakaSign} />
                     </div>

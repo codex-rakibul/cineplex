@@ -76,7 +76,7 @@ export default function Confirmation() {
           <div className="col-md-1 md:my-5 ">
             <div className="rounded-sm">
               <img
-                src="https://blockbusterbd.com/uploads/movies/posters/leader-amie-bangladesh-8826415191682089760.jpg"
+                src="https://media.istockphoto.com/id/1271522601/photo/pop-corn-and-on-red-armchair-cinema.jpg?s=612x612&w=0&k=20&c=XwQxmfrHb-OwV5onPUW5ApB4RaGBK7poSIzZj4q_N_g="
                 className=" w-full h-60 rounded-t-md"
                 alt="..."
               />

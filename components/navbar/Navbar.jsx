@@ -22,6 +22,7 @@ const NavbarCom = () => {
   const [toggle, setToggle] = useState(false);
 
   const handleLogout = () => {
+
     setLogoutData(true);
     const user = JSON.parse(localStorage.getItem("user"));
     const person = {
@@ -31,7 +32,7 @@ const NavbarCom = () => {
     localStorage.setItem("user", JSON.stringify(person));
     message.success("Safely log out your account");
     dispatch(addAuth(false));
-    router.push("");
+    router.push("/");
   };
 
   useEffect(() => {
